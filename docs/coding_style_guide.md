@@ -7,8 +7,7 @@ coding elements that are required for this PHP project in particular. Based on [
 
 [Laravel-Guide]: https://guidelines.spatie.be/code-style/laravel-php
 
-
-## Rules
+## Style Rules
 
 ### 1 Files
 
