@@ -16,3 +16,11 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::group(['middleware' => 'lang'], function () {
+    
+    Route::get('/home', 'HomeController@index')->name("home.index");
+
+    Route::get('lang/{lang}', 'LanguageController@setLanguage')->name("language.setLanguage");
+
+});
