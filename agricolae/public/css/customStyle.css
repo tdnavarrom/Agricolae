@@ -1,0 +1,22 @@
+#navbar-1 .navbar-nav li a {
+    color: #08dd61 !important;
+    font-size: 20px;
+}
+
+#navbar-2 .navbar-nav li a {
+    color: white !important;
+    font-size: 20px;
+}
+
+.bg-custom {
+    background-color: #08dd61 !important;
+}
+
+#search {
+    background: #08dd61;
+}
+
+.carousel-inner .carousel-item{
+    max-height: 700px;
+}
+
