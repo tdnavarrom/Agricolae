@@ -18,7 +18,7 @@ class ChangeLang
     public function handle($request, Closure $next)
     {
         
-        if(!empty(session('lang'))) 
+        if (!empty(session('lang'))) 
         {
 
             app()->setlocale(session('lang'));
