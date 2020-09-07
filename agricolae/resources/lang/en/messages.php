@@ -16,6 +16,8 @@ return [
     'product_description' => 'Product\'s Description',
     'product_units' => 'Product\'s Units',
     'add_cart' => 'Add to Cart',
+    'review_score' => 'Score',
+    'review_create' => 'Add Review',
 
 ];
 

@@ -61,3 +61,21 @@
   .card button:hover {
     opacity: 0.7;
   }
+
+  .container #create_review {
+    border:none;
+    outline: 0;
+    padding: 12px;
+    background-color: #08dd61;
+    color: white; 
+    text-align: center;
+    cursor: pointer;
+    width: 100%;
+    font-size: 18px;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  }
+
+  .container #create_review:hover {
+    opacity: 0.7;
+  }

@@ -16,6 +16,8 @@ return [
     'product_description' => 'Descripción del Producto',
     'product_units' => 'Unidades del Producto',
     'add_cart' => 'Agregar al Carrito',
+    'review_score' => 'Calificación',
+    'review_create' => 'Añadir Reseña',
 
 ];
 
