@@ -23,6 +23,14 @@ Route::group(['middleware' => 'lang'], function () {
 
     Route::post('/account/update', 'User\UserController@update') -> name('user.update');
 
+    Route::get('/product/show/{id}', 'ProductController@show')->name("product.show");
+    Route::get('/product/show/list/{category}', 'ProductController@list')->name("product.list");
+    Route::get('/product/create', 'ProductController@create')->name("product.create");
+    Route::post('/product/save', 'ProductController@save')->name("product.save");
+
+    Route::get('product/show/{product}/reviews/create', 'ReviewController@create')->name('review.create');
+    Route::post('product/show/{product}/reviews', 'ReviewController@save')->name('review.save');
+
     Route::get('lang/{lang}', 'LanguageController@setLanguage')->name("language.setLanguage");
 
     Auth::routes();
