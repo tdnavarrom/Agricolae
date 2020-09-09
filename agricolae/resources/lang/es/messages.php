@@ -15,6 +15,11 @@ return [
     'products' => 'Productos',
     'aboutUs' => 'Nosotros',
     'contact' => 'Contacto',
+    'product_list' => 'Lista de Pruductos',
+    'product_price' => 'Precio del Producto',
+    'product_description' => 'Descripción del Producto',
+    'product_units' => 'Unidades del Producto',
+    'add_cart' => 'Agregar al Carrito',
 
     // Login messages
     'registerInvitation' => 'Eres nuevo en Agricolae?',
