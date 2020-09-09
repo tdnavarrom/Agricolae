@@ -9,8 +9,7 @@
 <br>
 
 <div class="container col-md-10 justify-content-center">
-    <div class="row">
-        <div class="col-md-8">
+        <div class="container justify-content-md-center col-md-8">
             <div class="card">
                 <h1 class="title_name">{{ $data["product"]["name"] }} </h1>
                 <div class="row">
@@ -24,15 +23,26 @@
                 </div>   
                 <h4 style='color:darkcyan;'>@lang('messages.product_description')</h4>
                 <h5>{{ $data["product"]["description"] }}</h5>
-                <p style='padding-top:2%;'><button>@lang('messages.add_cart')</button></p>
+                <p style='padding-top:2%;'><button class='black_button'>@lang('messages.add_cart')</button></p>
             </div>
         </div>
-        <div class="col-md-4">
-            <h1 class="title_name"'>Reviews</h1>
 
-            <div class="container mt-2 mb-2">
+        <div class="container justify-content-md-center col-md-8">
+
+            <h1 class="title_name"'>@lang('messages.reviews')</h1>
+
+            <div class="row justify-content-md-center mt-4 mb-4">
+                <div class="col-md-4">
+                    <a href="{{ route('review.create', $data['product']->id) }}"> <button class='green_button'>@lang('messages.review_create')</button> </a>
+                </div>
+
+            </div>
+            
+
+            <div class="row">
                 @foreach($data['product']->reviews as $review)
-                    <div class="card mt-2 mb-2">
+                <div class="col-md-8 col-lg-4">
+                    <div class="card">
                         <div class="card-header">
                             <h2 style='display:inline'>{{ $review->title }}</h2>
                         </div>
@@ -41,13 +51,9 @@
                             <p>{{ $review->description }}</p>
                         </div>
                     </div>
+                </div>
                 @endforeach
-
-                <div class="mb-2">
-                    <a href="{{ route('review.create', $data['product']->id) }}"> <button id='create_review'>@lang('messages.review_create')</button> </a>
-                </div>          
-            </div>
+            </div>    
         </div>
-    </div>
 </div>
 @endsection

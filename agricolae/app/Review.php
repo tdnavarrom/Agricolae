@@ -20,6 +20,16 @@ class Review extends Model
         $this->attributes['id'] = $id;
     }
 
+    public function getProductId()
+    {
+        return $this->attributes['product_id'];
+    }
+
+    public function setProductId($product_id)
+    {
+        $this->attributes['product_id'] = $product_id;
+    }
+
     public function getTitle()
     {
         return $this->attributes['title'];

@@ -16,19 +16,30 @@ class ReviewController extends Controller
     {
         $data = []; //to be sent to the view
         $review = Review::findOrFail($id);
-        //$product = Product::findOrFail($review->getProductId());
+        $product = Product::findOrFail($review->getProductId());
         //$user = User::findOrFail($review->getUserId());
         
         $data["title"] = "Review";
-        $data["review"]["product"] = 'Carpincho Product';//$product->getName();
-        $data["review"]["user"] = 'Tomas Navarro';//$user->getName();
-        $data["review"]['title'] = $review->getTitle();
-        $data["review"]['description'] = $review->getDescription();
-        $data["review"]['score'] = $review->getScore();
-        $data["review"]['id'] = $review->getId();
-
+        $data["review"] = $review;
+        $data["product"]["id"]= $product->getId();
+        $data["product"]["name"]= $product->getName();
 
         return view('review.show')->with("data",$data);
+    }
+
+    public function admin_show($id)
+    {
+        $data = []; //to be sent to the view
+        $review = Review::findOrFail($id);
+        $product = Product::findOrFail($review->getProductId());
+        //$user = User::findOrFail($review->getUserId());
+        
+        $data["title"] = "Review";
+        $data["review"] = $review;
+        $data["product"]["id"]= $product->getId();
+        $data["product"]["name"]= $product->getName();
+
+        return view('review.admin_show')->with("data",$data);
     }
 
     public function list()
@@ -39,7 +50,6 @@ class ReviewController extends Controller
 
         return view('review.list')->with("data",$data);
     }
-
 
     public function create(Product $product)
     {
@@ -54,9 +64,9 @@ class ReviewController extends Controller
     {
 
         $request->validate([
-            "title" => 'required',
-            "description" => "required",
-            "score" => "required|numeric|gt:-1|lt:6"
+            "title" => 'required|min:8|max:40',
+            "description" => "required|min:128|max:256",
+            "score" => "required|numeric|gt:0|lt:6"
         ]);
 
         $review = new Review;
@@ -66,13 +76,13 @@ class ReviewController extends Controller
         $review->product_id = $product->id;
         $review->save();
 
-        return redirect('/product/show/' . $product->id);
+        return redirect()->route('product.show' ,$product->id);
     }
 
     public function delete($id){
         $review = Review::find($id);
         $review->delete();
-        return redirect('review/list')->with('deleted', 'Review has been deleted!');
+        return redirect()->route('review.list')->with('deleted', 'Review has been deleted!');
     }
 
 
