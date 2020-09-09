@@ -4,7 +4,7 @@
 
 namespace App\Http\Controllers;
 
-class LanguageController
+class LanguageController extends Controller
 {
 
     public function setLanguage($lang) 

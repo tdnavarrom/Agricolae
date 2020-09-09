@@ -5,6 +5,7 @@ namespace App;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Validation\Rule;
 
 class User extends Authenticatable
 {
@@ -16,7 +17,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'last_name', 'cell_phone', 'email', 'user_type', 'password',
     ];
 
     /**
@@ -36,4 +37,16 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public static function updateRules($userId)
+    {
+        return [
+            'name' => 'required|string|max:255',
+            'last_name' => 'required|string|max:255',
+            'cell_phone' => 'required|string|max:50',
+            'email' => ['required', Rule::unique('users')->ignore($userId)],
+            'password-new' => 'nullable|confirmed|min:8',
+            'password-current' => 'nullable|password|min:8'    
+        ];
+    }
 }

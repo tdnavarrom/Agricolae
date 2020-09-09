@@ -15,6 +15,7 @@
 <body>
     <div id="app">
         <div class="sticky-top">
+
             <nav class="navbar navbar-expand-xl bg-light navbar-light" id="navbar-1">
                 <div class="container">
                     <a class="navbar-brand" href="{{ route('home.index') }}">
@@ -24,12 +25,29 @@
                         <span class="navbar-toggler-icon"></span>
                     </button>
                     <div class="collapse navbar-collapse justify-content-end" id="navbarCollapse">
-                        <ul class="navbar-nav ml-auto"> 
+                        <ul class="navbar-nav ml-auto">
+                            <form class="form-inline" action="">
+                                <input class="form-control mr-sm-2" type="text" placeholder="@lang('messages.search')">
+                                <button class="btn btn-success"  id="search" type="submit"><i class="fa fa-fw fa-search"></i></button>
+                            </form>
+                            @guest
                             <li class="nav-item">
-                                <a class="nav-link text-light" href="#"><i class="fa fa-fw fa-shopping-cart"></i>0 @lang('messages.cart')</a>
+                                <a class="nav-link text-light" href="{{ route('login') }}"><i class="fa fa-fw fa-user"></i>@lang('messages.login')</a>
                             </li>
+                            @else
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown"><i class="fa fa-fw fa-user"></i>@lang('messages.account')</a>
+                                <div class="dropdown-menu">
+                                    <a class="nav-link text-light" href="{{ route('user.show') }}">@lang('messages.myAccount')</a>
+                                    <a class="nav-link text-light" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">@lang('messages.logout')</a>
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST">
+                                        @csrf
+                                    </form>
+                                </div>
+                            </li>
+                            @endguest
                             <li class="nav-item">
-                                <a class="nav-link text-light" href="#"><i class="fa fa-fw fa-user"></i>@lang('messages.login')</a>
+                                <a class="nav-link text-light" href="#"><i class="fa fa-fw fa-shopping-cart"></i>@lang('messages.cart')</a>
                             </li>
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
@@ -40,14 +58,11 @@
                                     <a class="dropdown-item" href="{{ route('language.setLanguage', 'en') }}">@lang('messages.english')</a>
                                 </div>
                             </li>
-                            <form class="form-inline" action="">
-                                <input class="form-control mr-sm-2" type="text" placeholder="@lang('messages.search')">
-                                <button class="btn btn-success"  id="search" type="submit"><i class="fa fa-fw fa-search"></i></button>
-                            </form>
                         </ul>
                     </div>
                 </div>
             </nav>
+
             <nav class="navbar navbar-expand-xl bg-custom navbar-dark" id="navbar-2">
                 <div class="container">
                     <div class="collapse navbar-collapse justify-content-end" id="navbarCollapse">
@@ -68,6 +83,7 @@
                     </div>
                 </div>
             </nav>
+
         </div>
         <main>
             @yield('content')
