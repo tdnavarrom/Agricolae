@@ -21,61 +21,162 @@
 }
 
 .title_name {
-    font-weight:bold; 
-    color:darkcyan;
-    padding-top: 2%;
-    text-align: center;
+  font-weight:bold; 
+  color:darkcyan;
+  padding-top: 2%;
+  text-align: center;
 }
 
 .card {
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-    margin: auto;
-    text-align: center;
-    font-family: arial;
-    padding-top: 2%;
-  }
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  margin: auto;
+  text-align: center;
+  font-family: arial;
+  padding-top: 2%;
+}
   
-  .subtitle {
-    color: grey;
-    font-size: 22px;
-  }
+.subtitle {
+  color: grey;
+  font-size: 22px;
+}
 
-  .score {
-    display:inline; 
-    position:absolute; 
-    left:10%;
-  }
+.subtitle-b {
+  color: black;
+  font-size: 22px;
+}
+
+.score {
+  display:inline; 
+  position:absolute; 
+  left:10%;
+}
+
+.small_title_main {
+  color: dimgray;
+  font-size: 20px;
+  display:inline; 
+}
+
+.small_title {
+  color: grey;
+  font-size: 18px;
+  display:inline;
+}
+
+.black_button {
+  border: none;
+  outline: 0;
+  padding: 12px;
+  color: white;
+  background-color: #000;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+  font-size: 18px;
+}
   
-  .card button {
-    border: none;
-    outline: 0;
-    padding: 12px;
-    color: white;
-    background-color: #000;
-    text-align: center;
-    cursor: pointer;
-    width: 100%;
-    font-size: 18px;
-  }
-  
-  .card button:hover {
-    opacity: 0.7;
-  }
+.black_button:hover {
+  opacity: 0.7;
+}
 
-  .container #create_review {
-    border:none;
-    outline: 0;
-    padding: 12px;
-    background-color: #08dd61;
-    color: white; 
-    text-align: center;
-    cursor: pointer;
-    width: 100%;
-    font-size: 18px;
-    border-radius: 5px;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  }
+.red_button{
+  border:none;
+  outline: 0;
+  padding: 12px;
+  background-color: lightcoral;
+  color: white; 
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+  font-size: 18px;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
 
-  .container #create_review:hover {
-    opacity: 0.7;
-  }
+.red_button:hover {
+  opacity: 0.7;
+}
+
+.blue_button{
+  border:none;
+  outline: 0;
+  padding: 12px;
+  background-color: royalblue;
+  color: white; 
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+  font-size: 18px;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+.blue_button:hover {
+  opacity: 0.7;
+}
+
+.green_button{
+  border:none;
+  outline: 0;
+  padding: 12px;
+  background-color:lightgreen;
+  color: white; 
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+  font-size: 18px;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+.green_button:hover {
+  opacity: 0.7;
+}
+
+.small_red_button{
+  border:none;
+  outline: 0;
+  padding: 10px;
+  background-color: lightcoral;
+  color: white; 
+  text-align: center;
+  cursor: pointer;
+  font-size: 16px;
+  border-radius: 5px;
+}
+
+.small_red_button:hover {
+  opacity: 0.7;
+}
+
+.small_blue_button{
+  border:none;
+  outline: 0;
+  padding: 10px;
+  background-color: royalblue;
+  color: white; 
+  text-align: center;
+  cursor: pointer;
+  font-size: 16px;
+  border-radius: 5px;
+}
+
+.small_blue_button:hover {
+  opacity: 0.7;
+}
+
+.small_green_button{
+  border:none;
+  outline: 0;
+  padding: 10px;
+  background-color:lightgreen;
+  color: white; 
+  text-align: center;
+  cursor: pointer;
+  font-size: 16px;
+  border-radius: 5px;
+}
+
+.small_green_button:hover {
+  opacity: 0.7;
+}
