@@ -2,6 +2,8 @@
 
 @extends('layouts.master')
 
+@section("title", $data["title"])
+
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
@@ -30,7 +32,7 @@
                             <div class="col-md">
                                 <div class="form-group">
                                     <label for="">@lang('messages.userName')</label>
-                                    <input type="text" class="form-control @error('name') is-invalid @enderror" id="name" name="name" value="{{ $user->name }}">
+                                    <input type="text" class="form-control @error('name') is-invalid @enderror" id="name" name="name" value="{{ $data['user']->getName() }}">
 
                                     @error('name')
                                         <span class="invalid-feedback" role="alert">
@@ -43,7 +45,7 @@
                             <div class="col-md">
                                 <div class="form-group">
                                     <label for="">@lang('messages.lastName')</label>
-                                    <input type="text" class="form-control @error('last_name') is-invalid @enderror" id="last_name" name="last_name" value="{{ $user->last_name }}">
+                                    <input type="text" class="form-control @error('last_name') is-invalid @enderror" id="last_name" name="last_name" value="{{ $data['user']->getLastName() }}">
 
                                     @error('last_name')
                                         <span class="invalid-feedback" role="alert">
@@ -57,7 +59,7 @@
 
                         <div class="form-group">
                             <label for="">@lang('messages.cellPhone')</label>
-                            <input type="text" class="form-control @error('cell_phone') is-invalid @enderror" id="cell_phone" name="cell_phone" value="{{ $user->cell_phone }}">
+                            <input type="text" class="form-control @error('cell_phone') is-invalid @enderror" id="cell_phone" name="cell_phone" value="{{ $data['user']->getCellPhone() }}">
 
                             @error('cell_phone')
                                 <span class="invalid-feedback" role="alert">
@@ -69,7 +71,7 @@
             
                         <div class="form-group">
                             <label for="">@lang('messages.email')</label>
-                            <input type="email" class="form-control @error('email') is-invalid @enderror" id="email" name="email" value="{{ $user->email }}">
+                            <input type="email" class="form-control @error('email') is-invalid @enderror" id="email" name="email" value="{{ $data['user']->getEmail() }}">
                             
                             @error('email')
                                 <span class="invalid-feedback" role="alert">

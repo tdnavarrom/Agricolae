@@ -2,6 +2,8 @@
 
 @extends('layouts.master')
 
+@section("title", $data["title"])
+
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
@@ -25,7 +27,7 @@
                             <div class="row pr-4">
                                 <div class="col">
                                     <h5 class="card-title">@lang('messages.userName')</h5>
-                                    <p class="card-text">{{ $user->name }}</p>
+                                    <p class="card-text">{{ $data["user"]->getName() }}</p>
                                 </div>
                             </div>
                         </div>
@@ -37,7 +39,7 @@
                             <div class="row pr-4">
                                 <div class="col">
                                     <h5 class="card-title">@lang('messages.lastName')</h5>
-                                    <p class="card-text">{{ $user->last_name }}</p>
+                                    <p class="card-text">{{ $data["user"]->getLastName() }}</p>
                                 </div>
                             </div>
                         </div>
@@ -54,7 +56,7 @@
                             <div class="row pr-4">
                                 <div class="col">
                                     <h5 class="card-title">@lang('messages.cellPhone')</h5>
-                                    <p class="card-text">{{ $user->cell_phone }}</p>
+                                    <p class="card-text">{{ $data["user"]->getCellPhone() }}</p>
                                 </div>
                             </div>
                         </div>
@@ -66,7 +68,7 @@
                             <div class="row pr-4">
                                 <div class="col">
                                     <h5 class="card-title">@lang('messages.userType')</h5>
-                                    <p class="card-text">{{ $user->user_type }}</p>
+                                    <p class="card-text">{{ $data["user"]->getUserType() }}</p>
                                 </div>
                             </div>
                         </div>
@@ -81,7 +83,7 @@
                     <div class="row pr-4">
                         <div class="col">
                             <h5 class="card-title">@lang('messages.email')</h5>
-                            <p class="card-text">{{ $user->email }}</p>
+                            <p class="card-text">{{ $data["user"]->getEmail() }}</p>
                         </div>
                     </div>
                 </div>

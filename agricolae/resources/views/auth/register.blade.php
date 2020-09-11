@@ -1,5 +1,7 @@
 @extends('layouts.master')
 
+@section("title", "Register")
+
 @section('content')
 <div class="container my-4">
 
@@ -74,8 +76,8 @@
 
                                     <div class="col-md">
                                         <select class="form-control @error('user_type') is-invalid @enderror" name="user_type">
-                                            <option>@lang('messages.userType1')</option>
-                                            <option>@lang('messages.userType2')</option>
+                                            <option value="client">@lang('messages.userType1')</option>
+                                            <option value="farmer">@lang('messages.userType2')</option>
                                         </select>
 
                                         @error('user_type')
