@@ -16,7 +16,7 @@
                 <div class="col-8">
                     <div class="row">
                         <div class="col-md-4">
-                            <a href="{{ route('review.show', [$review->product_id, $review->id]) }}"><b class="small_title_main float-left">{{ $review->id }}: {{ $review->title }}</b></a>
+                            <a href="{{ route('review.show', [$review->id, $review->product_id]) }}"><b class="small_title_main float-left">{{ $review->id }}: {{ $review->title }}</b></a>
                         </div>
                         <div class="col-md-4">
                             <p class="small_title float-left ml-3 mt-1">@lang('messages.score'): {{ $review->score }}</p>
@@ -40,7 +40,7 @@
                             <a href=""><button class="small_blue_button">@lang('messages.edit')</button></a>
                         </div>
                         <div class="col">
-                            <a href="{{ route('review.show', [$review->product_id, $review->id]) }}"><button class="small_green_button">@lang('messages.view')</button></a>
+                            <a href="{{ route('review.show', [$review->id, $review->product_id]) }}"><button class="small_green_button">@lang('messages.view')</button></a>
                         </div>
                     </div>
                 </div>

@@ -42,7 +42,7 @@
                             </form>
                         </div>
                         <div class="col">
-                            <a href=""><button class="small_blue_button">@lang('messages.edit')</button></a>
+                            <a href="{{ route('farmer.product.edit', $product->id) }}"><button class="small_blue_button">@lang('messages.edit')</button></a>
                         </div>
                         <div class="col">
                             <a href="{{ route('product.show', $product->id) }}"><button class="small_green_button">@lang('messages.view')</button></a>

@@ -83,7 +83,7 @@ class ReviewController extends Controller
 
         $review->update($request->only(["title","description","score"]));
         
-        return redirect()->route('review.show', $id);
+        return redirect()->route('review.show', [$id, $review->product_id]);
 
     }
 
