@@ -49,4 +49,74 @@ class User extends Authenticatable
             'password-current' => 'nullable|password|min:8'    
         ];
     }
+
+    public function getId() 
+    {
+        return $this->attributes['id'];
+    }
+
+    public function setId($id)
+    {
+        $this->attributes['id'] = $id;
+    }
+
+    public function getName() 
+    {
+        return $this->attributes['name'];
+    }
+
+    public function setName($name)
+    {
+        $this->attributes['name'] = $name;
+    }
+
+    public function getLastName() 
+    {
+        return $this->attributes['last_name'];
+    }
+
+    public function setLastName($last_name)
+    {
+        $this->attributes['last_name'] = $last_name;
+    }
+
+    public function getCellPhone() 
+    {
+        return $this->attributes['cell_phone'];
+    }
+
+    public function setCellPhone($cell_phone)
+    {
+        $this->attributes['cell_phone'] = $cell_phone;
+    }
+
+    public function getEmail() 
+    {
+        return $this->attributes['email'];
+    }
+
+    public function setEmail($email)
+    {
+        $this->attributes['email'] = $email;
+    }
+
+    public function getUserType() 
+    {
+        return $this->attributes['user_type'];
+    }
+
+    public function setUserType($user_type)
+    {
+        $this->attributes['user_type'] = $user_type;
+    }
+
+    public function getPassword() 
+    {
+        return $this->attributes['password'];
+    }
+
+    public function setPassword($password)
+    {
+        $this->attributes['password'] = $password;
+    }
 }
