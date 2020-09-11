@@ -9,6 +9,15 @@ class Review extends Model
 
     protected $fillable = ['product_id','title', 'description', 'score'];
 
+    public static function validateRules()
+    {
+        return [
+            "title" => 'required|min:8|max:40',
+            "description" => "required|min:128|max:256",
+            "score" => "required|numeric|gt:0|lt:6"
+        ];
+    }
+
 
     public function getId()
     {

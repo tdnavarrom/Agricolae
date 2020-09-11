@@ -18,7 +18,7 @@
                 </ul>
                 @endif
 
-                <form method="POST" action="{{ route('product.save') }}">
+                <form method="POST" action="{{ route('farmer.product.save') }}">
                     @csrf
 
                     <div class="form-group">

@@ -18,7 +18,7 @@
                 <div class="col-8">
                     <div class="row">
                         <div class="col-md-4">
-                            <a href="{{ route('product.admin_show', $product->id) }}">
+                            <a href="{{ route('farmer.product.show', $product->id) }}">
                                 <b class="small_title_main float-left">{{ $product->id }}: {{ $product->name }}</b>
                             </a>
                         </div>
@@ -35,7 +35,7 @@
                 <div class="col-4">
                     <div class="row justify-content-md-center">
                         <div class="col">
-                            <form action="{{ route('product.delete', $product->id) }}" method="post">
+                            <form action="{{ route('farmer.product.delete', $product->id) }}" method="post">
                                 @method('delete')
                                 @csrf
                                 <input class='small_red_button' type='submit' value="@lang('messages.delete')" />
