@@ -9,6 +9,15 @@ class Review extends Model
 
     protected $fillable = ['product_id','title', 'description', 'score'];
 
+    public static function validateRules()
+    {
+        return [
+            "title" => 'required|min:8|max:40',
+            "description" => "required|min:128|max:256",
+            "score" => "required|numeric|gt:0|lt:6"
+        ];
+    }
+
 
     public function getId()
     {
@@ -18,6 +27,16 @@ class Review extends Model
     public function setId($id)
     {
         $this->attributes['id'] = $id;
+    }
+
+    public function getProductId()
+    {
+        return $this->attributes['product_id'];
+    }
+
+    public function setProductId($product_id)
+    {
+        $this->attributes['product_id'] = $product_id;
     }
 
     public function getTitle()

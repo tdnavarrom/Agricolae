@@ -5,29 +5,19 @@
 @section('content')
 
 <div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="container">
+    <h1 class="title_name">@lang('messages.product_list') - @lang('messages.' . $data['filter'])</h1>
+    <div class="row">
 
-                <h4 style='font-weight:bold; color:#08dd61'>@lang('messages.product_list')</h4>
+        @foreach($data["products"] as $product)
+        <div class="col-sm-12 col-lg-3">
 
-                @include('util.message')
-
-                <div class="container">
-                    
-                    @foreach($data["products"] as $product)
-                        <div class="card-header card-header-normal" style="position:relative;">
-                            <a class="product_name" href="{{ route('product.show', $product->id) }}">{{$product->name}} </a>
-                        </div>
-
-                        <div class="card-body card-body-normal">
-                            <b class="score" style="display:inline; color:darkcyan">@lang('messages.product_price'): {{ $product->price }}</b>
-                        </div>
-                       <br>
-                    @endforeach
-                </div> 
+            <div class="card">
+                <h1 class="subtitle">{{ $product->price }}$ </h1>
+                <a href="{{ route('product.show', $product->id) }}"><button class='black_button'>{{$product->name}}</button></a>
             </div>
+
         </div>
+        @endforeach
     </div>
 </div>
 @endsection

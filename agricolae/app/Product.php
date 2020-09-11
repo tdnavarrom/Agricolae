@@ -3,12 +3,28 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Validation\Rule;
 
 class Product extends Model
 {
 
     //attributes id, name, price, created_at, updated_at
     protected $fillable = ['name', 'description', 'category', 'price', 'units', 'listed'];
+
+    public static function validateRules()
+    {
+
+        return [
+            "name" => "required|min:8|max:40",
+            "description" => "required|min:128|max:256",
+            "category" => [
+                "required",
+                Rule::in(['veggies','tubers','legumes','fruits','nuts','cereals']),
+            ],
+            "price" => "required|numeric|gt:0",
+            "units" => "required|numeric|gt:0"
+        ];
+    }
 
     public function getId()
     {

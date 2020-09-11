@@ -20,25 +20,17 @@
                             <p class="subtitle"> {{ $data["product"]["name"] }}</p>
                             <b class="subtitle-b">@lang('messages.review_score'):</b>
                             <p class="subtitle"> {{ $data["review"]->score }}</p>
-                            <b class="subtitle-b">@lang('messages.created_at'):</b>
+                            <b class="subtitle-b">@lang('messages.created_at'):</b> 
+                            <p class="subtitle">{{ $data["review"]->created_at }}</p>
+                            <b class="subtitle-b">@lang('messages.updated_at'):</b> 
+                            <p class="subtitle">{{ $data["review"]->updated_at }}</p>
+
                         </div>
                         <div class="col">
                             <b class="subtitle-b">@lang('messages.review_description'):</b>
                             <p class="subtitle"> {{ $data["review"]->description }}</p>
                         </div>
                     </div>
-                    <div class="row justify-content-md-center mt-4 mb-4 ml-2 mr-2">
-                    <div class="col ml-1">
-                        <a href="{{ route('review.edit', $data['review']->id) }}"> <button class='blue_button'>@lang('messages.edit')</button> </a>
-                    </div>
-                    <div class="col mr-1">
-                        <form action="{{ route('review.delete', $data['review']->id) }}" method="POST">
-                            @method('delete')
-                            @csrf
-                            <input class='red_button' type='submit' value="@lang('messages.delete')"/>
-                        </form>
-                    </div>
-                </div>
                 </div>
             </div>
         </div>
