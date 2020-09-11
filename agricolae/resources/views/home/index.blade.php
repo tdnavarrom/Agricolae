@@ -3,9 +3,10 @@
 @extends('layouts.master')
 
 @section('content')
-<div class="container-fluid px-0">
+<div class="container-fluid px-0" id="exterior">
     <div class="row justify-content-center">
         <div class="col-md">
+
             <div class="carousel slide" id="carousel-1" data-ride="carousel">
                 <ul class="carousel-indicators">
                     <li data-target="#carousel-1" data-slide-to="0" class="active"></li>
@@ -30,6 +31,7 @@
                     <span class="carousel-control-next-icon"></span>
                 </a>
             </div>
+            
         </div>
     </div>
     <div class="container-fluid">
