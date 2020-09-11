@@ -27,21 +27,6 @@ class ReviewController extends Controller
         return view('review.show')->with("data",$data);
     }
 
-    public function admin_show($id)
-    {
-        $data = []; //to be sent to the view
-        $review = Review::findOrFail($id);
-        $product = Product::findOrFail($review->getProductId());
-        //$user = User::findOrFail($review->getUserId());
-        
-        $data["title"] = "Review";
-        $data["review"] = $review;
-        $data["product"]["id"]= $product->getId();
-        $data["product"]["name"]= $product->getName();
-
-        return view('review.admin_show')->with("data",$data);
-    }
-
     public function list()
     {
         $data = []; //to be sent to the view
@@ -63,11 +48,7 @@ class ReviewController extends Controller
     public function save(Request $request, Product $product)
     {
 
-        $request->validate([
-            "title" => 'required|min:8|max:40',
-            "description" => "required|min:128|max:256",
-            "score" => "required|numeric|gt:0|lt:6"
-        ]);
+        $request->validate(Review::validateRules());
 
         $review = new Review;
         $review->title = $request["title"];
@@ -77,6 +58,33 @@ class ReviewController extends Controller
         $review->save();
 
         return redirect()->route('product.show' ,$product->id);
+    }
+
+    public function edit($id)
+    {
+        $data = [];
+        $data["title"] = "Edit Review";
+        
+        $review = Review::findOrFail($id);
+        $data['review'] = $review;
+
+        return view('review.edit')->with(["data" => $data]);
+    }
+
+    public function update(Request $request, $id)
+    {
+        $review = Review::findOrFail($id);
+        $validate = $request->validate(Review::validateRules());
+
+        if (!$validate)
+        {
+            return redirect()->route('review.show', $id); 
+        }
+
+        $review->update($request->only(["title","description","score"]));
+        
+        return redirect()->route('review.show', $id);
+
     }
 
     public function delete($id){

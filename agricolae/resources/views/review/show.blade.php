@@ -29,10 +29,10 @@
                     </div>
                     <div class="row justify-content-md-center mt-4 mb-4 ml-2 mr-2">
                     <div class="col ml-1">
-                        <a href=""> <button class='blue_button'>@lang('messages.edit')</button> </a>
+                        <a href="{{ route('review.edit', $data['review']->id) }}"> <button class='blue_button'>@lang('messages.edit')</button> </a>
                     </div>
                     <div class="col mr-1">
-                        <form action="{{ route('review.delete', $data['review']->id) }}" method="post">
+                        <form action="{{ route('review.delete', $data['review']->id) }}" method="POST">
                             @method('delete')
                             @csrf
                             <input class='red_button' type='submit' value="@lang('messages.delete')"/>
