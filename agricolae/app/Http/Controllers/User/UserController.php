@@ -16,10 +16,15 @@ class UserController extends Controller
     {
         if (Auth::user())
         {
-        
+
+            $data = [];
+
             $user = User::findOrFail(Auth::user()->id);
 
-            return view('user.show')->with(['user' => $user]);
+            $data["title"] = "My Account";
+            $data["user"] = $user;
+
+            return view('user.show')->with("data", $data);
 
         }
         else 
@@ -34,9 +39,14 @@ class UserController extends Controller
         if (Auth::user())
         {
 
+            $data = [];
+
             $user = User::findOrFail(Auth::user()->id);
 
-            return view('user.edit')->with(['user' => $user]);
+            $data["title"] = "My Account";
+            $data["user"] = $user;
+
+            return view('user.edit')->with("data", $data);
 
         }
         else
