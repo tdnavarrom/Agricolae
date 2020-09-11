@@ -71,7 +71,7 @@
                                 <a href="{{ route('home.index') }}" class="level-1 trsn nav-link">@lang('messages.home')</a>
                             </li>
                             <li class="nav-item">
-                                <a href="" class="level-1 trsn nav-link">@lang('messages.products')</a>
+                                <a href="{{ route('product.list_all') }}" class="level-1 trsn nav-link">@lang('messages.products')</a>
                             </li>
                             <li class="nav-item">
                                 <a href="" class="level-1 trsn nav-link">@lang('messages.aboutUs')</a>

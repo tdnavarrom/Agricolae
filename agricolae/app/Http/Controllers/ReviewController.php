@@ -16,17 +16,13 @@ class ReviewController extends Controller
     {
         $data = []; //to be sent to the view
         $review = Review::findOrFail($id);
-        //$product = Product::findOrFail($review->getProductId());
+        $product = Product::findOrFail($review->getProductId());
         //$user = User::findOrFail($review->getUserId());
         
         $data["title"] = "Review";
-        $data["review"]["product"] = 'Carpincho Product';//$product->getName();
-        $data["review"]["user"] = 'Tomas Navarro';//$user->getName();
-        $data["review"]['title'] = $review->getTitle();
-        $data["review"]['description'] = $review->getDescription();
-        $data["review"]['score'] = $review->getScore();
-        $data["review"]['id'] = $review->getId();
-
+        $data["review"] = $review;
+        $data["product"]["id"]= $product->getId();
+        $data["product"]["name"]= $product->getName();
 
         return view('review.show')->with("data",$data);
     }
@@ -40,7 +36,6 @@ class ReviewController extends Controller
         return view('review.list')->with("data",$data);
     }
 
-
     public function create(Product $product)
     {
         $data = []; //to be sent to the view
@@ -53,11 +48,7 @@ class ReviewController extends Controller
     public function save(Request $request, Product $product)
     {
 
-        $request->validate([
-            "title" => 'required',
-            "description" => "required",
-            "score" => "required|numeric|gt:-1|lt:6"
-        ]);
+        $request->validate(Review::validateRules());
 
         $review = new Review;
         $review->title = $request["title"];
@@ -66,13 +57,40 @@ class ReviewController extends Controller
         $review->product_id = $product->id;
         $review->save();
 
-        return redirect('/product/show/' . $product->id);
+        return redirect()->route('product.show' ,$product->id);
+    }
+
+    public function edit($id)
+    {
+        $data = [];
+        $data["title"] = "Edit Review";
+        
+        $review = Review::findOrFail($id);
+        $data['review'] = $review;
+
+        return view('review.edit')->with(["data" => $data]);
+    }
+
+    public function update(Request $request, $id)
+    {
+        $review = Review::findOrFail($id);
+        $validate = $request->validate(Review::validateRules());
+
+        if (!$validate)
+        {
+            return redirect()->route('review.show', $id); 
+        }
+
+        $review->update($request->only(["title","description","score"]));
+        
+        return redirect()->route('review.show', $id);
+
     }
 
     public function delete($id){
         $review = Review::find($id);
         $review->delete();
-        return redirect('review/list')->with('deleted', 'Review has been deleted!');
+        return redirect()->route('review.list')->with('deleted', 'Review has been deleted!');
     }
 
 
