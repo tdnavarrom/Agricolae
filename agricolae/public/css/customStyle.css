@@ -20,6 +20,29 @@
     max-height: 700px;
 }
 
+button {
+    background-color: #08dd61 !important;
+    border-color: #08dd61 !important;
+}
+
+a {
+    color: #08dd61 !important;
+}
+
+h1 {
+    color: #08dd61;
+}
+
+.dropdown-menu a {
+    font-size: 15px !important;
+}
+
+#updateAccount_button {
+    background-color: white !important;
+    border-color: #08dd61 !important;
+    color: #08dd61 !important;
+}
+
 .title_name {
   font-weight:bold; 
   color:darkcyan;

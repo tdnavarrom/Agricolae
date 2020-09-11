@@ -13,14 +13,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
 Route::group(['middleware' => 'lang'], function () {
     
-    
-    Route::get('/home', 'HomeController@index')->name("home.index");
+    Route::get('/', 'HomeController@index')->name("home.index");
+
+    Route::get('/account/show', 'User\UserController@show')->name("user.show");
+
+    Route::get('/account/edit', 'User\UserController@edit')->name("user.edit");
+
+    Route::post('/account/update', 'User\UserController@update') -> name('user.update');
 
     // User
 
@@ -61,4 +62,7 @@ Route::group(['middleware' => 'lang'], function () {
     //Lang
     Route::get('lang/{lang}', 'LanguageController@setLanguage')->name("language.setLanguage");
 
+    Auth::routes();
+
 });
+
