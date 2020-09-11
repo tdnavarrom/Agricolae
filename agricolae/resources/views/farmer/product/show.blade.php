@@ -17,12 +17,12 @@
                     <div class="col">
                         
                     </div>
-                    <div class="col">
+                    <div class="col justify-content-md-left">
                         <h5 class='subtitle'> <b>@lang('messages.product_id'):</b> {{ $data["product"]["id"] }}</h5>
-                        <h5 class='subtitle'> <b>@lang('messages.product_price'):</b> {{ $data["product"]["price"] }} </h5>
+                        <h5 class='subtitle'> <b>@lang('messages.product_price'):</b> {{ $data["product"]["price"] }} $</h5>
                         <h5 class='subtitle'> <b>@lang('messages.product_units'):</b> {{ $data["product"]["units"] }} </h5>
                         <h5 class='subtitle'><b>@lang('messages.category'):</b> {{ $data['product']['category'] }}</h5>
-                        <h5 class='subtitle'> <b>@lang('messages.created_at'):</b> {{ $data["product"]["created_at"] }} $</h5>
+                        <h5 class='subtitle'> <b>@lang('messages.created_at'):</b> {{ $data["product"]["created_at"] }} </h5>
                         <h5 class='subtitle'> <b>@lang('messages.updated_at'):</b> {{ $data["product"]["updated_at"] }} </h5>           
                     </div> 
                 </div>
@@ -56,7 +56,7 @@
                 <div class="card-header">
                     <b class="small_title_main float-left">{{ $review->id }}: {{ $review->title }}</b>
                     <p class="small_title float-left ml-3 mt-1">@lang('messages.review_score'): {{ $review->score }}</p>
-                    <a href="{{ route('farmer.review.show', [$data['product']->id, $review->id]) }}" class="small_title float-right ml-4 mt-1">@lang('messages.view')</a>
+                    <a href="{{ route('farmer.review.show', [$review->id, $data['product']->id]) }}" class="small_title float-right ml-4 mt-1">@lang('messages.view')</a>
                 </div>
 
                 @endforeach
