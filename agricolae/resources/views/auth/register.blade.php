@@ -23,6 +23,7 @@
 
                         <div class="row justify-content-center">
                             <div class="col-md">
+
                                 <div class="form-group justify-content-start">
                                     <label for="name" class="col-md-4 col-form-label">@lang('messages.userName')</label>
 

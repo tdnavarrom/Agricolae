@@ -35,7 +35,7 @@
                             </li>
                             @else
                             <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="" id="navbardrop" data-toggle="dropdown"><i class="fa fa-fw fa-user"></i>@lang('messages.account')</a>
+                                <a class="nav-link dropdown-toggle" href="" id="navbardrop" data-toggle="dropdown"><i class="fa fa-fw fa-user"></i>{{ Auth::user()->getName() }}</a>
                                 <div class="dropdown-menu">
                                     <a class="nav-link text-light" href="{{ route('user.show') }}">@lang('messages.myAccount')</a>
                                     <div class="dropdown-divider"></div>
@@ -44,7 +44,7 @@
                                         @csrf
                                     </form>
                                 </div>
-                                @if (Auth::user()->user_type == "farmer")
+                                @if (Auth::user()->getType() == "farmer")
                                 <li class="nav-item">
                                     <a class="nav-link text-light" href="{{ route('farmer.index') }}"><i class="fa fa-fw fa-chalkboard"></i>@lang('messages.dashboard')</a>
                                 </li>
