@@ -9,7 +9,7 @@ class Product extends Model
 {
 
     //attributes id, name, price, created_at, updated_at
-    protected $fillable = ['name', 'description', 'category', 'price', 'units', 'listed'];
+    protected $fillable = ['name', 'description', 'category', 'price', 'units'];
 
     public static function validateRules()
     {
@@ -84,16 +84,6 @@ class Product extends Model
     public function setUnits($units)
     {
         $this->attributes['units'] = $units;
-    }
-
-    public function getListed()
-    {
-        return $this->attributes['listed'];
-    }
-    
-    public function setListed($listed)
-    {
-        $this->attributes['listed'] = $listed;
     }
 
     public function reviews() {
