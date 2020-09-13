@@ -16,6 +16,7 @@ return [
     'reviews' => 'Reviews',
     'aboutUs' => 'About us',
     'contact' => 'Contact',
+    'product' => 'Product',
     'product_add' => 'Create Product',
     'product_edit' => 'Edit Product',
     'product_list' => 'Product List',
@@ -71,6 +72,7 @@ return [
     'loginMessage' => 'Login to',
 
     // Register messages
+    'user' => 'User',
     'userName' => 'Name',
     'lastName' => 'Last Name',
     'cellPhone' => 'Cell Phone',

@@ -9,7 +9,7 @@ class Product extends Model
 {
 
     //attributes id, name, price, created_at, updated_at
-    protected $fillable = ['name', 'description', 'category', 'price', 'units'];
+    protected $fillable = ['user_id' ,'name', 'description', 'category', 'price', 'units'];
 
     public static function validateRules()
     {
@@ -34,6 +34,16 @@ class Product extends Model
     public function setId($id)
     {
         $this->attributes['id'] = $id;
+    }
+
+    public function getUserId()
+    {
+        return $this->attributes['user_id'];
+    }
+
+    public function setUserId($u_id)
+    {
+        $this->attributes['user_id'] = $u_id;
     }
 
     public function getName()
@@ -84,6 +94,10 @@ class Product extends Model
     public function setUnits($units)
     {
         $this->attributes['units'] = $units;
+    }
+
+    public function user() {
+        return $this->belongsTo(User::class);
     }
 
     public function reviews() {
