@@ -12,6 +12,7 @@
         <div class="container justify-content-md-center col-md-8">
             <div class="card">
                 <h1 class="title_name">{{ $data["product"]["name"] }} </h1>
+                <button class='black_button'>@lang('messages.add_wishlist')</button></p>
                 <div class="row">
                     <div class="col">
                         <p class='subtitle'>@lang('messages.product_price'): {{ $data["product"]["price"] }} $</p>
