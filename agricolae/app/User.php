@@ -119,4 +119,8 @@ class User extends Authenticatable
     {
         $this->attributes['password'] = $password;
     }
+
+    public function whishList() {
+        return $this->hasMany(WhishList::class);
+    }
 }

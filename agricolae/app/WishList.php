@@ -4,20 +4,17 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Review extends Model
+class WishList extends Model
 {
 
-    protected $fillable = ['product_id','title', 'description', 'score'];
+    protected $fillable = ["title", "user_id", "product_id"];
 
     public static function validateRules()
     {
         return [
-            "title" => 'required|min:8|max:40',
-            "description" => "required|min:3|max:256",
-            "score" => "required|numeric|gt:0|lt:6"
+            "title" => 'required|min:1|max:40',
         ];
     }
-
 
     public function getId()
     {
@@ -48,30 +45,15 @@ class Review extends Model
     {
         $this->attributes['title'] = $ttl;
     }
-    
-    public function getDescription()
-    {
-        return $this->attributes['description'];
-    }
-
-    public function setDescription($desc)
-    {
-        $this->attributes['description'] = $desc;
-    }
-
-    public function getScore()
-    {
-        return $this->attributes['score'];
-    }
-
-    public function setScore($score)
-    {
-        $this->attributes['score'] = $score;
-    }
-
 
     public function product()
     {
         return $this->belongsTo(Product::class);
     }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+    
 }
