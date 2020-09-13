@@ -6,9 +6,7 @@
 
 @section('content')
 
-<br>
-
-<div class="container col-md-10 justify-content-center">
+<div class="container col-md-10 pt-4 justify-content-center">
     <div class="row">
         <div class="container justify-content-md-center col-md-6">
             <div class="card">

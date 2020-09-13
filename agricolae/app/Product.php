@@ -9,20 +9,34 @@ class Product extends Model
 {
 
     //attributes id, name, price, created_at, updated_at
-    protected $fillable = ['user_id' ,'name', 'description', 'category', 'price', 'units'];
+    protected $fillable = ['user_id' ,'name', 'description', 'category', 'price', 'units', 'images'];
 
     public static function validateRules()
     {
-
         return [
-            "name" => "required|min:8|max:40",
-            "description" => "required|min:128|max:256",
+            "name" => "required|min:4|max:40",
+            "description" => "required|min:20|max:256",
             "category" => [
                 "required",
                 Rule::in(['veggies','tubers','legumes','fruits','nuts','cereals']),
             ],
             "price" => "required|numeric|gt:0",
-            "units" => "required|numeric|gt:0"
+            "units" => "required",
+            "image" => "required",
+        ];
+    }
+
+    public static function updateRules()
+    {
+        return [
+            "name" => "required|min:4|max:40",
+            "description" => "required|min:20|max:256",
+            "category" => [
+                "required",
+                Rule::in(['veggies','tubers','legumes','fruits','nuts','cereals']),
+            ],
+            "price" => "required|numeric|gt:0",
+            "units" => "required",
         ];
     }
 
@@ -96,15 +110,27 @@ class Product extends Model
         $this->attributes['units'] = $units;
     }
 
-    public function user() {
+    public function getImage()
+    {
+        return $this->attributes['image'];
+    }
+
+    public function setImage($image)
+    {
+        $this->attributes['image'] = $image;
+
+    public function user() 
+    {
         return $this->belongsTo(User::class);
     }
 
-    public function reviews() {
+    public function reviews() 
+    {
         return $this->hasMany(Review::class);
     }
 
-    public function whishList() {
+    public function whishList() 
+    {
         return $this->hasMany(WhishList::class);
     }
 

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Farmer;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 use App\Product;
 use App\User;
@@ -11,6 +12,20 @@ use Illuminate\Support\Facades\Auth;
 
 class FarmerProductController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+        $this->middleware(function ($request, $next) 
+        {
+            if (Auth::user()->getUserType() == "client")
+            {
+                return redirect()->route('home.index');
+            }
+
+            return $next($request);
+        });
+    }
 
     public function show($id)
     {
@@ -64,10 +79,17 @@ class FarmerProductController extends Controller
     }
 
     public function save(Request $request)
-    {
-
+    {   
         $request->validate(Product::validateRules());
         $user = User::findOrFail(Auth::user()->id);
+
+        $name = "";
+        if ($request->hasFile('image'))
+        {
+            $file = $request->file('image');
+            $name = time().$file->getClientOriginalName();
+            $file->move(public_path().'/images/products_images/', $name);
+        }
 
         $product = new Product;
         $product->user_id = $user->getId();
@@ -76,8 +98,7 @@ class FarmerProductController extends Controller
         $product->category = $request["category"];
         $product->price = $request["price"];
         $product->units = $request["units"];
-        $product->save();
-
+        $product->image = $name;
         
         return redirect()->route('farmer.product.show', $product->id);
     }
@@ -103,7 +124,10 @@ class FarmerProductController extends Controller
 
     public function update(Request $request, $id)
     {
-        $product = $product = Product::findOrFail($id);
+
+        $request->validate(Product::updateRules());
+
+        $product = Product::findOrFail($id);
         
         $user = User::findOrFail(Auth::user()->id);
 
@@ -112,16 +136,27 @@ class FarmerProductController extends Controller
             return redirect()->route('home.index')->with('delted' ,"You cannot access this site"); 
         }
 
-        $validate = $request->validate(Product::validateRules());
-
-        if (!$validate)
+        if (empty($request->input('image')))
         {
-            return redirect()->route('farmer.product.show', $id); 
+            $product->update($request->except('image'));
         }
+        else
+        {   
+            $file = $request->file('image');
+            $name = time().$file->getClientOriginalName();
+            $file->move(public_path().'/images/products_images/', $name);
 
-        $product->update($request->only(["name","description","category","price","units"]));
+            $product->update([
+                'name' => $request['name'],
+                'description' => $request['description'],
+                'category' => $request['category'],
+                'price' => $request['price'],
+                'units' => $request['units'],
+                'image' => $name,
+            ]);
+        }
         
-        return redirect()->route('farmer.product.show', $id);
+        return redirect()->route('farmer.product.list');
 
     }
 
@@ -136,12 +171,7 @@ class FarmerProductController extends Controller
 
         $product->delete();
 
-        $data = []; //to be sent to the view
-        $data["title"] = 'Products';
-        $data["products"] = Product::all()->sortByDesc('id');
-        $data["filter"] = 'all';
-
-        return redirect()->route('farmer.product.list')->with($data);
+        return redirect()->route('farmer.product.list');
     }
 
 

@@ -20,7 +20,7 @@ class CreateProductsTable extends Migration
             $table->text('description');
             $table->text('category');
             $table->bigInteger('price')->unsigned();
-            $table->bigInteger('units')->unsigned();
+            $table->string('units');
             $table->timestamps();
         });
     }

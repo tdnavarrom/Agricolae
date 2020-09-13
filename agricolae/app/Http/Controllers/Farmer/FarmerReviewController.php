@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Farmer;
 
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 use App\Product;
 use App\Review;
 use App\User;
@@ -10,6 +11,19 @@ use Illuminate\Support\Facades\Auth;
 
 class FarmerReviewController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+        $this->middleware(function ($request, $next) 
+        {
+            if (Auth::user()->getUserType() == "client")
+            {
+                return redirect()->route('home.index');
+            }
+
+            return $next($request);
+        });
+    }
 
     public function show($id)
     {
