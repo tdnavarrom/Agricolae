@@ -5,47 +5,53 @@
 @section("title", $data["title"])
 
 @section('content')
-
 <div class="container">
-    <h1 class="title_name">@lang('messages.product_list') - @lang('messages.' . $data['filter'])</h1>
-    <div class="card">
-        @include('util.message')
 
+    @if ($message = Session::get('success'))
+        <div class="col-md-12 mt-3">
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                <strong>{{ $message }} </strong>
+            </div>
+        </div>
+    @endif
+    <div class="col-md-12">
+        <h1 class="page-header mt-4">
+            <small>@lang('messages.product_list') - @lang('messages.' . $data['filter'])</small>
+            <hr>
+        </h1>
+    </div>
+
+    <div class="row">
         @foreach($data["products"] as $product)
-
-        <div class="card-header">
-            <div class="row">
-                <div class="col-8">
-                    <div class="row">
-                        <div class="col-md-4">
-                            <a href="{{ route('farmer.product.show', $product->id) }}">
-                                <b class="small_title_main float-left">{{ $product->id }}: {{ $product->name }}</b>
-                            </a>
-                        </div>
-                        <div class="col-md-4">
-                            <p class="small_title float-left ml-3 mt-1">@lang('messages.category'): {{ $product->category }}</p>
-                        </div>
-                        <div class="col-md-4">
-                            <p class="small_title float-left ml-3 mt-1">@lang('messages.reviews'): {{ $product->reviews->count() }}</p>
-                        </div>
-                    </div>
-
+        <div class="col-md-4">
+            <div class="card my-3">
+                <img class="card-img d-flex justify-content-end" src="{{ asset('images/products_images/'.$product->getImage()) }}" alt="">
+                <div class="card-img-overlay d-flex justify-content-end">
+                    <a href="" class="card-link text-danger like">
+                        <i class="fa fa-fw fa-heart"></i>
+                    </a>
                 </div>
-
-                <div class="col-4">
-                    <div class="row justify-content-md-center">
-                        <div class="col">
-                            <form action="{{ route('farmer.product.delete', $product->id) }}" method="post">
+                <div class="card-body">
+                    <h4 class="card-title">{{ $product->name }}</h4>
+                    <h6>@lang('messages.category'): {{ $product->category }}</h6>
+                    <h6>@lang('messages.reviews'): {{ $product->reviews->count() }}</h6>
+                </div>
+                <hr>
+                <div class="col-md pb-4">
+                    <div class="row">
+                        <div class="col-md">
+                            <a href="{{ route('product.show', $product->id) }}" class="btn btn-primary btn-block" id="button_style1">@lang('messages.view')</a>
+                        </div>
+                        <div class="col-md">
+                            <a href="{{ route('farmer.product.edit', $product->id) }}" class="btn btn-primary btn-block" id="button_style1">@lang('messages.edit')</a>
+                        </div>
+                        <div class="col-md">
+                            <form action="{{ route('farmer.product.delete', $product->id) }}" method="POST">
                                 @method('delete')
                                 @csrf
-                                <input class='small_red_button' type='submit' value="@lang('messages.delete')" />
+                                <button class="btn btn-primary btn-block" id="button_style1" type="submit">@lang('messages.delete')</button>
                             </form>
-                        </div>
-                        <div class="col">
-                            <a href="{{ route('farmer.product.edit', $product->id) }}"><button class="small_blue_button">@lang('messages.edit')</button></a>
-                        </div>
-                        <div class="col">
-                            <a href="{{ route('product.show', $product->id) }}"><button class="small_green_button">@lang('messages.view')</button></a>
                         </div>
                     </div>
                 </div>
@@ -53,5 +59,6 @@
         </div>
         @endforeach
     </div>
+    
 </div>
 @endsection

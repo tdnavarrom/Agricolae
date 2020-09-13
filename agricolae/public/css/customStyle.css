@@ -8,6 +8,10 @@
     font-size: 20px;
 }
 
+i {
+  margin: 5px;
+}
+
 .bg-custom {
     background-color: #08dd61 !important;
 }
@@ -18,11 +22,6 @@
 
 .carousel-inner .carousel-item{
     max-height: 700px;
-}
-
-button {
-    background-color: #08dd61 !important;
-    border-color: #08dd61 !important;
 }
 
 a {
@@ -37,7 +36,7 @@ h1 {
     font-size: 15px !important;
 }
 
-#updateAccount_button {
+#button_style1 {
     background-color: white !important;
     border-color: #08dd61 !important;
     color: #08dd61 !important;
@@ -48,14 +47,6 @@ h1 {
   color:darkcyan;
   padding-top: 2%;
   text-align: center;
-}
-
-.card {
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  margin: auto;
-  text-align: center;
-  font-family: arial;
-  padding-top: 2%;
 }
   
 .subtitle {

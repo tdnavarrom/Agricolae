@@ -5,6 +5,7 @@ return [
     // Layout messages
     'cart' => 'Cart',
     'login' => 'Login',
+    'dashboard' => 'Dashboard',
     'logout' => 'Logout',
     'account' => 'Account',
     'myAccount' => 'My Account',
@@ -24,7 +25,7 @@ return [
     'product_category' => 'Product\'s Category',
     'product_price' => 'Product\'s Price',
     'product_description' => 'Product\'s Description',
-    'product_units' => 'Product\'s Units',
+    'product_units' => 'Product\'s sale Units',
     'add_cart' => 'Add to Cart',
     'rscore' => 'Score',
     'review_create' => 'Add Review',
@@ -55,8 +56,11 @@ return [
     'view' => 'View',
     'delete' => 'Delete',
     'category' => 'Category',
+    'kilogram' => 'Kilogram',
+    'pound' => 'Pound',
+    'unit' => 'Unit',
+    'image' => 'Image',
  
-
     // Login messages
     'registerInvitation' => 'Are you new on Agricolae?',
     'registerInvitationMessage' => 'By registrating on Agricolae you can make orders, add shipping adresses, add payment methods, and more.',
@@ -92,6 +96,10 @@ return [
     'newPasswordConfirm' => 'Confirm New Password',
     'editButton' => 'Edit',
     'updateButton' => 'Update',
+
+    // Farmer Dashboard
+    'welcomeMessage' => 'Welcome',
+    'myProducts' => 'My Products',
 
 ];
 

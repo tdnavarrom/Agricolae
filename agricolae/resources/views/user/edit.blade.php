@@ -116,7 +116,7 @@
                     </div>
 
                 </div>
-                <button class="btn btn-primary btn-lg btn-block mt-4" id="updateAccount_button">@lang('messages.updateButton')</button>
+                <button class="btn btn-primary btn-lg btn-block mt-4" id="button_style1">@lang('messages.updateButton')</button>
             </form>
             
         </div>

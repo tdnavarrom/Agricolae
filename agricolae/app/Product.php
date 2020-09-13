@@ -9,20 +9,34 @@ class Product extends Model
 {
 
     //attributes id, name, price, created_at, updated_at
-    protected $fillable = ['name', 'description', 'category', 'price', 'units', 'listed'];
+    protected $fillable = ['name', 'description', 'category', 'price', 'units', 'image'];
 
-    public static function validateRules()
+    public static function saveRules()
     {
-
         return [
-            "name" => "required|min:8|max:40",
-            "description" => "required|min:128|max:256",
+            "name" => "required|min:4|max:40",
+            "description" => "required|min:20|max:256",
             "category" => [
                 "required",
                 Rule::in(['veggies','tubers','legumes','fruits','nuts','cereals']),
             ],
             "price" => "required|numeric|gt:0",
-            "units" => "required|numeric|gt:0"
+            "units" => "required",
+            "image" => "required",
+        ];
+    }
+
+    public static function updateRules()
+    {
+        return [
+            "name" => "required|min:4|max:40",
+            "description" => "required|min:20|max:256",
+            "category" => [
+                "required",
+                Rule::in(['veggies','tubers','legumes','fruits','nuts','cereals']),
+            ],
+            "price" => "required|numeric|gt:0",
+            "units" => "required",
         ];
     }
 
@@ -86,14 +100,14 @@ class Product extends Model
         $this->attributes['units'] = $units;
     }
 
-    public function getListed()
+    public function getImage()
     {
-        return $this->attributes['listed'];
+        return $this->attributes['image'];
     }
-    
-    public function setListed($listed)
+
+    public function setImage($image)
     {
-        $this->attributes['listed'] = $listed;
+        $this->attributes['image'] = $image;
     }
 
     public function reviews() {
