@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 use App\Product;
+use Illuminate\Support\Facades\Lang;
 
 class FarmerProductController extends Controller
 {
@@ -16,7 +17,7 @@ class FarmerProductController extends Controller
         $this->middleware('auth');
         $this->middleware(function ($request, $next) 
         {
-            if (Auth::user()->getUserType() == "client")
+            if (Auth::user()->getType() == "client")
             {
                 return redirect()->route('home.index');
             }
@@ -87,7 +88,9 @@ class FarmerProductController extends Controller
             'image' => $name,
         ]);
 
-        return redirect()->route('farmer.product.list')->with("success", "Producto creado Exitosamente!");
+        $message = Lang::get('messages.productCreateSuccess');
+
+        return redirect()->route('farmer.product.list')->with("success", $message);
     }
 
     public function edit($id)
@@ -107,12 +110,8 @@ class FarmerProductController extends Controller
 
         $product = Product::findOrFail($id);
 
-        if (empty($request->input('image')))
+        if ($request->hasFile('image'))
         {
-            $product->update($request->except('image'));
-        }
-        else
-        {   
             $file = $request->file('image');
             $name = time().$file->getClientOriginalName();
             $file->move(public_path().'/images/products_images/', $name);
@@ -126,16 +125,24 @@ class FarmerProductController extends Controller
                 'image' => $name,
             ]);
         }
-        
-        return redirect()->route('farmer.product.list');
+        else 
+        {
+            $product->update($request->except('image'));
+        }
 
+        $message = Lang::get('messages.productEditSuccess');
+
+        return redirect()->route('farmer.product.list')->with("success", $message);
     }
 
-    public function delete($id){
+    public function delete($id)
+    {
         $product = Product::find($id);
         $product->delete();
 
-        return redirect()->route('farmer.product.list');
+        $message = Lang::get('messages.productDeleteSuccess');
+
+        return redirect()->route('farmer.product.list')->with("success", $message);
     }
 
 
