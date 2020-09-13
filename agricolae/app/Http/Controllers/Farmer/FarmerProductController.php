@@ -8,7 +8,6 @@ use Illuminate\Support\Facades\Auth;
 
 use App\Product;
 use App\User;
-use Illuminate\Support\Facades\Auth;
 
 class FarmerProductController extends Controller
 {
@@ -99,8 +98,9 @@ class FarmerProductController extends Controller
         $product->price = $request["price"];
         $product->units = $request["units"];
         $product->image = $name;
+        $product->save();
         
-        return redirect()->route('farmer.product.show', $product->id);
+        return redirect()->route('farmer.product.list');
     }
 
     public function edit($id)
