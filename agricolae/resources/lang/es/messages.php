@@ -16,6 +16,7 @@ return [
     'reviews' => 'Reseñas',
     'aboutUs' => 'Nosotros',
     'contact' => 'Contacto',
+    'product' => 'Producto',
     'product_add' => 'Crear Producto',
     'product_edit' => 'Editar Producto',
     'product_list' => 'Lista de Productos',
@@ -70,6 +71,7 @@ return [
     'loginMessage' => 'Ingresar a',
 
     // Register messages
+    'user' => 'Usuario',
     'userName' => 'Nombre',
     'lastName' => 'Apellido',
     'cellPhone' => 'Celular',

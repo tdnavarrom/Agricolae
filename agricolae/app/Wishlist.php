@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class WishList extends Model
+class Wishlist extends Model
 {
 
     protected $fillable = ["title", "user_id", "product_id"];
@@ -32,6 +32,16 @@ class WishList extends Model
     }
 
     public function setProductId($product_id)
+    {
+        $this->attributes['product_id'] = $product_id;
+    }
+
+    public function getUserId()
+    {
+        return $this->attributes['product_id'];
+    }
+
+    public function setUserId($product_id)
     {
         $this->attributes['product_id'] = $product_id;
     }
