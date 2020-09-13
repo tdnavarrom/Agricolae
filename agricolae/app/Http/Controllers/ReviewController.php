@@ -54,10 +54,10 @@ class ReviewController extends Controller
         $review->title = $request["title"];
         $review->description = $request["description"];
         $review->score = $request["score"];
-        $review->product_id = $product->id;
+        $review->product_id = $product->getId();
         $review->save();
 
-        return redirect()->route('product.show' ,$product->id);
+        return redirect()->route('product.show' ,$product->getId());
     }
 
     public function edit($id)

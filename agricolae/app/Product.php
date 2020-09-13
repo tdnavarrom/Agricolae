@@ -100,8 +100,8 @@ class Product extends Model
         return $this->hasMany(Review::class);
     }
 
-    /**public function whishList() {
-        return $this->belongsTo(WhishList::class);
-    }**/
+    public function whishList() {
+        return $this->hasMany(WhishList::class);
+    }
 
 }
