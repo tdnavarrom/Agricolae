@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Auth;
 
 use App\Product;
 use App\User;
+use Illuminate\Support\Facades\Lang;
 
 class FarmerProductController extends Controller
 {
@@ -136,12 +137,9 @@ class FarmerProductController extends Controller
             return redirect()->route('home.index')->with('delted' ,"You cannot access this site"); 
         }
 
-        if (empty($request->input('image')))
+        
+        if ($request->hasFile('image'))
         {
-            $product->update($request->except('image'));
-        }
-        else
-        {   
             $file = $request->file('image');
             $name = time().$file->getClientOriginalName();
             $file->move(public_path().'/images/products_images/', $name);
@@ -155,8 +153,14 @@ class FarmerProductController extends Controller
                 'image' => $name,
             ]);
         }
-        
-        return redirect()->route('farmer.product.list');
+        else 
+        {
+            $product->update($request->except('image'));
+        }
+
+        $message = Lang::get('messages.productEditSuccess');
+
+        return redirect()->route('farmer.product.list')->with("success", $message);
 
     }
 

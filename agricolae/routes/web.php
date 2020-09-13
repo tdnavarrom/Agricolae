@@ -18,9 +18,6 @@ Route::group(['middleware' => 'lang'], function () {
     // Home
     Route::get('/', 'HomeController@index')->name("home.index");
 
-    // User
-    Route::get('/', 'HomeController@index')->name("home.index");
-
     Route::get('/account/show', 'User\UserController@show')->name("user.show");
     Route::get('/account/edit', 'User\UserController@edit')->name("user.edit");
     Route::post('/account/update', 'User\UserController@update') -> name('user.update');
@@ -34,10 +31,7 @@ Route::group(['middleware' => 'lang'], function () {
     Route::get('product/reviews/create-{product}', 'ReviewController@create')->name('review.create');
     Route::post('product/reviews-{product}', 'ReviewController@save')->name('review.save');
 
-    Route::get('dashboard/reviews/list', 'ReviewController@list')->name('review.list');
-    Route::get('dashboard/reviews/{id}-{product}', 'ReviewController@show')->name('review.show');
     Route::delete('dashboard/reviews/{id}/delete', 'ReviewController@delete')->name('review.delete');
-
     Route::get('dashboard/reviews/{id}/edit', 'ReviewController@edit')->name('review.edit');
     Route::post('dashboard/reviews/{id}/update', 'ReviewController@update')->name('review.update');
 

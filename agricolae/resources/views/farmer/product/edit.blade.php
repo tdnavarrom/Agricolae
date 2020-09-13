@@ -25,7 +25,7 @@
                 </ul>
                 @endif
 
-                <form method="POST" action="{{ route('farmer.product.update', $data['product']->id) }}">
+                <form method="POST" action="{{ route('farmer.product.update', $data['product']->getId()) }}" enctype="multipart/form-data">
                     @csrf
 
                     <div class="form-group">
