@@ -19,6 +19,8 @@ Route::group(['middleware' => 'lang'], function () {
     Route::get('/', 'HomeController@index')->name("home.index");
 
     // User
+    Route::get('/', 'HomeController@index')->name("home.index");
+
     Route::get('/account/show', 'User\UserController@show')->name("user.show");
     Route::get('/account/edit', 'User\UserController@edit')->name("user.edit");
     Route::post('/account/update', 'User\UserController@update') -> name('user.update');
@@ -38,6 +40,11 @@ Route::group(['middleware' => 'lang'], function () {
 
     Route::get('dashboard/reviews/{id}/edit', 'ReviewController@edit')->name('review.edit');
     Route::post('dashboard/reviews/{id}/update', 'ReviewController@update')->name('review.update');
+
+    //Wishlist
+    Route::get('dashboard/wishlist', 'WishlistController@list')->name('wishlist.list');
+    Route::post('dashboard/wishlist-{product}', 'WishlistController@save')->name('wishlist.save');
+    Route::delete('dashboard/wishlist/{id}/delete', 'WishlistController@delete')->name('wishlist.delete');
 
     //Farmer
     Route::get('/farmer/dashboard', 'Farmer\FarmerHomeController@index')->name("farmer.index");

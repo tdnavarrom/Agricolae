@@ -17,6 +17,7 @@ return [
     'reviews' => 'Reviews',
     'aboutUs' => 'About us',
     'contact' => 'Contact',
+    'product' => 'Product',
     'product_add' => 'Create Product',
     'product_edit' => 'Edit Product',
     'product_list' => 'Product List',
@@ -27,6 +28,9 @@ return [
     'product_description' => 'Product\'s Description',
     'product_units' => 'Product\'s sale Units',
     'add_cart' => 'Add to Cart',
+    'add_wishlist' => 'Add to Wish List',
+    "view_product" => "View Product",
+    "wishlist_list" => "Wish List",
     'rscore' => 'Score',
     'review_create' => 'Add Review',
     'review_add' => 'Create Review',
@@ -72,6 +76,7 @@ return [
     'loginMessage' => 'Login to',
 
     // Register messages
+    'user' => 'User',
     'userName' => 'Name',
     'lastName' => 'Last Name',
     'cellPhone' => 'Cell Phone',

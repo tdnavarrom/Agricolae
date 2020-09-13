@@ -27,6 +27,8 @@
 
                         </div>
                         <div class="col">
+                            <b class="subtitle-b">@lang('messages.user'):</b>
+                            <p class="subtitle"> {{ $data["user"]->getEmail() }}</p>
                             <b class="subtitle-b">@lang('messages.review_description'):</b>
                             <p class="subtitle"> {{ $data["review"]->description }}</p>
                         </div>

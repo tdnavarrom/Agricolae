@@ -9,9 +9,9 @@ class Product extends Model
 {
 
     //attributes id, name, price, created_at, updated_at
-    protected $fillable = ['name', 'description', 'category', 'price', 'units', 'image'];
+    protected $fillable = ['user_id' ,'name', 'description', 'category', 'price', 'units', 'images'];
 
-    public static function saveRules()
+    public static function validateRules()
     {
         return [
             "name" => "required|min:4|max:40",
@@ -48,6 +48,16 @@ class Product extends Model
     public function setId($id)
     {
         $this->attributes['id'] = $id;
+    }
+
+    public function getUserId()
+    {
+        return $this->attributes['user_id'];
+    }
+
+    public function setUserId($u_id)
+    {
+        $this->attributes['user_id'] = $u_id;
     }
 
     public function getName()
@@ -108,14 +118,20 @@ class Product extends Model
     public function setImage($image)
     {
         $this->attributes['image'] = $image;
+
+    public function user() 
+    {
+        return $this->belongsTo(User::class);
     }
 
-    public function reviews() {
+    public function reviews() 
+    {
         return $this->hasMany(Review::class);
     }
 
-    /**public function whishList() {
-        return $this->belongsTo(WhishList::class);
-    }**/
+    public function whishList() 
+    {
+        return $this->hasMany(WhishList::class);
+    }
 
 }
