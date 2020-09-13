@@ -8,9 +8,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ asset('css/customStyle.css') }}">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/v4-shims.css">  
 </head>
 <body>
     <div id="app">
@@ -39,11 +38,17 @@
                                 <a class="nav-link dropdown-toggle" href="" id="navbardrop" data-toggle="dropdown"><i class="fa fa-fw fa-user"></i>@lang('messages.account')</a>
                                 <div class="dropdown-menu">
                                     <a class="nav-link text-light" href="{{ route('user.show') }}">@lang('messages.myAccount')</a>
+                                    <div class="dropdown-divider"></div>
                                     <a class="nav-link text-light" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">@lang('messages.logout')</a>
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST">
                                         @csrf
                                     </form>
                                 </div>
+                                @if (Auth::user()->user_type == "farmer")
+                                <li class="nav-item">
+                                    <a class="nav-link text-light" href="{{ route('farmer.index') }}"><i class="fa fa-fw fa-chalkboard"></i>@lang('messages.dashboard')</a>
+                                </li>
+                                @endif
                             </li>
                             @endguest
                             <li class="nav-item">
@@ -58,6 +63,7 @@
                                 </a>
                                 <div class="dropdown-menu">
                                     <a class="dropdown-item" selected href="{{ route('language.setLanguage', 'es') }}">@lang('messages.spanish')</a>
+                                    <div class="dropdown-divider"></div>
                                     <a class="dropdown-item" href="{{ route('language.setLanguage', 'en') }}">@lang('messages.english')</a>
                                 </div>
                             </li>
@@ -93,4 +99,6 @@
         </main>
     </div>
 </body>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </html>
