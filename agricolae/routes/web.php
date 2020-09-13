@@ -14,16 +14,12 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::group(['middleware' => 'lang'], function () {
-    
-    Route::get('/', 'HomeController@index')->name("home.index");
-
-    Route::get('/account/show', 'User\UserController@show')->name("user.show");
-
-    Route::get('/account/edit', 'User\UserController@edit')->name("user.edit");
-
-    Route::post('/account/update', 'User\UserController@update') -> name('user.update');
 
     // User
+    Route::get('/', 'HomeController@index')->name("home.index");
+    Route::get('/account/show', 'User\UserController@show')->name("user.show");
+    Route::get('/account/edit', 'User\UserController@edit')->name("user.edit");
+    Route::post('/account/update', 'User\UserController@update') -> name('user.update');
 
     // Product
     Route::get('/product/show/{id}', 'ProductController@show')->name("product.show");
@@ -40,7 +36,10 @@ Route::group(['middleware' => 'lang'], function () {
     Route::get('dashboard/reviews/{id}/edit', 'ReviewController@edit')->name('review.edit');
     Route::post('dasboard/reviews/{id}/update', 'ReviewController@update')->name('review.update');
 
-
+    //Wishlist
+    Route::get('dashboard/wishlist', 'WishlistController@list')->name('wishlist.list');
+    Route::post('dashboard/wishlist-{product}', 'WishlistController@save')->name('wishlist.save');
+    Route::delete('dashboard/wishlist/{id}/delete', 'WishlistController@delete')->name('wishlist.delete');
 
     //Farmer
 
