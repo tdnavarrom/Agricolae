@@ -52,6 +52,7 @@ h1 {
 .subtitle {
   color: grey;
   font-size: 22px;
+  text-align: center;
 }
 
 .subtitle-b {
@@ -193,4 +194,9 @@ h1 {
 
 .small_green_button:hover {
   opacity: 0.7;
+}
+
+.no-border-heart {
+  border: none;
+  background-color: transparent;
 }
