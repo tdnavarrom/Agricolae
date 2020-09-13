@@ -7,7 +7,6 @@ use Illuminate\Support\Facades\Auth;
 use App\Product;
 use App\Review;
 use App\User;
-use Illuminate\Support\Facades\Auth;
 
 class FarmerReviewController extends Controller
 {
