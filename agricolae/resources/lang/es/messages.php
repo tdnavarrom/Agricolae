@@ -5,6 +5,7 @@ return [
     // Layout messages
     'cart' => 'Carrito',
     'login' => 'Ingresar',
+    'dashboard' => 'Dashboard',
     'logout' => 'Cerrar Sesión',
     'account' => 'Cuenta',
     'myAccount' => 'Mi Cuenta',
@@ -24,7 +25,7 @@ return [
     'product_category' => 'Categoría del Producto',
     'product_price' => 'Precio del Producto',
     'product_description' => 'Descripción del Producto',
-    'product_units' => 'Unidades del Producto',
+    'product_units' => 'Unidades de venta del Producto',
     'add_cart' => 'Agregar al Carrito',
     'score' => 'Calificación',
     'review_create' => 'Añadir Reseña',
@@ -54,7 +55,10 @@ return [
     'view' => 'Visualizar',
     'delete' => 'Eliminar',
     'category' => 'Categoría',
-    
+    'kilogram' => 'Kilogramo',
+    'pound' => 'Libra',
+    'unit' => 'Unidad',
+    'image' => 'Imagen',
 
     // Login messages
     'registerInvitation' => 'Eres nuevo en Agricolae?',
@@ -91,6 +95,10 @@ return [
     'newPasswordConfirm' => 'Confirmar Nueva Contraseña',
     'editButton' => 'Editar',
     'updateButton' => 'Actualizar',
+
+    // Farmer Dashboard
+    'welcomeMessage' => 'Bienvenido',
+    'myProducts' => 'Mis Productos',
 ];
 
 ?>

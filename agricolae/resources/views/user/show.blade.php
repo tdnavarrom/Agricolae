@@ -104,7 +104,7 @@
 
             <br>
 
-            <a href="{{ route('user.edit') }}" class="btn btn-primary btn-lg btn-block" id="updateAccount_button">@lang('messages.editButton')</a>
+            <a href="{{ route('user.edit') }}" class="btn btn-primary btn-lg btn-block" id="button_style1">@lang('messages.editButton')</a>
 
         </div>
     </div>
