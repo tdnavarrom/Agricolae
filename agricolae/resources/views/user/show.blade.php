@@ -21,6 +21,9 @@
             </div>
 
             <div class="row">
+                <div class="col-md-2 ml-4">
+                    <img src="{{ asset('images/users_images/'.$data['user']->getImage()) }}" alt="" class="avatar">
+                </div>
                 <div class="col-md">
                     <div class="card">
                         <div class="card-body" id="name">
@@ -68,7 +71,7 @@
                             <div class="row pr-4">
                                 <div class="col">
                                     <h5 class="card-title">@lang('messages.userType')</h5>
-                                    <p class="card-text">{{ $data["user"]->getUserType() }}</p>
+                                    <p class="card-text">{{ $data["user"]->getType() }}</p>
                                 </div>
                             </div>
                         </div>

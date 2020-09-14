@@ -13,7 +13,7 @@ class FarmerHomeController extends Controller
         $this->middleware('auth');
         $this->middleware(function ($request, $next) 
         {
-            if (Auth::user()->getUserType() == "client")
+            if (Auth::user()->getType() == "client")
             {
                 return redirect()->route('home.index');
             }

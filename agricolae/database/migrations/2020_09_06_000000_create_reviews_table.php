@@ -19,7 +19,7 @@ class CreateReviewsTable extends Migration
             $table->unsignedInteger('product_id');
             $table->text("title");
             $table->text('description');
-            $table->bigInteger('score')->signed();
+            $table->bigInteger('score')->unsigned();
             $table->timestamps();
         });
     }

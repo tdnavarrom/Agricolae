@@ -14,7 +14,6 @@
                 </h1>
 
             </div>
-            @include('util.message')
             <div class="card">
                 <div class="card-body">
                 @if($errors->any())
@@ -30,17 +29,17 @@
 
                     <div class="form-group">
                         <label for="name_product">@lang('messages.product_name')</label>
-                        <input type="text" class='form-control' id='name_product' name="name" value="{{ $data['product']->name }}" minlength="4" maxlength="40" required/>
+                        <input type="text" class='form-control' id='name_product' name="name" value="{{ $data['product']->getName() }}" minlength="4" maxlength="40" required/>
                     </div>
 
                     <div class="form-group">
                         <label for="description">@lang('messages.product_description')</label>
-                        <textarea class="form-control" rows="3" id='description' name="description" minlength="20" maxlength="256" required>{{ $data['product']->description }}</textarea>
+                        <textarea class="form-control" rows="3" id='description' name="description" minlength="20" maxlength="256" required>{{ $data['product']->getDescription() }}</textarea>
                     </div>
 
                     <div class="form-group">
                         <label for="category_product">@lang('messages.product_category')</label>
-                        <select type="text" class='form-control' id='category_product' name="category" value="{{ $data['product']->getCategory() }}">
+                        <select type="text" class='form-control' id='category_product' name="category">
                             <option value='veggies'>@lang('messages.veggies')</option>
                             <option value='tubers'>@lang('messages.tubers')</option>
                             <option value='legumes'>@lang('messages.legumes')</option>
@@ -48,12 +47,15 @@
                             <option value='nuts'>@lang('messages.nuts')</option>
                             <option value='cereals'>@lang('messages.cereals')</option>
                         </select>
+                        <script>
+                            document.getElementById('category_product').value="{{ $data['product']->getCategory() }}"
+                        </script>
                     </div>
 
                     <div class="form-row">
                         <div class="form-group col-md">
                             <label for="product_price">@lang('messages.product_price')</label>
-                            <input type="number" id='product_price' class='form-control' name="price" value="{{ $data['product']->price }}" min='1' required/>
+                            <input type="number" id='product_price' class='form-control' name="price" value="{{ $data['product']->getPrice() }}" min='1' required/>
                         </div>
 
                         <div class="form-group col-md">
@@ -63,6 +65,9 @@
                                 <option value="pound">@lang('messages.pound')</option>
                                 <option value="unit">@lang('messages.unit')</option>
                             </select>
+                            <script>
+                                document.getElementById('units_product').value="{{ $data['product']->getUnits() }}"
+                            </script>
                         </div>
                     </div>
 
