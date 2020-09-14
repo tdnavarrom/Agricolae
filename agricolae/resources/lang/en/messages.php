@@ -9,6 +9,7 @@ return [
     'logout' => 'Logout',
     'account' => 'Account',
     'myAccount' => 'My Account',
+    'myWishList' => 'My WishList',
     'spanish' => 'Spanish',
     'english' => 'English',
     'search' => 'Search...',

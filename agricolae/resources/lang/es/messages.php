@@ -9,6 +9,7 @@ return [
     'logout' => 'Cerrar Sesión',
     'account' => 'Cuenta',
     'myAccount' => 'Mi Cuenta',
+    'myWishList' => 'Mi Lista de Deseos',
     'spanish' => 'Español',
     'english' => 'Ingles',
     'search' => 'Buscar...',
