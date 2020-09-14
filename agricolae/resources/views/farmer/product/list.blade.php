@@ -41,7 +41,7 @@
                 <div class="col-md pb-4">
                     <div class="row">
                         <div class="col-md">
-                            <a href="{{ route('product.show', $product->id) }}" class="btn btn-primary btn-block" id="button_style1">@lang('messages.view')</a>
+                            <a href="{{ route('farmer.product.show', $product->id) }}" class="btn btn-primary btn-block" id="button_style1">@lang('messages.view')</a>
                         </div>
                         <div class="col-md">
                             <a href="{{ route('farmer.product.edit', $product->id) }}" class="btn btn-primary btn-block" id="button_style1">@lang('messages.edit')</a>

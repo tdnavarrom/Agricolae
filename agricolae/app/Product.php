@@ -9,7 +9,7 @@ class Product extends Model
 {
 
     //attributes id, name, price, created_at, updated_at
-    protected $fillable = ['user_id' ,'name', 'description', 'category', 'price', 'units', 'images'];
+    protected $fillable = ['user_id' ,'name', 'description', 'category', 'price', 'units', 'image'];
 
     public static function validateRules()
     {
@@ -118,6 +118,7 @@ class Product extends Model
     public function setImage($image)
     {
         $this->attributes['image'] = $image;
+    }
 
     public function user() 
     {
