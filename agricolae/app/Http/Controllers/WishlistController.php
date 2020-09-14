@@ -30,6 +30,12 @@ class WishlistController extends Controller
     {
         $data = []; //to be sent to the view
         $data["title"] = 'Wishlist';
+
+        if (!Auth::user())
+        {
+            return redirect()->route('home.index')->with('delted' ,"You cannot access this site"); 
+        }
+    
         $user = User::findOrFail(Auth::user()->id);
         $data["wishlists"] = Wishlist::where('user_id', $user->id)->get()->sortByDesc('id');
 

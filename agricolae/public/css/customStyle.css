@@ -52,6 +52,7 @@ h1 {
 .subtitle {
   color: grey;
   font-size: 22px;
+  text-align: center;
 }
 
 .subtitle-b {
@@ -206,4 +207,9 @@ h1 {
   width: 100%;
   height: 15vw;
   object-fit: contain;
+}
+
+.no-border-heart {
+  border: none;
+  background-color: transparent;
 }

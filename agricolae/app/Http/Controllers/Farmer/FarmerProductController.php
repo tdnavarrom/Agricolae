@@ -10,7 +10,6 @@ use App\Product;
 use Illuminate\Support\Facades\Lang;
 use App\User;
 
-
 class FarmerProductController extends Controller
 {
 
@@ -93,18 +92,16 @@ class FarmerProductController extends Controller
         }
 
         $product = new Product;
-        $product::create([
-            'name' => $request['name'],
-            'description' => $request['description'],
-            'category' => $request['category'],
-            'price' => $request['price'],
-            'units' => $request['units'],
-            'image' => $name,
-        ]);
-
-        $message = Lang::get('messages.productCreateSuccess');
-
-        return redirect()->route('farmer.product.list')->with("success", $message);
+        $product->user_id = $user->getId();
+        $product->name = $request["name"];
+        $product->description = $request["description"];
+        $product->category = $request["category"];
+        $product->price = $request["price"];
+        $product->units = $request["units"];
+        $product->image = $name;
+        $product->save();
+        
+        return redirect()->route('farmer.product.list');
     }
 
     public function edit($id)
