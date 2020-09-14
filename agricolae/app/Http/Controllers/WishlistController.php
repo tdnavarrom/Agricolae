@@ -12,6 +12,20 @@ use Illuminate\Support\Facades\Auth;
 class WishlistController extends Controller
 {
 
+    public function __construct()
+    {
+        $this->middleware('auth');
+        $this->middleware(function ($request, $next) 
+        {
+            if (Auth::user())
+            {
+                return $next($request);
+            }
+
+            return redirect()->route('home.index');
+        });
+    }
+
     public function list()
     {
         $data = []; //to be sent to the view
