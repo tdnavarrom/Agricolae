@@ -62,6 +62,7 @@ return [
     'kilogram' => 'Kilogramo',
     'pound' => 'Libra',
     'unit' => 'Unidad',
+    'quantity' => 'Cantidad',
     'image' => 'Imagen',
 
     // Login messages
