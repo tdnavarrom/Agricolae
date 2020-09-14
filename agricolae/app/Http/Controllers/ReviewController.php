@@ -14,37 +14,6 @@ use Illuminate\Support\Facades\Auth;
 class ReviewController extends Controller
 {
 
-    public function show($id)
-    {
-        $data = []; //to be sent to the view
-        $review = Review::findOrFail($id);
-        $product = Product::findOrFail($review->getProductId());
-        $user = User::findOrFail(Auth::user()->id);
-
-        if ($review->getUserId() != $user->getId())
-        {
-            return redirect()->route('home.index')->with('delted' ,"You cannot access this site"); 
-        }
-        
-        $data["title"] = "Review";
-        $data["review"] = $review;
-        $data["product"]["id"]= $product->getId();
-        $data["product"]["name"]= $product->getName();
-
-        return view('review.show')->with("data",$data);
-    }
-
-    public function list()
-    {
-        $data = []; //to be sent to the view
-        $data["title"] = "Reviews";
-        $user = User::findOrFail(Auth::user()->id);
-        $data["reviews"] = Review::where('user_id', $user->id)->get()->sortByDesc('id');
-        
-
-        return view('review.list')->with("data",$data);
-    }
-
     public function create(Product $product)
     {
         $data = []; //to be sent to the view
