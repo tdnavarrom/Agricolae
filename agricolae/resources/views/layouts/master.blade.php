@@ -54,6 +54,9 @@
                             <li class="nav-item">
                                 <a class="nav-link text-light" href="#"><i class="fa fa-fw fa-shopping-cart"></i>@lang('messages.cart')</a>
                             </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-light" href="{{ route('wishlist.list') }}" id="wishlistButton" name="wishlistButton" value="Wish List"><i class="fa fas fa-heart"></i></a>
+                            </li>
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
                                     <i class="fa fa-fw fa-language"></i>
