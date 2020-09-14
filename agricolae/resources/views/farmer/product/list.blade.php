@@ -24,9 +24,9 @@
 
     <div class="row">
         @foreach($data["products"] as $product)
-        <div class="col-md-4">
+        <div class="col-md-4 d-flex align-items-stretch">
             <div class="card my-3">
-                <img class="card-img d-flex justify-content-end" src="{{ asset('images/products_images/'.$product->getImage()) }}" alt="">
+                <img class="card-img d-flex justify-content-end" src="{{ asset('images/products_images/'.$product->getImage()) }}" alt="" id="product_image">
                 <div class="card-img-overlay d-flex justify-content-end">
                     <a href="" class="card-link text-danger like">
                         <i class="fa fa-fw fa-heart"></i>

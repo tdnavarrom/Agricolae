@@ -17,12 +17,12 @@ class UserController extends Controller
         $this->middleware('auth');
         $this->middleware(function ($request, $next) 
         {
-            if (Auth::user()->getUserType() == "client")
+            if (Auth::user())
             {
-                return redirect()->route('home.index');
+                return $next($request);
             }
 
-            return $next($request);
+            return redirect()->route('home.index');
         });
     }
 
@@ -57,21 +57,62 @@ class UserController extends Controller
         $request->validate(User::updateRules($user->id));
 
         if (empty($request->input('password-current')) and empty($request->input('password')))
-        {           
-            $user->update($request->except('password'));
+        {   
+            if ($request->hasFile('image'))
+            {
+                $file = $request->file('image');
+                $name = time().$file->getClientOriginalName();
+                $file->move(public_path().'/images/users_images/', $name);
+
+                $user->update([
+                    'name' => $request->name,
+                    'last_name' => $request->last_name,
+                    'cell_phone' => $request->cell_phone,
+                    'email' => $request->email, 
+                    'image' => $name
+                ]);
+            }
+            else
+            {
+                $user->update([
+                    'name' => $request->name,
+                    'last_name' => $request->last_name,
+                    'cell_phone' => $request->cell_phone,
+                    'email' => $request->email, 
+                ]);
+            }
         }
         else
-        {
-            $user::update([
-                'name' => $request->name,
-                'last_name' => $request->last_name,
-                'cell_phone' => $request->cell_phone,
-                'email' => $request->email, 
-                'password' => Hash::make($request->password),
-            ]);    
+        {   
+            if ($request->hasFile('image'))
+            {
+                $file = $request->file('image');
+                $name = time().$file->getClientOriginalName();
+                $file->move(public_path().'/images/users_images/', $name);
+
+                $user->update([
+                    'name' => $request->name,
+                    'last_name' => $request->last_name,
+                    'cell_phone' => $request->cell_phone,
+                    'email' => $request->email, 
+                    'password' => Hash::make($request->password),
+                    'image' => $name,
+                ]);    
+            } 
+            else 
+            {
+                $user->update([
+                    'name' => $request->name,
+                    'last_name' => $request->last_name,
+                    'cell_phone' => $request->cell_phone,
+                    'email' => $request->email, 
+                    'password' => Hash::make($request->password),
+                ]);    
+            }
+            
         }
 
-            return redirect()->route('user.show');      
+        return redirect()->route('user.show');      
     }
 }
 

@@ -17,7 +17,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'last_name', 'cell_phone', 'email', 'user_type', 'password',
+        'name', 'last_name', 'cell_phone', 'email', 'user_type', 'password', 'image'
     ];
 
     /**
@@ -46,7 +46,7 @@ class User extends Authenticatable
             'cell_phone' => 'required|string|max:50',
             'email' => ['required', Rule::unique('users')->ignore($userId)],
             'password-new' => 'nullable|confirmed|min:8',
-            'password-current' => 'nullable|password|min:8'    
+            'password-current' => 'nullable|password|min:8',
         ];
     }
 
@@ -100,12 +100,12 @@ class User extends Authenticatable
         $this->attributes['email'] = $email;
     }
 
-    public function getUserType() 
+    public function getType() 
     {
         return $this->attributes['user_type'];
     }
 
-    public function setUserType($user_type)
+    public function setType($user_type)
     {
         $this->attributes['user_type'] = $user_type;
     }
@@ -118,6 +118,16 @@ class User extends Authenticatable
     public function setPassword($password)
     {
         $this->attributes['password'] = $password;
+    }
+
+    public function getImage()
+    {
+        return $this->attributes['image'];
+    }
+
+    public function setImage($image)
+    {
+        $this->attributes['image'] = $image;
     }
 
     public function whishList() {

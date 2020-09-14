@@ -7,8 +7,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 use App\Product;
-use App\User;
 use Illuminate\Support\Facades\Lang;
+use App\User;
 
 class FarmerProductController extends Controller
 {
@@ -18,7 +18,7 @@ class FarmerProductController extends Controller
         $this->middleware('auth');
         $this->middleware(function ($request, $next) 
         {
-            if (Auth::user()->getUserType() == "client")
+            if (Auth::user()->getType() == "client")
             {
                 return redirect()->route('home.index');
             }
@@ -137,7 +137,6 @@ class FarmerProductController extends Controller
             return redirect()->route('home.index')->with('delted' ,"You cannot access this site"); 
         }
 
-        
         if ($request->hasFile('image'))
         {
             $file = $request->file('image');
@@ -161,10 +160,10 @@ class FarmerProductController extends Controller
         $message = Lang::get('messages.productEditSuccess');
 
         return redirect()->route('farmer.product.list')->with("success", $message);
-
     }
 
-    public function delete($id){
+    public function delete($id)
+    {
         $product = Product::find($id);
         $user = User::findOrFail(Auth::user()->id);
 
@@ -175,7 +174,9 @@ class FarmerProductController extends Controller
 
         $product->delete();
 
-        return redirect()->route('farmer.product.list');
+        $message = Lang::get('messages.productDeleteSuccess');
+
+        return redirect()->route('farmer.product.list')->with("success", $message);
     }
 
 

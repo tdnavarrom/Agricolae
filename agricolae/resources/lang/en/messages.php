@@ -105,6 +105,9 @@ return [
     // Farmer Dashboard
     'welcomeMessage' => 'Welcome',
     'myProducts' => 'My Products',
+    'productCreateSuccess' => 'Product Created Successfully!',
+    'productEditSuccess' => 'Product Edited Succesfully!',
+    'productDeleteSuccess' => 'Product Deleted Succesfully!',
 
 ];
 
