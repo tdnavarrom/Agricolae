@@ -63,6 +63,7 @@ return [
     'kilogram' => 'Kilogram',
     'pound' => 'Pound',
     'unit' => 'Unit',
+    'quantity' => 'Quantity',
     'image' => 'Image',
  
     // Login messages
