@@ -47,7 +47,7 @@
                             </li>
                             @endguest
                             <li class="nav-item">
-                                <a class="nav-link text-light" href="#"><i class="fa fa-fw fa-shopping-cart"></i>@lang('messages.cart')</a>
+                                <a class="nav-link text-light" href="{{ route('product.cart') }}"><i class="fa fa-fw fa-shopping-cart"></i>@lang('messages.cart')</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link text-light" href="#" id="wishlistButton" name="wishlistButton" value="Wish List"><i class="fa fas fa-heart"></i></a>

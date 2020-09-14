@@ -24,7 +24,22 @@
                 </div>   
                 <h4 style='color:darkcyan;'>@lang('messages.product_description')</h4>
                 <h5>{{ $data["product"]["description"] }}</h5>
-                <p style='padding-top:2%;'><button class='black_button'>@lang('messages.add_cart')</button></p>
+                <p style='padding-top:2%;'> 
+                <div class="row">
+                    <div class="col">
+                        <form action="{{ route('product.addToCart',['id'=> $data['product']->getId()]) }}" method="POST">
+                        @csrf
+                        <div class="col-md-12">Quantity:
+                    </div>
+                    <div class="col">
+                        <input type="number" class="form-control" name="quantity" min="1" style="width: 80px;">
+                        </div>
+                        <div class="form-group col-md-12">
+                        <button class='black_button'>@lang('messages.add_cart')</button></p>
+                        </div>
+                        </div>
+                    </form>
+                </div>
             </div>
         </div>
 
