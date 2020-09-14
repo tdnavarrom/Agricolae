@@ -13,7 +13,6 @@
         <div class="card">
             <h1 class="title_name">{{ $data["product"]["name"] }} </h1>
 
-
             <img class="card-img d-flex justify-content-end" src="{{ asset('images/products_images/'.$data['product']->getImage()) }}" alt="">
             <div class="card-img-overlay d-flex justify-content-end">
                 <form action="{{ route('wishlist.save', $data['product']['id']) }}" method="post">
@@ -22,7 +21,6 @@
                     <button type="submit" class='card-link text-danger like no-border-heart'> <i class="fa fa-fw fa-heart"></i></button>
                 </form>
             </div>
-
             
             <div class="row">
                 <div class="col">
@@ -35,7 +33,14 @@
             </div>
             <h4 style='color:darkcyan;'>@lang('messages.product_description')</h4>
             <h5>{{ $data["product"]["description"] }}</h5>
-            <p style='padding-top:2%;'><button class='black_button'>@lang('messages.add_cart')</button></p>
+            <p style='padding-top:2%;'>
+                <form action="{{ route('product.addToCart',['id'=> $data['product']->getId()]) }}" method="POST">
+                    @csrf
+                    <div class="col-md-12">Quantity:</div>
+                    <input type="number" class="form-control" name="quantity" min="1" style="width: 80px;">
+                    <button class='black_button'>@lang('messages.add_cart')</button>
+                 </form>
+            </p>
         </div>
     </div>
 
