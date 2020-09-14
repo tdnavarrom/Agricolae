@@ -9,20 +9,34 @@ class Product extends Model
 {
 
     //attributes id, name, price, created_at, updated_at
-    protected $fillable = ['name', 'description', 'category', 'price', 'units', 'listed'];
+    protected $fillable = ['user_id' ,'name', 'description', 'category', 'price', 'units', 'image'];
 
     public static function validateRules()
     {
-
         return [
-            "name" => "required|min:8|max:40",
-            "description" => "required|min:128|max:256",
+            "name" => "required|min:4|max:40",
+            "description" => "required|min:20|max:256",
             "category" => [
                 "required",
                 Rule::in(['veggies','tubers','legumes','fruits','nuts','cereals']),
             ],
             "price" => "required|numeric|gt:0",
-            "units" => "required|numeric|gt:0"
+            "units" => "required",
+            "image" => "required",
+        ];
+    }
+
+    public static function updateRules()
+    {
+        return [
+            "name" => "required|min:4|max:40",
+            "description" => "required|min:20|max:256",
+            "category" => [
+                "required",
+                Rule::in(['veggies','tubers','legumes','fruits','nuts','cereals']),
+            ],
+            "price" => "required|numeric|gt:0",
+            "units" => "required",
         ];
     }
 
@@ -34,6 +48,16 @@ class Product extends Model
     public function setId($id)
     {
         $this->attributes['id'] = $id;
+    }
+
+    public function getUserId()
+    {
+        return $this->attributes['user_id'];
+    }
+
+    public function setUserId($u_id)
+    {
+        $this->attributes['user_id'] = $u_id;
     }
 
     public function getName()
@@ -86,21 +110,28 @@ class Product extends Model
         $this->attributes['units'] = $units;
     }
 
-    public function getListed()
+    public function getImage()
     {
-        return $this->attributes['listed'];
-    }
-    
-    public function setListed($listed)
-    {
-        $this->attributes['listed'] = $listed;
+        return $this->attributes['image'];
     }
 
-    public function reviews() {
+    public function setImage($image)
+    {
+        $this->attributes['image'] = $image;
+    }
+
+    public function user() 
+    {
+        return $this->belongsTo(User::class);
+    }
+
+    public function reviews() 
+    {
         return $this->hasMany(Review::class);
     }
 
-    public function whishList() {
+    public function whishList() 
+    {
         return $this->hasMany(WhishList::class);
     }
 

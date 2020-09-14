@@ -63,7 +63,7 @@
 
                         <div class="form-group justify-content-start">
                             <div class="col-md-8">
-                                <button type="submit" class="btn btn-primary">
+                                <button type="submit" class="btn btn-primary" id="button_style1">
                                     @lang('messages.login')
                                 </button>
 
@@ -89,7 +89,7 @@
 
                     <div class="card-body">
                         <p>@lang('messages.registerInvitationMessage')</p>
-                        <button type="submit" class="btn btn-primary btn-block">@lang('messages.registerInvitationButton')</button>
+                        <button type="submit" class="btn btn-primary btn-block" id="button_style1">@lang('messages.registerInvitationButton')</button>
                     </div>
 
                 </form>    

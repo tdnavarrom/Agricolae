@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Review extends Model
 {
 
-    protected $fillable = ['product_id','title', 'description', 'score'];
+    protected $fillable = ['user_id', 'product_id', 'title', 'description', 'score'];
 
     public static function validateRules()
     {
@@ -25,6 +25,16 @@ class Review extends Model
     }
 
     public function setId($id)
+    {
+        $this->attributes['id'] = $id;
+    }
+
+    public function getUserId()
+    {
+        return $this->attributes['id'];
+    }
+
+    public function setUserId($id)
     {
         $this->attributes['id'] = $id;
     }
@@ -69,6 +79,10 @@ class Review extends Model
         $this->attributes['score'] = $score;
     }
 
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 
     public function product()
     {

@@ -12,7 +12,16 @@
     <div class="container justify-content-md-center col-md-8">
         <div class="card">
             <h1 class="title_name">{{ $data["product"]["name"] }} </h1>
-            <button class='black_button'>@lang('messages.add_wishlist')</button></p>
+
+            <img class="card-img d-flex justify-content-end" src="{{ asset('images/products_images/'.$data['product']->getImage()) }}" alt="">
+            <div class="card-img-overlay d-flex justify-content-end">
+                <form action="{{ route('wishlist.save', $data['product']['id']) }}" method="post">
+                    @csrf
+                    <input type="text" name="title" value="Favorites" hidden />
+                    <button type="submit" class='card-link text-danger like no-border-heart'> <i class="fa fa-fw fa-heart"></i></button>
+                </form>
+            </div>
+            
             <div class="row">
                 <div class="col">
                     <p class='subtitle'>@lang('messages.product_price'): {{ $data["product"]["price"] }} $</p>
@@ -27,43 +36,57 @@
             <p style='padding-top:2%;'>
                 <form action="{{ route('product.addToCart',['id'=> $data['product']->getId()]) }}" method="POST">
                     @csrf
-                    <div class="col-md-12">Quantity:
-                    </div>
-                        <input type="number" class="form-control" name="quantity" min="1" style="width: 80px;">
-                <button class='black_button'>@lang('messages.add_cart')</button>
+                    <div class="col-md-12">Quantity:</div>
+                    <input type="number" class="form-control" name="quantity" min="1" style="width: 80px;">
+                    <button class='black_button'>@lang('messages.add_cart')</button>
+                 </form>
             </p>
         </div>
     </div>
-    </form>
-</div>
-</div>
-</div>
 
-<div class="container justify-content-md-center col-md-8">
+    <div class="container justify-content-md-center col-md-8">
 
-    <h1 class="title_name"'>@lang(' messages.reviews')</h1> <div class="row justify-content-md-center mt-4 mb-4">
-        <div class="col-md-4">
-            <a href="{{ route('review.create', $data['product']->id) }}"> <button class='green_button'>@lang('messages.review_create')</button> </a>
-        </div>
-
-</div>
-
-
-<div class="row">
-    @foreach($data['product']->reviews as $review)
-    <div class="col-md-8 col-lg-4">
-        <div class="card">
-            <div class="card-header">
-                <h2 style='display:inline'>{{ $review->title }}</h2>
+        <h1 class="title_name"'>@lang('messages.reviews')</h1> <div class="row justify-content-md-center mt-4 mb-4">
+            <div class="col-md-4">
+                <a href="{{ route('review.create', $data['product']->id) }}"> <button class='green_button'>@lang('messages.review_create')</button> </a>
             </div>
-            <div class="card-body">
-                <b class='subltitle'>@lang('messages.review_score'): {{ $review->score }}</b>
-                <p>{{ $review->description }}</p>
-            </div>
-        </div>
+
     </div>
-    @endforeach
-</div>
+
+
+    <div class="row">
+        @foreach($data['product']->reviews as $review)
+        <div class="col-md-8 col-lg-4">
+            <div class="card">
+                <div class="card-header">
+                    <h2 style='display:inline'>{{ $review->getTitle() }}</h2>
+                </div>
+                <div class="card-body">
+                    <b class='subltitle'>@lang('messages.review_score'): {{ $review->getScore() }}</b>
+                    <p>{{ $review->getDescription() }}</p>
+                </div>
+                @if (Auth::user())
+                    @if (Auth::user()->getId() == $review->getUserId())
+                    <div class="card-footer">
+                        <div class="row justify-content-md-center mt-4 mb-4 ml-2 mr-2s">
+                            <div class="col ml-1">
+                                <a href="{{ route('review.edit', $review->getId()) }}"> <button class='blue_button'>@lang('messages.edit')</button> </a>
+                            </div>
+                            <div class="col mr-1">
+                                <form action="{{ route('review.delete', $review->getId()) }}" method="POST">
+                                    @method('delete')
+                                    @csrf
+                                    <input class='red_button' type='submit' value="@lang('messages.delete')" />
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    @endif
+                @endif
+            </div>
+        </div>
+        @endforeach
+    </div>
 </div>
 </div>
 @endsection
