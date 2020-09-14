@@ -20,7 +20,7 @@
                 </div>
             </div>
 
-            <form action="{{ route('user.update') }}" method="POST">
+            <form action="{{ route('user.update') }}" method="POST" enctype="multipart/form-data">
 
                 @csrf
 
@@ -80,7 +80,14 @@
                             @enderror
 
                         </div>
+
+                        <div class="form-group">
+                            <label for="image">@lang('messages.image')</label>
+                            <input type="file" name="image" class="form-control-file">
+                        </div>
+
                         <hr>
+
                         <div class="form-group">
                             <label for="">@lang('messages.actualPassword')</label>
                             <input type="password" class="form-control @error('password-current') is-invalid @enderror" id="password-current" name="password-current" placeholder="@lang('messages.actualPasswordPlaceHolder')">
@@ -92,6 +99,7 @@
                             @enderror
 
                         </div>
+                        
                         <div class="row">
                             <div class="col-md">
                                 <div class="form-group">
@@ -116,7 +124,7 @@
                     </div>
 
                 </div>
-                <button class="btn btn-primary btn-lg btn-block mt-4" id="updateAccount_button">@lang('messages.updateButton')</button>
+                <button class="btn btn-primary btn-lg btn-block mt-4" id="button_style1">@lang('messages.updateButton')</button>
             </form>
             
         </div>
