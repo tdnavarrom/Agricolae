@@ -8,6 +8,8 @@ use Illuminate\Support\Facades\Auth;
 
 use App\Product;
 use Illuminate\Support\Facades\Lang;
+use App\User;
+
 
 class FarmerProductController extends Controller
 {
@@ -30,6 +32,13 @@ class FarmerProductController extends Controller
     {
         $data = []; //to be sent to the view
         $product = Product::findOrFail($id);
+
+        $user = User::findOrFail(Auth::user()->id);
+
+        if ($product->getUserId() != $user->getId())
+        {
+            return redirect()->route('home.index')->with('delted' ,"You cannot access this site"); 
+        }
         
         $data["title"] = $product->getName();
         $data["product"] = $product;
@@ -41,7 +50,10 @@ class FarmerProductController extends Controller
     {
         $data = []; //to be sent to the view
         $data["title"] = 'Products';
-        $data["products"] = Product::all()->sortByDesc('id');
+
+        $user = User::findOrFail(Auth::user()->id);
+
+        $data["products"] = Product::where('user_id', $user->id)->get()->sortByDesc('id');
         $data["filter"] = 'all';
 
         return view('farmer.product.list')->with("data",$data);
@@ -51,7 +63,8 @@ class FarmerProductController extends Controller
     {
         $data = []; //to be sent to the view
         $data["title"] = ucwords($category) . ' Products';
-        $data["products"] = Product::where('category', $category)->get()->sortByDesc('id');
+        $user = User::findOrFail(Auth::user()->id);
+        $data["products"] = Product::where(['category' => $category, 'user_id' => $user->id])->get()->sortByDesc('id');
         $data["filter"] = $category;
 
         return view('farmer.product.list')->with("data",$data);
@@ -68,7 +81,8 @@ class FarmerProductController extends Controller
 
     public function save(Request $request)
     {   
-        $request->validate(Product::saveRules());
+        $request->validate(Product::validateRules());
+        $user = User::findOrFail(Auth::user()->id);
 
         $name = "";
         if ($request->hasFile('image'))
@@ -99,6 +113,14 @@ class FarmerProductController extends Controller
         $data["title"] = "Edit Product";
         
         $product = Product::findOrFail($id);
+
+        $user = User::findOrFail(Auth::user()->id);
+
+        if ($product->getUserId() != $user->getId())
+        {
+            return redirect()->route('home.index')->with('delted' ,"You cannot access this site"); 
+        }
+
         $data['product'] = $product;
 
         return view('farmer.product.edit')->with(["data" => $data]);
@@ -106,9 +128,17 @@ class FarmerProductController extends Controller
 
     public function update(Request $request, $id)
     {
+
         $request->validate(Product::updateRules());
 
         $product = Product::findOrFail($id);
+        
+        $user = User::findOrFail(Auth::user()->id);
+
+        if ($product->getUserId() != $user->getId())
+        {
+            return redirect()->route('home.index')->with('delted' ,"You cannot access this site"); 
+        }
 
         if ($request->hasFile('image'))
         {
@@ -138,6 +168,13 @@ class FarmerProductController extends Controller
     public function delete($id)
     {
         $product = Product::find($id);
+        $user = User::findOrFail(Auth::user()->id);
+
+        if ($product->getUserId() != $user->getId())
+        {
+            return redirect()->route('home.index')->with('delted' ,"You cannot access this site"); 
+        }
+
         $product->delete();
 
         $message = Lang::get('messages.productDeleteSuccess');

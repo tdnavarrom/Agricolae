@@ -17,6 +17,7 @@ return [
     'reviews' => 'Reseñas',
     'aboutUs' => 'Nosotros',
     'contact' => 'Contacto',
+    'product' => 'Producto',
     'product_add' => 'Crear Producto',
     'product_edit' => 'Editar Producto',
     'product_list' => 'Lista de Productos',
@@ -27,6 +28,9 @@ return [
     'product_description' => 'Descripción del Producto',
     'product_units' => 'Unidades de venta del Producto',
     'add_cart' => 'Agregar al Carrito',
+    'add_wishlist' => 'Agregar a mi Lista de Deseos',
+    "view_product" => "Ver Producto",
+    "wishlist_list" => "Lista De Deseos",
     'score' => 'Calificación',
     'review_create' => 'Añadir Reseña',
     'review_add' => 'Crear Reseña',
@@ -71,6 +75,7 @@ return [
     'loginMessage' => 'Ingresar a',
 
     // Register messages
+    'user' => 'Usuario',
     'userName' => 'Nombre',
     'lastName' => 'Apellido',
     'cellPhone' => 'Celular',
