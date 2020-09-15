@@ -31,12 +31,12 @@ class Review extends Model
 
     public function getUserId()
     {
-        return $this->attributes['id'];
+        return $this->attributes['user_id'];
     }
 
-    public function setUserId($id)
+    public function setUserId($user_id)
     {
-        $this->attributes['id'] = $id;
+        $this->attributes['user_id'] = $user_id;
     }
 
     public function getProductId()

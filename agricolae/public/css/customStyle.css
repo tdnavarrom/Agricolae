@@ -231,3 +231,7 @@ h1 {
   color: #08dd61;
   font-size: 38px;
 }
+
+#cart_quantity {
+  height: 46px;
+}
