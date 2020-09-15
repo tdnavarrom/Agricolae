@@ -7,14 +7,7 @@
 @section('content')
 <div class="container">
 
-    @if ($message = Session::get('success'))
-        <div class="col-md-12 mt-3">
-            <div class="alert alert-success alert-dismissible fade show" role="alert">
-                <button type="button" class="close" data-dismiss="alert">&times;</button>
-                <strong>{{ $message }} </strong>
-            </div>
-        </div>
-    @endif
+    @include('util.message')
     <div class="row justify-content-center">
         <div class="col-md-12">
             

@@ -6,63 +6,58 @@
 
 @section('content')
 
-<div class="container col-md-10 pt-4 justify-content-center">
+<div class="container">
     <div class="row">
-        <div class="container justify-content-md-center col-md-6">
+        <div class="col-md-8 my-5">
             <div class="card">
-                <h4 class="title_name">{{ $data["product"]["name"] }} </h4>
-                <div class="row">
-                    <div class="col">
-
-                        <img class="card-img d-flex justify-content-end" src="{{ asset('images/products_images/'.$data['product']->getImage()) }}" alt="">
-
+                <div class="card-body">
+                    <h1 class="text-center">{{ $data["product"]->getName() }} </h1>
+                    <div class="row">
+                        <div class="col-md">
+                            <img class="card-img d-flex justify-content-end" id="product_image_show" src="{{ asset('images/products_images/'.$data['product']->getImage()) }}" alt="">
+                        </div>
+                        <div class="col-md">
+                            <div class="col-md mt-4 justify-content-left">
+                                <h5 class='subtitle'> <b>@lang('messages.product_id'):</b> {{ $data["product"]->getId() }}</h5>
+                                <h5 class='subtitle'> <b>@lang('messages.product_price'):</b> {{ $data["product"]->getPrice() }} $</h5>
+                                <h5 class='subtitle'> <b>@lang('messages.product_units'):</b> @lang('messages.' . $data["product"]->getUnits()) </h5>
+                                <h5 class='subtitle'><b>@lang('messages.category'):</b> @lang('messages.' . $data["product"]->getCategory())</h5>
+                                <h5 class='subtitle'> <b>@lang('messages.created_at'):</b> {{ $data["product"]->getCreatedAt() }} </h5>
+                                <h5 class='subtitle'> <b>@lang('messages.updated_at'):</b> {{ $data["product"]->getUpdatedAt() }} </h5>
+                            </div>                        
+                        </div>
                     </div>
-                    <div class="col justify-content-md-left">
-                        <h5 class='subtitle'> <b>@lang('messages.product_id'):</b> {{ $data["product"]["id"] }}</h5>
-                        <h5 class='subtitle'> <b>@lang('messages.product_price'):</b> {{ $data["product"]["price"] }} $</h5>
-                        <h5 class='subtitle'> <b>@lang('messages.product_units'):</b> {{ $data["product"]["units"] }} </h5>
-                        <h5 class='subtitle'><b>@lang('messages.category'):</b> {{ $data['product']['category'] }}</h5>
-                        <h5 class='subtitle'> <b>@lang('messages.created_at'):</b> {{ $data["product"]["created_at"] }} </h5>
-                        <h5 class='subtitle'> <b>@lang('messages.updated_at'):</b> {{ $data["product"]["updated_at"] }} </h5>
-                    </div>
-                </div>
-                <div class="container">
-                    <h5 class='subtitle'><b>@lang('messages.product_description'):</b></h5>
-                    <h6 class='subtitle'>{{ $data["product"]["description"] }}</h6>
-                </div>
-
-                <div class="row justify-content-md-center mt-4 mb-4 ml-2 mr-2">
-                    <div class="col ml-1">
-                        <a href="{{ route('farmer.product.edit', $data['product']->getId()) }}"> <button class='blue_button'>@lang('messages.edit')</button> </a>
-                    </div>
-                    <div class="col">
-                        <a href="{{ route('product.show', $data['product']->getId()) }}"> <button class='green_button'>@lang('messages.view')</button> </a>
-                    </div>
-                    <div class="col mr-1">
-                        <form action="{{ route('farmer.product.delete', $data['product']->id) }}" method="post">
-                            @method('delete')
-                            @csrf
-                            <input class='red_button' type='submit' value="@lang('messages.delete')" />
-                        </form>
+                    <div class="col-md">
+                        <h5 class='subtitle'><b>@lang('messages.product_description'):</b></h5>
+                        <h6 class='subtitle'>{{ $data["product"]->getDescription() }}</h6>
                     </div>
                 </div>
-            </div>
+            </div>    
         </div>
-        <div class="container col-md-6">
-            <div class="card">
+        <div class="col-md my-5">
+            <div class="row justify-content-center">
+                <h1>@lang('messages.reviews')</h1>
+            </div>
 
-                @foreach($data['product']->reviews as $review)
+            <div class="row">
+                @foreach($data['product']->reviews as $review)    
+                <div class="col-md">
+                    <div class="card my-3">
 
-                <div class="card-header">
-                    <b class="small_title_main float-left">{{ $review->id }}: {{ $review->title }}</b>
-                    <p class="small_title float-left ml-3 mt-1">@lang('messages.review_score'): {{ $review->score }}</p>
-                    <a href="{{ route('farmer.review.show', [$review->id, $data['product']->id]) }}" class="small_title float-right ml-4 mt-1">@lang('messages.view')</a>
+                        <div class="card-header">
+                            <h2>{{ $review->getTitle() }}</h2>
+                        </div>
+
+                        <div class="card-body">
+                            <b>@lang('messages.review_score'): {{ $review->getScore() }}/5</b>
+                            <p id="description_review">{{ $review->getDescription() }}</p>
+                        </div>
+                    </div>
                 </div>
-
                 @endforeach
-
             </div>
-        </div>
+
+        </div>   
     </div>
 </div>
 @endsection

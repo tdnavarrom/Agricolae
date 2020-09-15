@@ -8,6 +8,7 @@ use App\Review;
 use App\User;
 use Illuminate\Cache\RedisTaggedCache;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Lang;
 
 //use App\User;
 
@@ -52,7 +53,9 @@ class ReviewController extends Controller
         
         $review->save();
 
-        return redirect()->route('product.show' ,$product->getId());
+        $message = Lang::get('messages.reviewSavedSuccess');
+
+        return redirect()->route('product.show' ,$product->getId())->with("success",$message);
     }
 
     public function edit($id)
@@ -73,8 +76,10 @@ class ReviewController extends Controller
         $request->validate(Review::validateRules());
 
         $review->update($request->all());
+
+        $message = Lang::get('messages.reviewEditSuccess');
         
-        return redirect()->route('product.show', [$review->product_id])->with('success', 'Review has been succesfully edited');
+        return redirect()->route('product.show', [$review->product_id])->with('success',$message);
 
     }
 
@@ -83,7 +88,10 @@ class ReviewController extends Controller
         $review = Review::find($id);
 
         $review->delete();
-        return redirect()->route('product.show', [$review->product_id])->with('deleted', 'Review has been deleted!');
+
+        $message = Lang::get('messages.reviewDeleteSuccess');
+
+        return redirect()->route('product.show', [$review->product_id])->with('success',$message);
     }
 
 

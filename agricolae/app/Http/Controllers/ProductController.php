@@ -7,6 +7,7 @@ use Illuminate\Validation\Rule;
 use App\Product;
 use App\Order;
 use App\Item;
+use Illuminate\Support\Facades\Lang;
 
 class ProductController extends Controller
 {
@@ -45,30 +46,51 @@ class ProductController extends Controller
     public function addToCart($id, Request $request)
     {
         $data = []; //to be sent to the view
-        $quantity = $request->quantity;
+        
+        $quantity = $request["quantity"];
         $products = $request->session()->get("products");
         $products[$id] = $quantity;
         $request->session()->put('products', $products);
-        return back();
+
+        $message = Lang::get('messages.cartAddSuccess');
+
+        return redirect()->route('product.list_all')->with("success", $message);
     }
 
     public function removeCart(Request $request)
     {
         $request->session()->forget('products');
-        return redirect()->route('product.list_all');
+
+        $message = Lang::get('messages.cartDeleteSuccess');
+
+        return back()->with("success", $message);
     }
 
     public function cart(Request $request)
     {
+        $data = [];
+
+        $precioTotal = 0;
         $products = $request->session()->get("products");
         if($products){
             $keys = array_keys($products);
             $productsModels = Product::find($keys);
             $data["products"] = $productsModels;
+            
+            for ($i=0;$i<count($keys);$i++)
+            {
+                $productActual = Product::find($keys[$i]);
+                $precioTotal = $precioTotal + $productActual->getPrice()*$products[$keys[$i]];
+            }
+            $data["total_price"] = $precioTotal;
+            
             return view('product.cart')->with("data",$data);
         }
-
-        return redirect()->route('product.list_all');
+        else
+        {
+            $data["products"] = $products;
+            return view('product.cart')->with("data",$data);
+        }
     }
 
     public function buy(Request $request)
@@ -82,7 +104,8 @@ class ProductController extends Controller
         $products = $request->session()->get("products");
         if($products){
             $keys = array_keys($products);
-            for($i=0;$i<count($keys);$i++){
+            for ($i=0;$i<count($keys);$i++)
+            {
                 $item = new Item();
                 $item->setProductId($keys[$i]);
                 $item->setOrderId($order->getId());

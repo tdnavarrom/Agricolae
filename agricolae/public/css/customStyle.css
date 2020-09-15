@@ -215,7 +215,6 @@ h1 {
 }
 
 #no-space-break {
-  white-space: nowrap;
   position: relative;
 }
 
@@ -234,4 +233,15 @@ h1 {
 
 #cart_quantity {
   height: 46px;
+}
+
+#cart_image {
+  justify-content: start;
+  width: 100%;
+  height: 4vw;
+  object-fit: contain;
+}
+
+#card_product {
+  height: calc(100% - 30px);
 }
