@@ -155,7 +155,8 @@ class Product extends Model
         return $this->hasMany(WhishList::class);
     }
 
-    public function items(){
+    public function items()
+    {
         return $this->hasMany(Item::class);
     }
 
