@@ -7,6 +7,7 @@ use Illuminate\Validation\Rule;
 use App\Product;
 use App\Order;
 use App\Item;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Lang;
 
 class ProductController extends Controller
@@ -70,28 +71,36 @@ class ProductController extends Controller
     {
         $data = [];
 
-        $precioTotal = 0;
-        $products = $request->session()->get("products");
-        if ($products)
+        if (Auth::user())
         {
-            $keys = array_keys($products);
-            $productsModels = Product::find($keys);
-            $data["products"] = $productsModels;
-            
-            for ($i=0;$i<count($keys);$i++)
+            $precioTotal = 0;
+            $products = $request->session()->get("products");
+            if ($products)
             {
-                $productActual = Product::find($keys[$i]);
-                $precioTotal = $precioTotal + $productActual->getPrice()*$products[$keys[$i]];
+                $keys = array_keys($products);
+                $productsModels = Product::find($keys);
+                $data["products"] = $productsModels;
+                
+                for ($i=0;$i<count($keys);$i++)
+                {
+                    $productActual = Product::find($keys[$i]);
+                    $precioTotal = $precioTotal + $productActual->getPrice()*$products[$keys[$i]];
+                }
+                $data["total_price"] = $precioTotal;
+                
+                return view('product.cart')->with("data",$data);
             }
-            $data["total_price"] = $precioTotal;
-            
-            return view('product.cart')->with("data",$data);
+            else
+            {
+                $data["products"] = $products;
+                return view('product.cart')->with("data",$data);
+            }
         }
         else
         {
-            $data["products"] = $products;
-            return view('product.cart')->with("data",$data);
+            return view('home.index');
         }
+
     }
 
     public function buy(Request $request)
