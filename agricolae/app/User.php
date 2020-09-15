@@ -133,4 +133,8 @@ class User extends Authenticatable
     public function whishList() {
         return $this->hasMany(WhishList::class);
     }
+
+    public function location() {
+        return $this->hasOne(Location::class);
+    }
 }
