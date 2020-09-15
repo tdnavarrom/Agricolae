@@ -100,8 +100,10 @@ class FarmerProductController extends Controller
         $product->units = $request["units"];
         $product->image = $name;
         $product->save();
+
+        $message = Lang::get('messages.productCreateSuccess');
         
-        return redirect()->route('farmer.product.list');
+        return redirect()->route('farmer.product.list')->with("success", $message);
     }
 
     public function edit($id)

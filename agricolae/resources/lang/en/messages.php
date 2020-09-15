@@ -110,15 +110,36 @@ return [
     // Farmer Dashboard
     'welcomeMessage' => 'Welcome',
     'myProducts' => 'My Products',
-    'productCreateSuccess' => 'Product Created Successfully!',
-    'productEditSuccess' => 'Product Edited Succesfully!',
-    'productDeleteSuccess' => 'Product Deleted Succesfully!',
 
-    //products
+    // Products
     'pounds' => 'Pound',
     'kilogram' => 'Kilogram',
     'unit' => 'Unit',
-    'soldBy' => 'Sold By:',
+    'veggies' => 'Veggies',
+    'tubers' => 'Tubers',
+    'legumes' => 'Legumes',
+    'fruits' => 'Fruits',
+    'nuts' => 'Nuts',
+    'cereals' => 'Cereals',
+    'soldBy' => 'Sold By',
+
+    // Cart
+    'cart_title' => 'Cart',
+    'quantity' => 'Quantity',
+    'order_total_price' => 'Total',
+    'buy' => 'Buy',
+
+    // Messages
+    'productCreateSuccess' => 'Product Created Successfully!',
+    'productEditSuccess' => 'Product Edited Successfully!',
+    'productDeleteSuccess' => 'Product Deleted Successfully!',
+    'cartAddSuccess' => 'Product Added to the Cart!',
+    'cartDeleteSuccess' => 'Cart Deleted Successfully!',
+    'reviewSavedSuccess' => 'Review Created Successfully!',
+    'reviewEditSuccess' => 'Review Edited Successfully!',
+    'reviewDeleteSuccess' => 'Review Deleted Successfully!',
+    'wishlistSavedSuccess' => 'Product Added to the WishList!',
+    'wishlistDeleteSuccess' => 'Product Deleted from the WishList Successfully!',
 
 ];
 

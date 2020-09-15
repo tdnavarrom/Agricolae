@@ -8,6 +8,7 @@ use App\Product;
 use App\User;
 use Illuminate\Cache\RedisTaggedCache;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Lang;
 
 class WishlistController extends Controller
 {
@@ -54,20 +55,18 @@ class WishlistController extends Controller
         $wishlist->user_id = $user->getId();
         $wishlist->save();
 
-        return redirect()->route('wishlist.list');
+        $message = Lang::get('messages.wishlistSavedSuccess');
+
+        return redirect()->route('wishlist.list')->with('success',$message);
     }
 
-    public function delete($id){
+    public function delete($id)
+    {
         $wishlist = Wishlist::find($id);
-
-        $user = User::findOrFail(Auth::user()->id);
-
-        if ($wishlist->getUserId() != $user->getId())
-        {
-            return redirect()->route('home.index')->with('deleted' ,"You cannot access this site"); 
-        }
-
         $wishlist->delete();
-        return redirect()->route('wishlist.list')->with('deleted', 'Wish List has been deleted!');
+        
+        $message = Lang::get('messages.wishlistDeleteSuccess');
+
+        return redirect()->route('wishlist.list')->with("success",$message);
     }
 }
