@@ -65,7 +65,7 @@ class ReviewController extends Controller
 
         if ($review->getUserId() != $user->getId())
         {
-            return redirect()->route('home.index')->with('delted' ,"You cannot access this site"); 
+            return redirect()->route('home.index')->with('deleted' ,"You cannot access this site"); 
         }
 
         $data['review'] = $review;
@@ -75,20 +75,22 @@ class ReviewController extends Controller
 
     public function update(Request $request, $id)
     {
+        $request->validate(Review::updateRules());
+
         $review = Review::findOrFail($id);
 
         $user = User::findOrFail(Auth::user()->id);
 
         if ($review->getUserId() != $user->getId())
         {
-            return redirect()->route('home.index')->with('delted' ,"You cannot access this site"); 
+            return redirect()->route('home.index')->with('deleted' ,"You cannot access this site"); 
         }
 
         $validate = $request->validate(Review::validateRules());
 
         if (!$validate)
         {
-            return redirect()->route('review.show', $id); 
+            return redirect()->route('product.show', $review->getProductId()); 
         }
 
         $review->update($request->only(["title","description","score"]));
@@ -104,7 +106,7 @@ class ReviewController extends Controller
 
         if ($review->getUserId() != $user->getId())
         {
-            return redirect()->route('home.index')->with('delted' ,"You cannot access this site"); 
+            return redirect()->route('home.index')->with('deleted' ,"You cannot access this site"); 
         }
 
         $review->delete();

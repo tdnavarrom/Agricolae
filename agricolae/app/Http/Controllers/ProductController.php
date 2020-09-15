@@ -61,7 +61,8 @@ class ProductController extends Controller
     public function cart(Request $request)
     {
         $products = $request->session()->get("products");
-        if($products){
+        if ($products)
+        {
             $keys = array_keys($products);
             $productsModels = Product::find($keys);
             $data["products"] = $productsModels;
@@ -80,7 +81,8 @@ class ProductController extends Controller
         $precioTotal = 0;
 
         $products = $request->session()->get("products");
-        if($products){
+        if ($products)
+        {
             $keys = array_keys($products);
             for($i=0;$i<count($keys);$i++){
                 $item = new Item();
