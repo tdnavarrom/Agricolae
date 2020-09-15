@@ -60,7 +60,9 @@ class ReviewController extends Controller
         $data = [];
         
         $review = Review::findOrFail($id);
+
         $data["title"] = "Edit Review";
+
         $data['review'] = $review;
 
         return view('review.edit')->with(["data" => $data]);
@@ -68,21 +70,19 @@ class ReviewController extends Controller
 
     public function update(Request $request, $id)
     {
+        $request->validate(Review::updateRules());
         $review = Review::findOrFail($id);
-
         $request->validate(Review::validateRules());
 
         $review->update($request->all());
-        
         return redirect()->route('product.show', [$review->product_id])->with('success', 'Review has been succesfully edited');
-
     }
 
     public function delete($id)
     {
         $review = Review::find($id);
-
         $review->delete();
+      
         return redirect()->route('product.show', [$review->product_id])->with('deleted', 'Review has been deleted!');
     }
 
