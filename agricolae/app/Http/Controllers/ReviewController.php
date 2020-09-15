@@ -63,7 +63,9 @@ class ReviewController extends Controller
         $data = [];
         
         $review = Review::findOrFail($id);
+
         $data["title"] = "Edit Review";
+
         $data['review'] = $review;
 
         return view('review.edit')->with(["data" => $data]);
@@ -71,8 +73,8 @@ class ReviewController extends Controller
 
     public function update(Request $request, $id)
     {
+        $request->validate(Review::updateRules());
         $review = Review::findOrFail($id);
-
         $request->validate(Review::validateRules());
 
         $review->update($request->all());
@@ -86,7 +88,6 @@ class ReviewController extends Controller
     public function delete($id)
     {
         $review = Review::find($id);
-
         $review->delete();
 
         $message = Lang::get('messages.reviewDeleteSuccess');

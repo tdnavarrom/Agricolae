@@ -129,16 +129,24 @@ class User extends Authenticatable
     {
         $this->attributes['image'] = $image;
     }
-
-    public function whishlist() {
-        return $this->hasMany(WhishList::class);
-    }
-    
-    public function products() {
+  
+    public function products() 
+    {
         return $this->hasMany(Product::class);
     }
 
     public function reviews() {
         return $this->hasMany(Review::class);
     }
+
+    public function whishList() 
+    {
+        return $this->hasMany(WhishList::class);
+    }
+
+    public function location() 
+    {
+        return $this->hasOne(Location::class);
+    }
+      
 }
