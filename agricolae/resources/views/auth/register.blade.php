@@ -129,7 +129,7 @@
 
                         <div class="form-group justify-content-start">
                             <div class="col-md-6">
-                                <button type="submit" class="btn btn-primary">
+                                <button type="submit" class="btn btn-primary" id="button_style1">
                                     @lang('messages.register')
                                 </button>
                             </div>

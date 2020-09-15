@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\User;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Lang;
 
 class UserController extends Controller
 {
@@ -112,7 +113,9 @@ class UserController extends Controller
             
         }
 
-        return redirect()->route('user.show');      
+        $message = Lang::get('messages.userEditSuccess');
+
+        return redirect()->route('user.show')->with("success", $message);      
     }
 }
 

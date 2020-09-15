@@ -6,8 +6,17 @@
 
 @section('content')
 <div class="container">
+
+    @if ($message = Session::get('success'))
+        <div class="col-md-12 mt-3">
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                <strong>{{ $message }} </strong>
+            </div>
+        </div>
+    @endif
     <div class="row justify-content-center">
-        <div class="col-md-10">
+        <div class="col-md-12">
             
             <div class="container">
                 <div class="row">
@@ -71,7 +80,7 @@
                             <div class="row pr-4">
                                 <div class="col">
                                     <h5 class="card-title">@lang('messages.userType')</h5>
-                                    <p class="card-text">{{ $data["user"]->getType() }}</p>
+                                    <p class="card-text">@lang('messages.' . $data["user"]->getType())</p>
                                 </div>
                             </div>
                         </div>
