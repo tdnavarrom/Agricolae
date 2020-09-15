@@ -62,7 +62,7 @@
                         <div class="card-body">
                             <b>@lang('messages.review_score'): {{ $review->getScore() }}/5</b>
                             <p id="description_review">{{ $review->getDescription() }}</p>
-
+                        @if (Auth::user())
                             @if (Auth::user()->getId() == $review->getUserId())
                                 <div class="row">
                                     <a href="{{ route('review.edit', $review->getId()) }}" class="btn btn-primary ml-3" id="button_style1"><i class="fa fa-fw fa-edit"></i></a>
@@ -73,6 +73,7 @@
                                     </form>
                                 </div>
                             @endif
+                        @endif
                         </div>
                     </div>
                 </div>
