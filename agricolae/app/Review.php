@@ -13,7 +13,7 @@ class Review extends Model
     {
         return [
             "title" => 'required|min:8|max:40',
-            "description" => "required|min:3|max:256",
+            "description" => "required|min:20|max:256",
             "score" => "required|numeric|gt:0|lt:6"
         ];
     }
