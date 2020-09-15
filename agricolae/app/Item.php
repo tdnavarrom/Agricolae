@@ -50,11 +50,13 @@ class Item extends Model
         $this->attributes['order_id'] = $id;
     }
 
-    public function product(){
+    public function product()
+    {
         return $this->belongsTo(Product::class);
     }
 
-    public function order(){
+    public function order()
+    {
         return $this->belongsTo(Order::class);
     }
 

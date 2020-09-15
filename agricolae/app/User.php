@@ -130,11 +130,13 @@ class User extends Authenticatable
         $this->attributes['image'] = $image;
     }
 
-    public function whishList() {
+    public function whishList() 
+    {
         return $this->hasMany(WhishList::class);
     }
 
-    public function location() {
+    public function location() 
+    {
         return $this->hasOne(Location::class);
     }
 }
