@@ -27,7 +27,7 @@ return [
     'product_category' => 'Categoría del Producto',
     'product_price' => 'Precio del Producto',
     'product_description' => 'Descripción del Producto',
-    'product_units' => 'Unidades de venta del Producto',
+    'product_units' => 'Unidades de venta',
     'add_cart' => 'Agregar al Carrito',
     'add_wishlist' => 'Agregar a mi Lista de Deseos',
     "view_product" => "Ver Producto",
@@ -91,7 +91,7 @@ return [
     'resetPasswordTitle' => 'Restablece tu Contraseña',
     'resetPasswordButton' => 'Enviar',
 
-    // Account detail
+    // Account
     'personalInfo' => 'Información personal',
     'updatePersonalInfo' => 'Actualizar información personal',
     'actualPassword' => 'Contraseña Actual',
@@ -101,6 +101,9 @@ return [
     'newPasswordConfirm' => 'Confirmar Nueva Contraseña',
     'editButton' => 'Editar',
     'updateButton' => 'Actualizar',
+    'userEditSuccess' => 'Cuenta Actualizada Exitosamente!',
+    'client' => 'Cliente',
+    'farmer' => 'Agricultor',
 
     // Farmer Dashboard
     'welcomeMessage' => 'Bienvenido',
@@ -108,6 +111,12 @@ return [
     'productCreateSuccess' => 'Producto Creado Exitosamente!',
     'productEditSuccess' => 'Producto Editado Exitosamente!',
     'productDeleteSuccess' => 'Producto Borrado Exitosamente!',
+
+    // Product
+    'pounds' => 'Libra',
+    'kilogram' => 'Kilogramo',
+    'unit' => 'Unidad',
+    'soldBy' => 'Vendido por:',
 ];
 
 ?>

@@ -27,7 +27,7 @@ return [
     'product_category' => 'Product\'s Category',
     'product_price' => 'Product\'s Price',
     'product_description' => 'Product\'s Description',
-    'product_units' => 'Product\'s sale Units',
+    'product_units' => 'Sale Units',
     'add_cart' => 'Add to Cart',
     'add_wishlist' => 'Add to Wish List',
     "view_product" => "View Product",
@@ -102,6 +102,9 @@ return [
     'newPasswordConfirm' => 'Confirm New Password',
     'editButton' => 'Edit',
     'updateButton' => 'Update',
+    'userEditSuccess' => 'Account Updated Succesfully!',
+    'client' => 'Client',
+    'farmer' => 'Farmer',
 
     // Farmer Dashboard
     'welcomeMessage' => 'Welcome',
@@ -109,6 +112,12 @@ return [
     'productCreateSuccess' => 'Product Created Successfully!',
     'productEditSuccess' => 'Product Edited Succesfully!',
     'productDeleteSuccess' => 'Product Deleted Succesfully!',
+
+    //products
+    'pounds' => 'Pound',
+    'kilogram' => 'Kilogram',
+    'unit' => 'Unit',
+    'soldBy' => 'Sold By:',
 
 ];
 

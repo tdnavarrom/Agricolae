@@ -28,9 +28,6 @@
             <div class="card my-3">
                 <img class="card-img d-flex justify-content-end" src="{{ asset('images/products_images/'.$product->getImage()) }}" alt="" id="product_image">
                 <div class="card-img-overlay d-flex justify-content-end">
-                    <a href="" class="card-link text-danger like">
-                        <i class="fa fa-fw fa-heart"></i>
-                    </a>
                 </div>
                 <div class="card-body">
                     <h4 class="card-title">{{ $product->name }}</h4>

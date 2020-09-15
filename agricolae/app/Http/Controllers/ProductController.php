@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 use App\Product;
+use App\User;
 
 class ProductController extends Controller
 {
@@ -25,6 +26,7 @@ class ProductController extends Controller
     {
         $data = []; //to be sent to the view
         $data["title"] = 'Products';
+        $data["farmers"] = User::where('user_type', 'farmer')->get();
         $data["products"] = Product::all()->sortByDesc('id');
         $data["filter"] = 'all';
 
