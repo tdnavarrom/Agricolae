@@ -26,7 +26,6 @@ class ProductController extends Controller
     {
         $data = []; //to be sent to the view
         $data["title"] = 'Products';
-        $data["farmers"] = User::where('user_type', 'farmer')->get();
         $data["products"] = Product::all()->sortByDesc('id');
         $data["filter"] = 'all';
 
