@@ -19,7 +19,7 @@ class WishlistController extends Controller
 
         if (!Auth::user())
         {
-            return redirect()->route('home.index')->with('delted' ,"You cannot access this site"); 
+            return redirect()->route('home.index')->with('deleted' ,"You cannot access this site"); 
         }
     
         $user = User::findOrFail(Auth::user()->id);
