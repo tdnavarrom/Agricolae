@@ -53,7 +53,7 @@
                             </li>
                             @endguest
                             <li class="nav-item">
-                                <a class="nav-link text-light" href="#"><i class="fa fa-fw fa-shopping-cart"></i>@lang('messages.cart')</a>
+                                <a class="nav-link text-light" href="{{ route('product.cart') }}"><i class="fa fa-fw fa-shopping-cart"></i>@lang('messages.cart')</a>
                             </li>
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
