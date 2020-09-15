@@ -58,16 +58,9 @@ class ReviewController extends Controller
     public function edit($id)
     {
         $data = [];
-        $data["title"] = "Edit Review";
+        
         $review = Review::findOrFail($id);
-
-        $user = User::findOrFail(Auth::user()->id);
-
-        if ($review->getUserId() != $user->getId())
-        {
-            return redirect()->route('home.index')->with('delted' ,"You cannot access this site"); 
-        }
-
+        $data["title"] = "Edit Review";
         $data['review'] = $review;
 
         return view('review.edit')->with(["data" => $data]);
@@ -77,38 +70,20 @@ class ReviewController extends Controller
     {
         $review = Review::findOrFail($id);
 
-        $user = User::findOrFail(Auth::user()->id);
+        $request->validate(Review::validateRules());
 
-        if ($review->getUserId() != $user->getId())
-        {
-            return redirect()->route('home.index')->with('delted' ,"You cannot access this site"); 
-        }
-
-        $validate = $request->validate(Review::validateRules());
-
-        if (!$validate)
-        {
-            return redirect()->route('review.show', $id); 
-        }
-
-        $review->update($request->only(["title","description","score"]));
+        $review->update($request->all());
         
-        return redirect()->route('review.show', [$id, $review->product_id])->with('success', 'Review has been succesfully edited');
+        return redirect()->route('product.show', [$review->product_id])->with('success', 'Review has been succesfully edited');
 
     }
 
-    public function delete($id){
+    public function delete($id)
+    {
         $review = Review::find($id);
 
-        $user = User::findOrFail(Auth::user()->id);
-
-        if ($review->getUserId() != $user->getId())
-        {
-            return redirect()->route('home.index')->with('delted' ,"You cannot access this site"); 
-        }
-
         $review->delete();
-        return redirect()->route('review.list')->with('deleted', 'Review has been deleted!');
+        return redirect()->route('product.show', [$review->product_id])->with('deleted', 'Review has been deleted!');
     }
 
 
