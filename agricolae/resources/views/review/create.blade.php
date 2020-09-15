@@ -6,8 +6,17 @@
 <div class="container mt-2">
     <div class="row justify-content-center">
         <div class="col-md-8">
+
+            <div class="col-md">
+
+                <h1 class="page-header pt-4">
+                    <small>@lang('messages.review_add')</small>
+                    <hr>
+                </h1>
+
+            </div>
+
             <div class="card">
-                <div class="card-header">@lang('messages.review_add')</div>
                 <div class="card-body">
                 @if($errors->any())
                 <ul id="errors">
@@ -35,9 +44,7 @@
                         <input type="number" id='score' class='form-control' name="score" placeholder="@lang('messages.add_score')" value="{{ old('score') }}" min="1" max="5" required/>
                     </div>
 
-                    <button type="submit" class='green_button'>@lang('messages.submit')</button>
-
-
+                    <button type="submit" class='btn btn-primary btn-lg btn-block' id="button_style1">@lang('messages.submit')</button>
                 </form>
 
                 </div>

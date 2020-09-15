@@ -40,6 +40,7 @@ return [
     'review_description' => 'Descripción de la Reseña',
     'review_score' => 'Calificación de la Reseña',
     'review_list' => 'Lista de Reseña',
+    'add_title' => 'Añadir Titulo',
     'add_name' => 'Añadir Nombre',
     'add_description' => 'Añadir Descripción',
     'add_score' => 'Agregar Calificación (1 a 5)',
@@ -117,7 +118,31 @@ return [
     'pounds' => 'Libra',
     'kilogram' => 'Kilogramo',
     'unit' => 'Unidad',
-    'soldBy' => 'Vendido por:',
+    'veggies' => 'Vegetales',
+    'tubers' => 'Tubérculos',
+    'legumes' => 'Legumbres',
+    'fruits' => 'Frutas',
+    'nuts' => 'Nueces',
+    'cereals' => 'Cereales',
+    'soldBy' => 'Vendido por',
+
+    // Cart
+    'cart_title' => 'Carrito',
+    'quantity' => 'Cantidad',
+    'order_total_price' => 'Total',
+    'buy' => 'Comprar',
+
+    // Messages
+    'productCreateSuccess' => 'Producto Creado Exitosamente!',
+    'productEditSuccess' => 'Producto Editado Exitosamente!',
+    'productDeleteSuccess' => 'Producto Borrado Exitosamente!',
+    'cartAddSuccess' => 'Producto Añadido al Carrito!',
+    'cartDeleteSuccess' => 'Carrito Eliminado Exitosamente!',
+    'reviewSavedSuccess' => 'Reseña Creada Exitosamente!',
+    'reviewEditSuccess' => 'Reseña Editada Exitosamente!',
+    'reviewDeleteSuccess' => 'Reseña Eliminada Exitosamente!',
+    'wishlistSavedSuccess' => 'Product Añadido a la WishList Exitosamente!',
+    'wishlistDeleteSuccess' => 'Producto Eliminado de la WishList Exitosamente!',
 ];
 
 ?>

@@ -3,9 +3,10 @@
 @extends('layouts.master')
 
 @section("title", $data["title"])
-
+ 
 @section('content')
 <div class="container">
+    @include('util.message')
     <div class="row">
         <div class="col-md-8 my-5">
             <div class="card">
@@ -20,17 +21,12 @@
                         </form>
                     </div>
 
-                    <div class="row text-center">
-                        <div class="col-md">
-                            <h4>@lang('messages.product_price'): ${{ $data["product"]->getPrice() }}</h4>
-                        </div>
-                        <div class="col-md">
-                            <h4>@lang('messages.product_units'): @lang('messages.' . $data["product"]->getUnits() )</h4>
-                        </div>
+                    <div class="col-md">
+                        <h4 class="ml-2 mt-3">@lang('messages.product_price'): ${{ $data["product"]->getPrice() }} / @lang('messages.' . $data["product"]->getUnits())</h4>
                     </div>
                     <div class="col-md">
                         <h4 class="ml-2 mt-3">@lang('messages.product_description'):</h4>
-                        <h5 class="ml-2">{{ $data["product"]->getDescription() }}</h5>
+                        <h6 class="ml-2">{{ $data["product"]->getDescription() }}</h6>
                     </div>
                     <div class='container mt-4 mb-2'>
                         <form action="{{ route('product.addToCart',['id'=> $data['product']->getId()]) }}" method="POST">

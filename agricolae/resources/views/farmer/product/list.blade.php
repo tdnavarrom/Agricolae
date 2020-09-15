@@ -7,14 +7,7 @@
 @section('content')
 <div class="container">
 
-    @if ($message = Session::get('success'))
-        <div class="col-md-12 mt-3">
-            <div class="alert alert-success alert-dismissible fade show" role="alert">
-                <button type="button" class="close" data-dismiss="alert">&times;</button>
-                <strong>{{ $message }} </strong>
-            </div>
-        </div>
-    @endif
+    @include('util.message')
     <div class="col-md-12">
         <h1 class="page-header mt-4">
             <small>@lang('messages.product_list') - @lang('messages.' . $data['filter'])</small>
@@ -24,32 +17,30 @@
 
     <div class="row">
         @foreach($data["products"] as $product)
-        <div class="col-md-4 d-flex align-items-stretch">
-            <div class="card my-3">
+        <div class="col-md-4 align-items-stretch">
+            <div class="card my-3" id="card_product">
                 <img class="card-img d-flex justify-content-end" src="{{ asset('images/products_images/'.$product->getImage()) }}" alt="" id="product_image">
                 <div class="card-img-overlay d-flex justify-content-end">
                 </div>
                 <div class="card-body">
                     <h4 class="card-title">{{ $product->name }}</h4>
-                    <h6>@lang('messages.category'): {{ $product->category }}</h6>
+                    <h6>@lang('messages.category'): @lang('messages.' . $product->getCategory())</h6>
                     <h6>@lang('messages.reviews'): {{ $product->reviews->count() }}</h6>
                 </div>
                 <hr>
-                <div class="col-md pb-4">
-                    <div class="row">
-                        <div class="col-md">
-                            <a href="{{ route('farmer.product.show', $product->id) }}" class="btn btn-primary btn-block" id="button_style1">@lang('messages.view')</a>
-                        </div>
-                        <div class="col-md">
-                            <a href="{{ route('farmer.product.edit', $product->id) }}" class="btn btn-primary btn-block" id="button_style1">@lang('messages.edit')</a>
-                        </div>
-                        <div class="col-md">
-                            <form action="{{ route('farmer.product.delete', $product->id) }}" method="POST">
-                                @method('delete')
-                                @csrf
-                                <button class="btn btn-primary btn-block" id="button_style1" type="submit">@lang('messages.delete')</button>
-                            </form>
-                        </div>
+                <div class="row mx-2 mb-3">
+                    <div class="col-md my-1">
+                        <a href="{{ route('farmer.product.show', $product->id) }}" class="btn btn-primary btn-block" id="button_style1"><i class="fa fa-fw fa-eye"></i></a>
+                    </div>
+                    <div class="col-md my-1">
+                        <a href="{{ route('farmer.product.edit', $product->id) }}" class="btn btn-primary btn-block" id="button_style1"><i class="fa fa-fw fa-edit"></i></a>
+                    </div>
+                    <div class="col-md my-1">
+                        <form action="{{ route('farmer.product.delete', $product->id) }}" method="POST">
+                            @method('delete')
+                            @csrf
+                            <button class="btn btn-primary btn-block" id="button_style1" type="submit"><i class="fa fa-fw fa-trash-alt"></i></button>
+                        </form>
                     </div>
                 </div>
             </div>
