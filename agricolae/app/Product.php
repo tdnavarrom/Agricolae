@@ -9,7 +9,7 @@ class Product extends Model
 {
 
     //attributes id, name, price, created_at, updated_at
-    protected $fillable = ['user_id' ,'name', 'description', 'category', 'price', 'units', 'image'];
+    protected $fillable = ['user_id' ,'name', 'description', 'category', 'price', 'units', 'image', 'created_at', 'updated_at'];
 
     public static function validateRules()
     {
@@ -118,6 +118,26 @@ class Product extends Model
     public function setImage($image)
     {
         $this->attributes['image'] = $image;
+    }
+
+    public function getCreatedAt()
+    {
+        return $this->attributes['created_at'];
+    }
+
+    public function setCreatedAt($created_at)
+    {
+        $this->attributes['created_at'] = $created_at;
+    }
+
+    public function getUpdatedAt()
+    {
+        return $this->attributes['updated_at'];
+    }
+
+    public function setUpdatedAt($updated_at)
+    {
+        $this->attributes['updated_at'] = $updated_at;
     }
 
     public function user() 

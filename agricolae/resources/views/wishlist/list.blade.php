@@ -3,22 +3,38 @@
 @section("title", $data["title"])
 
 @section('content')
-
 <div class="container">
-    <h1 class="title_name">@lang("messages.wishlist_list")</h1>
+
+    @include('util.message')
+    <div class="col-md-12">
+        <h1 class="page-header mt-4">
+            <small>@lang('messages.wishlist_list')</small>
+            <hr>
+        </h1>
+    </div>
+
     <div class="row">
 
         @foreach($data["wishlists"] as $wishlist)
-        <div class="col-sm-12 col-lg-3">
+        <div class="col-md-3">
 
-            <div class="card">
-                <img class="card-img d-flex justify-content-end" src="{{ asset('images/products_images/'.$wishlist->product->getImage()) }}" alt="">
-                <h1 class="subtitle">{{ $wishlist->product->getName() }}</h1>
-                <a href="{{ route('product.show', $wishlist->getProductId()) }}"><button class='black_button'>@lang('messages.view_product')</button></a>
+            <div class="card my-3" id="card_product">
+                <div class="card-body">
+                    <img class="card-img d-flex justify-content-end" id="product_image" src="{{ asset('images/products_images/'.$wishlist->product->getImage()) }}" alt="">
+                    <h3><a href="{{ route('product.show', $wishlist->product->getId()) }}">{{ $wishlist->product->getName() }}</a></h3>
+                    <h6 class="subtitle">@lang('messages.soldBy'): {{ $wishlist->product->user->getName()}} {{ $wishlist->product->user->getLastName() }}</h6>
+                    <hr>
+                    <form action="{{ route('wishlist.delete', $wishlist->getId()) }}" method="POST">
+                        @method('delete')
+                        @csrf
+                        <button type="submit" class="btn btn-primary btn-block" id="button_style1"><i class="fa fa-fw fa-trash-alt"></i></button>
+                    </form>
+                </div>
             </div>
 
         </div>
         @endforeach
+        
     </div>
 </div>
 @endsection

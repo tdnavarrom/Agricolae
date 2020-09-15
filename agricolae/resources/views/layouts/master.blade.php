@@ -60,7 +60,7 @@
                                     <i class="fa fa-fw fa-language"></i>
                                 </a>
                                 <div class="dropdown-menu">
-                                    <a class="dropdown-item" selected href="{{ route('language.setLanguage', 'es') }}">@lang('messages.spanish')</a>
+                                    <a class="dropdown-item" href="{{ route('language.setLanguage', 'es') }}">@lang('messages.spanish')</a>
                                     <div class="dropdown-divider"></div>
                                     <a class="dropdown-item" href="{{ route('language.setLanguage', 'en') }}">@lang('messages.english')</a>
                                 </div>
