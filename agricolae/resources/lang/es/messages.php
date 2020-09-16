@@ -10,6 +10,7 @@ return [
     'account' => 'Cuenta',
     'myAccount' => 'Mi Cuenta',
     'myWishList' => 'Mi Lista de Deseos',
+    'myLocation' => 'Mis direcciónes',
     'spanish' => 'Español',
     'english' => 'Ingles',
     'search' => 'Buscar...',
@@ -132,6 +133,16 @@ return [
     'order_total_price' => 'Total',
     'buy' => 'Comprar',
 
+    // Location
+    'create_location' => "Crear Dirección",
+    'street_name' => "Nombre de la Calle",
+    'street_number' => "Numero de la Calle",
+    'city' => "Ciudad",
+    'state' => "Departamento",
+    'country' => "Pais",
+    'add_street_name' => 'Escribe el Nombre de la Calle',
+    'add_street_number' => 'Escribe el Numero de la Calle',
+
     // Messages
     'productCreateSuccess' => 'Producto Creado Exitosamente!',
     'productEditSuccess' => 'Producto Editado Exitosamente!',
@@ -143,6 +154,9 @@ return [
     'reviewDeleteSuccess' => 'Reseña Eliminada Exitosamente!',
     'wishlistSavedSuccess' => 'Product Añadido a la WishList Exitosamente!',
     'wishlistDeleteSuccess' => 'Producto Eliminado de la WishList Exitosamente!',
+    'locationCreatedSuccess' => 'Direccion Creada Exitosamente!',
+    'locationEditSuccess' => 'Direccion Editada Exitosamente!',
+    'locationDeleteSuccess' => 'Direccion Eliminada Exitosamente!',
 ];
 
 ?>

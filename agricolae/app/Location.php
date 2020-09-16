@@ -1,5 +1,7 @@
 <?php
 
+//Author: Carlos Mesa
+
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
@@ -12,8 +14,8 @@ class Location extends Model
     public static function validateRules()
     {
         return [
-            "street_name" => 'required',
-            "street_number" => 'required',
+            "street_name" => 'required|string|min:2|max:30',
+            "street_number" => 'required|string|min:2|max:30',
             "city" => 'required',
             "state" => 'required',
             "country" => 'required',

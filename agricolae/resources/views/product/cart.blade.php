@@ -1,3 +1,5 @@
+<!--Author: Santiago Pulgarin-->
+
 @extends('layouts.master')
 
 @section('content')
