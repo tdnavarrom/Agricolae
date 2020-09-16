@@ -13,7 +13,7 @@ class CreateLocationTable extends Migration
      */
     public function up()
     {
-        Schema::create('location', function (Blueprint $table) {
+        Schema::create('locations', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->unsignedInteger('user_id');
             $table->text('street_name');
@@ -32,6 +32,6 @@ class CreateLocationTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('location');
+        Schema::dropIfExists('locations');
     }
 }

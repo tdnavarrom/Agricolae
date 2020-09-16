@@ -39,6 +39,14 @@ Route::group(['middleware' => 'lang'], function () {
     Route::post('/account/wishlist/save/{product}', 'WishlistController@save')->name('wishlist.save');
     Route::delete('/account/wishlist/delete/{product}', 'WishlistController@delete')->name('wishlist.delete');
 
+    //Location
+    Route::get('/account/location/list', 'LocationController@list')->name('location.list');
+    Route::get('/account/location/create', 'LocationController@create')->name('location.create');
+    Route::post('/account/location/save', 'LocationController@save')->name('location.save');
+    Route::get('/account/location/edit/{id}', 'LocationController@edit')->name('location.edit');
+    Route::post('/account/location/update/{id}', 'LocationController@update')->name('location.update');
+    Route::delete('/account/location/delete/{id}', 'LocationController@delete')->name('location.delete');
+
     //Cart
     Route::get('/cart/show', 'ProductController@cart')->name("product.cart");
     Route::post('/cart/add-to-cart/{id}', 'ProductController@addToCart')->name("product.addToCart");

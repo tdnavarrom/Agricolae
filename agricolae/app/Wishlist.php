@@ -1,5 +1,7 @@
 <?php
 
+//Author: Carlos Mesa
+
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;

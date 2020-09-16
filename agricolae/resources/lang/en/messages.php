@@ -10,6 +10,7 @@ return [
     'account' => 'Account',
     'myAccount' => 'My Account',
     'myWishList' => 'My WishList',
+    'myLocation' => 'My Address',
     'spanish' => 'Spanish',
     'english' => 'English',
     'search' => 'Search...',
@@ -129,6 +130,16 @@ return [
     'order_total_price' => 'Total',
     'buy' => 'Buy',
 
+    // Location
+    'create_location' => "Create Location",
+    'street_name' => "Street Name",
+    'street_number' => "Street Number",
+    'city' => "City",
+    'state' => "State",
+    'country' => "Country",
+    'add_street_name' => 'Write Street Name',
+    'add_street_number' => 'Write Street Number',
+
     // Messages
     'productCreateSuccess' => 'Product Created Successfully!',
     'productEditSuccess' => 'Product Edited Successfully!',
@@ -140,6 +151,9 @@ return [
     'reviewDeleteSuccess' => 'Review Deleted Successfully!',
     'wishlistSavedSuccess' => 'Product Added to the WishList!',
     'wishlistDeleteSuccess' => 'Product Deleted from the WishList Successfully!',
+    'locationCreatedSuccess' => 'Location Created Successfully!',
+    'locationEditSuccess' => 'Location Edited Successfully!',
+    'locationDeleteSuccess' => 'Location Deleted Successfully!',
 
 ];
 
