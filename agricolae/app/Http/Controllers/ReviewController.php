@@ -1,5 +1,7 @@
 <?php
 
+//Author: Tomas Navarro
+
 namespace App\Http\Controllers;
 
 use App\Product;

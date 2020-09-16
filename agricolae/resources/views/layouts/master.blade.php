@@ -38,7 +38,8 @@
                                 <a class="nav-link dropdown-toggle" href="" id="navbardrop" data-toggle="dropdown"><i class="fa fa-fw fa-user"></i>{{ Auth::user()->getName() }}</a>
                                 <div class="dropdown-menu">
                                     <a class="nav-link text-light" href="{{ route('user.show') }}">@lang('messages.myAccount')</a>
-                                    <a class="nav-link text-light" href="{{ route('wishlist.list') }}" id="wishlistButton" name="wishlistButton">@lang('messages.myWishList')</a>
+                                    <a class="nav-link text-light" href="{{ route('wishlist.list') }}">@lang('messages.myWishList')</a>
+                                    <a class="nav-link text-light" href="{{ route('location.list') }}">@lang('messages.myLocation')</a>
                                     <div class="dropdown-divider"></div>
                                     <a class="nav-link text-light" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">@lang('messages.logout')</a>
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST">

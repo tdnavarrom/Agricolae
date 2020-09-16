@@ -1,5 +1,7 @@
 <?php
 
+//Author: Santiago Pulgarin
+
 namespace App;
 
 use Illuminate\Contracts\Auth\MustVerifyEmail;
