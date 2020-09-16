@@ -1,9 +1,10 @@
 <?php
 
+//Author: Tomas Navarro
+
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Validation\Rule;
 use App\Product;
 use App\Order;
 use App\Item;

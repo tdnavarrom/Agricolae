@@ -1,4 +1,4 @@
-<!--Author: Tomas Navarro-->
+<!--Author: Santiago Pulgarin-->
 
 @extends('layouts.master')
 
