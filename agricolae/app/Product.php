@@ -23,7 +23,10 @@ class Product extends Model
                 Rule::in(['veggies','tubers','legumes','fruits','nuts','cereals']),
             ],
             "price" => "required|numeric|gt:0",
-            "units" => "required",
+            "units" => [
+                "required",
+                Rule::in(['unit','pound','kilogram']),
+            ],
             "image" => "required",
         ];
     }
@@ -38,7 +41,10 @@ class Product extends Model
                 Rule::in(['veggies','tubers','legumes','fruits','nuts','cereals']),
             ],
             "price" => "required|numeric|gt:0",
-            "units" => "required",
+            "units" => [
+                "required",
+                Rule::in(['unit','pound','kilogram']),
+            ],
         ];
     }
 
