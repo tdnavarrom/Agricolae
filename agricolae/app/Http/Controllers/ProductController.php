@@ -10,6 +10,7 @@ use App\Order;
 use App\Item;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Lang;
+use Illuminate\Support\Facades\DB;
 
 class ProductController extends Controller
 {
@@ -29,8 +30,10 @@ class ProductController extends Controller
     {
         $data = []; //to be sent to the view
         $data["title"] = 'Products';
-        $data["products"] = Product::all()->sortByDesc('id');
         $data["filter"] = 'all';
+        $data["products"] = Product::paginate(12);
+        
+        //dd($data["products"]);
 
         return view('product.list')->with("data",$data);
     }
@@ -39,9 +42,9 @@ class ProductController extends Controller
     {
         $data = []; //to be sent to the view
         $data["title"] = ucwords($category) . ' Products';
-        $data["products"] = Product::where('category', $category)->get()->sortByDesc('id');
         $data["filter"] = $category;
-
+        $data["products"] = Product::where('category', $category)->paginate(12);
+       
         return view('product.list')->with("data",$data);
     }
 

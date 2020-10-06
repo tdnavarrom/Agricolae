@@ -8,8 +8,18 @@
     font-size: 20px;
 }
 
+#categories a {
+  color: #08dd61 !important;
+  font-size: 20px; 
+}
+
 i {
   margin: 5px;
+}
+
+.ddown-custom{
+    color: #08dd61 !important;
+    font-size: 20px;
 }
 
 .bg-custom {

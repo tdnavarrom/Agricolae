@@ -78,8 +78,22 @@
                             <li class="nav-item">
                                 <a href="{{ route('home.index') }}" class="level-1 trsn nav-link">@lang('messages.home')</a>
                             </li>
-                            <li class="nav-item">
-                                <a href="{{ route('product.list_all') }}" class="level-1 trsn nav-link">@lang('messages.products')</a>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="level-1 trsn nav-link dropdown-toggle" id="navbardrop" data-toggle="dropdown">@lang('messages.products')</a>
+                                <div class="dropdown-menu" id="categories">
+                                    <a class="nav-link ddown-custom text-light" href="{{ route('product.list_cat','legumes') }}">@lang('messages.legumes')</a>
+                                    <div class="dropdown-divider"></div>
+                                    <a class="nav-link ddown-custom text-light" href="{{ route('product.list_cat', 'tubers') }}">@lang('messages.tubers')</a>
+                                    <div class="dropdown-divider"></div>
+                                    <a class="nav-link ddown-custom text-light" href="{{ route('product.list_cat', 'veggies') }}">@lang('messages.veggies')</a>
+                                    <div class="dropdown-divider"></div>
+                                    <a class="nav-link ddown-custom text-light" href="{{ route('product.list_cat', 'fruits') }}">@lang('messages.fruits')</a>
+                                    <div class="dropdown-divider"></div>
+                                    <a class="nav-link  text-light" href="{{ route('product.list_cat', 'nuts') }}">@lang('messages.nuts')</a>
+                                    <div class="dropdown-divider"></div>
+                                    <a class="nav-link ddown-custom text-light" href="{{ route('product.list_cat', 'cereals') }}">@lang('messages.cereals')</a>
+                                
+                                </div>
                             </li>
                             <li class="nav-item">
                                 <a href="" class="level-1 trsn nav-link">@lang('messages.aboutUs')</a>
