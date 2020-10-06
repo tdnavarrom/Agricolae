@@ -47,16 +47,24 @@ class ProductController extends Controller
 
     public function addToCart($id, Request $request)
     {
-        $data = []; //to be sent to the view
+        if (Auth::user())
+        {
+            $data = []; //to be sent to the view
         
-        $quantity = $request["quantity"];
-        $products = $request->session()->get("products");
-        $products[$id] = $quantity;
-        $request->session()->put('products', $products);
+            $quantity = $request["quantity"];
+            $products = $request->session()->get("products");
+            $products[$id] = $quantity;
+            $request->session()->put('products', $products);
 
-        $message = Lang::get('messages.cartAddSuccess');
+            $message = Lang::get('messages.cartAddSuccess');
 
-        return redirect()->route('product.list_all')->with("success", $message);
+            return redirect()->route('product.list_all')->with("success", $message);
+        }
+        else
+        {
+            return view('auth.login');
+        }
+        
     }
 
     public function removeCart(Request $request)
@@ -99,7 +107,7 @@ class ProductController extends Controller
         }
         else
         {
-            return view('home.index');
+            return view('auth.login');
         }
 
     }

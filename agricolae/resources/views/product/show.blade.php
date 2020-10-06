@@ -28,15 +28,23 @@
                         <h4 class="ml-2 mt-3">@lang('messages.product_description'):</h4>
                         <h6 class="ml-2">{{ $data["product"]->getDescription() }}</h6>
                     </div>
-                    <div class='container mt-4 mb-2'>
+                    <div class='col-md mt-4 mb-2'>
                         <form action="{{ route('product.addToCart',['id'=> $data['product']->getId()]) }}" method="POST">
                             @csrf
-                            <div class="row">
-                                <div class="col-md-2 ml-2">
+                            <div class="input-group">
+                                <div class="col-md-2">
                                     <input type="number" class="form-control" id='cart_quantity' name="quantity" value="1" min="1">
                                 </div>
                                 <div class="col-md">
                                     <button type='submit' class='btn btn-primary btn-lg btn-block add_cart_button' id="button_style1">@lang('messages.add_cart')</button>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-2 ml-2">
+                                    
+                                </div>
+                                <div class="col-md">
+                                    
                                 </div>
                             </div>
                         </form>
