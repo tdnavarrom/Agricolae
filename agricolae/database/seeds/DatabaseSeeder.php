@@ -43,6 +43,6 @@ class DatabaseSeeder extends Seeder
 
         factory(App\User::class, 20)->create();
         factory(App\Product::class, 60)->create();
-        factory(App\Review::class, 300)->create();
+        factory(App\Review::class, 500)->create();
     }
 }
