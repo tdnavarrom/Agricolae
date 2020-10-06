@@ -30,6 +30,11 @@ i {
     background: #08dd61;
 }
 
+#search_icon {
+  height: 2px;
+  margin: 0px;
+}
+
 .carousel-inner .carousel-item{
     max-height: 700px;
 }
@@ -47,9 +52,9 @@ h1 {
 }
 
 #button_style1 {
-    background-color: white !important;
-    border-color: #08dd61 !important;
-    color: #08dd61 !important;
+    background-color: white;
+    border-color: #08dd61;
+    color: #08dd61;
 }
 
 .title_name {
@@ -209,14 +214,12 @@ h1 {
 
 #product_image {
   width: 100%;
-  height: 15vw;
-  object-fit: contain;
+  height: auto;
 }
 
 #product_image_show {
   width: 100%;
-  height: 20vw;
-  object-fit: contain;
+  height: auto;
 }
 
 .no-border-heart {

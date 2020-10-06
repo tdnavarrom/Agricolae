@@ -25,10 +25,16 @@
                     </button>
                     <div class="collapse navbar-collapse justify-content-end" id="navbarCollapse">
                         <ul class="navbar-nav ml-auto">
-                            <form class="form-inline" action="">
-                                <input class="form-control mr-sm-2" type="text" placeholder="@lang('messages.search')">
-                                <button class="btn btn-success"  id="search" type="submit"><i class="fa fa-fw fa-search"></i></button>
-                            </form>
+                            <li class="nav-item">
+                                <form class="form" action="">
+                                    <div class="input-group mt-1">
+                                        <input class="form-control" type="text" placeholder="@lang('messages.search')">    
+                                        <div class="input-group-append">
+                                            <button class="btn btn-success" id="search" type="submit"><i class="fa fa-fw fa-search" id="search_icon"></i></button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </li>
                             @guest
                             <li class="nav-item">
                                 <a class="nav-link text-light" href="{{ route('login') }}"><i class="fa fa-fw fa-user"></i>@lang('messages.login')</a>
