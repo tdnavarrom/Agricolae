@@ -37,5 +37,8 @@
         </div>
         @endforeach
     </div>
+
+    {{ $data["products"]->links() }}
+    
 </div>
 @endsection

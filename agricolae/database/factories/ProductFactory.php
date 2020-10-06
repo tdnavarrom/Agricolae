@@ -8,12 +8,12 @@ use Illuminate\Support\Str;
 
 $factory->define(Product::class, function (Faker $faker) {
     return [
-        'user_id' => 1,
+        'user_id' => $faker->numberBetween($min = 1, $max = 3),
         'name'   => $faker->text(40),
         'description'    => $faker->text(100),
         'category' => $faker->randomElement(['veggies','tubers','legumes','fruits','nuts','cereals']),
         'price' => $faker->numberBetween($min = 1000, $max = 100000),
-        'units' => $faker->numberBetween($min = 1, $max = 1000000),
-        'image' => $faker->imageUrl($width = 640, $height = 480) // 'http://lorempixel.com/640/480/'
+        'units' => $faker->randomElement(['unit','pound','kilogram']),
+        'image' => '1601987684462773.jpg'
     ];
 });
