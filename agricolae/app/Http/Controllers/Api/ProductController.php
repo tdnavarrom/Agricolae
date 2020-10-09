@@ -15,7 +15,7 @@ class ProductController extends Controller
      */ 
     public function index()
     {
-        //
+        return response()->json(Product::paginate());
     }
 
     /**
@@ -58,7 +58,7 @@ class ProductController extends Controller
      */
     public function show(Product $product)
     {
-        //
+        return response()->json($product, 200);
     }
 
     /**
@@ -70,7 +70,10 @@ class ProductController extends Controller
      */
     public function update(Request $request, Product $product)
     {
-        //
+        $product->update($request->all());
+
+        return response()->json($product, 200);
+
     }
 
     /**
@@ -81,6 +84,8 @@ class ProductController extends Controller
      */
     public function destroy(Product $product)
     {
-        //
+        $product->delete();
+
+        return response()->json(null, 204);
     }
 }
