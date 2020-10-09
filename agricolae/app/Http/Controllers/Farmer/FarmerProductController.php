@@ -54,7 +54,7 @@ class FarmerProductController extends Controller
 
         $user = User::findOrFail(Auth::user()->id);
 
-        $data["products"] = Product::where('user_id', $user->id)->get()->sortByDesc('id');
+        $data["products"] = Product::where('user_id', $user->id)->paginate(12);
         $data["filter"] = 'all';
 
         return view('farmer.product.list')->with("data",$data);
@@ -65,7 +65,7 @@ class FarmerProductController extends Controller
         $data = []; //to be sent to the view
         $data["title"] = ucwords($category) . ' Products';
         $user = User::findOrFail(Auth::user()->id);
-        $data["products"] = Product::where(['category' => $category, 'user_id' => $user->id])->get()->sortByDesc('id');
+        $data["products"] = Product::where(['category' => $category, 'user_id' => $user->id])->paginate(12);
         $data["filter"] = $category;
 
         return view('farmer.product.list')->with("data",$data);
