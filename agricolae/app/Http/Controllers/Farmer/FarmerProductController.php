@@ -86,6 +86,7 @@ class FarmerProductController extends Controller
         $user = User::findOrFail(Auth::user()->id);
 
         $name = "";
+        dd($request);
         if ($request->hasFile('image'))
         {
             $file = $request->file('image');
