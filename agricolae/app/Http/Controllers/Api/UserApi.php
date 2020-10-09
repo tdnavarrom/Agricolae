@@ -3,10 +3,10 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
-use App\Product;
+use App\User;
 use Illuminate\Http\Request;
 
-class ProductApi extends Controller
+class UserApi extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,7 +15,7 @@ class ProductApi extends Controller
      */ 
     public function index()
     {
-        return Product::all();
+        return User::where('user_type', 'farmer')->get();
     }
     /**
      * Display the specified resource.
@@ -25,6 +25,12 @@ class ProductApi extends Controller
      */
     public function show($id)
     {
-        return Product::findOrFail($id);;
+        $user = User::findOrFail($id);
+
+        if ($user['user_type'] == 'farmer')
+        {
+            return $user;
+        }
+        return response($status = 403);
     }
 }
