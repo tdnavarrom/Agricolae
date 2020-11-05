@@ -19,7 +19,7 @@
 
             <div class="card">
                 <div class="card-body justify-content-center">
-                    <img src="{{ asset('images/addProduct_farmer.png') }}" alt="img">
+                    <img src="{{ asset('storage/various_images/addProduct_farmer.png') }}" alt="img">
                     <hr>
                     <a href="{{ route('farmer.product.create') }}" class="btn btn-primary" id="button_style1">@lang('messages.product_add')</a>
                 </div>
@@ -30,7 +30,7 @@
 
             <div class="card">
                 <div class="card-body">
-                    <img src="{{ asset('images/showProduct_farmer.png') }}" alt="img">
+                    <img src="{{ asset('storage/various_images/showProduct_farmer.png') }}" alt="img">
                     <hr>
                     <a href="{{ route('farmer.product.list') }}" class="btn btn-primary" id="button_style1">@lang('messages.myProducts')</a>
                 </div>

@@ -1,3 +1,6 @@
 *
 !public/
+!product_images
+!user_images
+!various_images
 !.gitignore
