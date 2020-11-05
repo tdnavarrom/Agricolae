@@ -13,7 +13,6 @@ RUN composer install \
     --no-scripts \
     --prefer-dist
 
-RUN php artisan key:generate
 RUN php artisan migrate
 RUN php artisan db:seed
 RUN chmod -R 777 storage
