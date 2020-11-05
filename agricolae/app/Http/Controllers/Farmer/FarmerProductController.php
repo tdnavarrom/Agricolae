@@ -5,6 +5,7 @@
 namespace App\Http\Controllers\Farmer;
 
 use App\Http\Controllers\Controller;
+use App\Interfaces\ImageStorage;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -33,13 +34,6 @@ class FarmerProductController extends Controller
     {
         $data = []; //to be sent to the view
         $product = Product::findOrFail($id);
-
-        $user = User::findOrFail(Auth::user()->id);
-
-        if ($product->getUserId() != $user->getId())
-        {
-            return redirect()->route('home.index')->with('delted' ,"You cannot access this site"); 
-        }
         
         $data["title"] = $product->getName();
         $data["product"] = $product;
@@ -64,7 +58,9 @@ class FarmerProductController extends Controller
     {
         $data = []; //to be sent to the view
         $data["title"] = ucwords($category) . ' Products';
+
         $user = User::findOrFail(Auth::user()->id);
+
         $data["products"] = Product::where(['category' => $category, 'user_id' => $user->id])->get()->sortByDesc('id');
         $data["filter"] = $category;
 
@@ -85,13 +81,8 @@ class FarmerProductController extends Controller
         $request->validate(Product::validateRules());
         $user = User::findOrFail(Auth::user()->id);
 
-        $name = "";
-        if ($request->hasFile('image'))
-        {
-            $file = $request->file('image');
-            $name = time().$file->getClientOriginalName();
-            $file->move(public_path().'/images/products_images/', $name);
-        }
+        $storeInterface = app(ImageStorage::class);
+        $name = $storeInterface->store_product_image($request);
 
         $product = new Product;
         $product->user_id = $user->getId();
@@ -115,13 +106,6 @@ class FarmerProductController extends Controller
         
         $product = Product::findOrFail($id);
 
-        $user = User::findOrFail(Auth::user()->id);
-
-        if ($product->getUserId() != $user->getId())
-        {
-            return redirect()->route('home.index')->with('delted' ,"You cannot access this site"); 
-        }
-
         $data['product'] = $product;
 
         return view('farmer.product.edit')->with(["data" => $data]);
@@ -133,19 +117,11 @@ class FarmerProductController extends Controller
         $request->validate(Product::updateRules());
 
         $product = Product::findOrFail($id);
-        
-        $user = User::findOrFail(Auth::user()->id);
-
-        if ($product->getUserId() != $user->getId())
-        {
-            return redirect()->route('home.index')->with('delted' ,"You cannot access this site"); 
-        }
 
         if ($request->hasFile('image'))
         {
-            $file = $request->file('image');
-            $name = time().$file->getClientOriginalName();
-            $file->move(public_path().'/images/products_images/', $name);
+            $storeInterface = app(ImageStorage::class);
+            $name = $storeInterface->store_product_image($request);
 
             $product->update([
                 'name' => $request['name'],
@@ -169,13 +145,6 @@ class FarmerProductController extends Controller
     public function delete($id)
     {
         $product = Product::find($id);
-        $user = User::findOrFail(Auth::user()->id);
-
-        if ($product->getUserId() != $user->getId())
-        {
-            return redirect()->route('home.index')->with('delted' ,"You cannot access this site"); 
-        }
-
         $product->delete();
 
         $message = Lang::get('messages.productDeleteSuccess');

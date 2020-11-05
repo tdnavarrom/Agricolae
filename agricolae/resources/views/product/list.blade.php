@@ -16,11 +16,30 @@
         </h1>
     </div>
 
+    <div class="col-md-12 ml-3">
+        <div class="row">
+            <h6 class="pr-2 pt-1">@lang('messages.filter_by')</h6>
+            <a class="px-2" href="{{ route('product.list_all') }}">@lang('messages.all')</a>
+            <h6>-</h6>
+            <a class="px-2" href="{{ route('product.list_cat', 'legumes') }}">@lang('messages.legumes')</a>
+            <h6>-</h6>
+            <a class="px-2" href="{{ route('product.list_cat', 'tubers') }}">@lang('messages.tubers')</a>
+            <h6>-</h6>
+            <a class="px-2" href="{{ route('product.list_cat', 'veggies') }}">@lang('messages.veggies')</a>
+            <h6>-</h6>
+            <a class="px-2" href="{{ route('product.list_cat', 'fruits') }}">@lang('messages.fruits')</a>
+            <h6>-</h6>
+            <a class="px-2" href="{{ route('product.list_cat', 'nuts') }}">@lang('messages.nuts')</a>
+            <h6>-</h6>
+            <a class="px-2" href="{{ route('product.list_cat', 'cereals') }}">@lang('messages.cereals')</a>
+        </div>
+    </div>
+
     <div class="row">
         @foreach($data["products"] as $product)
         <div class="col-md-3 align-items-stretch">
             <div class="card my-3" id="card_product">
-                <img class="card-img d-flex justify-content-end" id="product_image" src="{{ asset('images/products_images/'.$product->getImage()) }}" alt="">
+                <img class="card-img d-flex justify-content-end" id="product_image" src="{{ asset('storage/product_images/'.$product->getImage()) }}" alt="">
                 <div class="card-img-overlay d-flex justify-content-end">
                     <form action="{{ route('wishlist.save', $product->getId()) }}" method="POST">
                         @csrf

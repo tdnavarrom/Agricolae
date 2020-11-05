@@ -19,7 +19,7 @@
         @foreach($data["products"] as $product)
         <div class="col-md-4 align-items-stretch">
             <div class="card my-3" id="card_product">
-                <img class="card-img d-flex justify-content-end" src="{{ asset('images/products_images/'.$product->getImage()) }}" alt="" id="product_image">
+                <img class="card-img d-flex justify-content-end" src="{{ asset('storage/product_images/'.$product->getImage()) }}" alt="" id="product_image">
                 <div class="card-img-overlay d-flex justify-content-end">
                 </div>
                 <div class="card-body">

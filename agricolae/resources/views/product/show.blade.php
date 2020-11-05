@@ -12,7 +12,7 @@
             <div class="card">
                 <div class="card-body">
                     <h1 class="text-center">{{ $data["product"]->getName() }} </h1>
-                    <img class="card-img d-flex justify-content-end" id="product_image_show" src="{{ asset('images/products_images/'.$data['product']->getImage()) }}" alt="">
+                    <img class="card-img d-flex justify-content-end" id="product_image_show" src="{{ asset('storage/product_images/'.$data['product']->getImage()) }}" alt="">
                     <div class="card-img-overlay d-flex justify-content-end">
                         <form action="{{ route('wishlist.save', $data['product']['id']) }}" method="post">
                             @csrf

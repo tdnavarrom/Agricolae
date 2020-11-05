@@ -10,7 +10,6 @@ use App\Order;
 use App\Item;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Lang;
-use Illuminate\Support\Facades\DB;
 
 class ProductController extends Controller
 {
@@ -33,8 +32,6 @@ class ProductController extends Controller
         $data["filter"] = 'all';
         $data["products"] = Product::paginate(12);
         
-        //dd($data["products"]);
-
         return view('product.list')->with("data",$data);
     }
 
