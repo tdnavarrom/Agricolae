@@ -68,6 +68,10 @@ return [
     'quantity' => 'Cantidad',
     'image' => 'Imagen',
     'filter_by' => 'Filtrar por Categoria:',
+    'footer_about_us' => 'Conocenos y comunícate con nosotros',
+    'quick_access' => 'Accesos rapidos',
+    'register_free' => 'Registrate gratis',
+    'login_footer' => 'Iniciar sesion',
 
     // Login messages
     'registerInvitation' => 'Eres nuevo en Agricolae?',
