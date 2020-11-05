@@ -24,7 +24,7 @@
 
             <div class="row">
                 <div class="col-md-2 ml-4">
-                    <img src="{{ asset('images/users_images/'.$data['user']->getImage()) }}" alt="" class="avatar">
+                    <img src="{{ asset('storage/user_images/'.$data['user']->getImage()) }}" alt="" class="avatar">
                 </div>
                 <div class="col-md">
                     <div class="card">

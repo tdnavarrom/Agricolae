@@ -37,7 +37,7 @@
                             </li>
                             @guest
                             <li class="nav-item">
-                                <a class="nav-link text-light" href="{{ route('login') }}"><i class="fa fa-fw fa-user"></i>@lang('messages.login')</a>
+                                <a class="nav-link" href="{{ route('login') }}"><i class="fa fa-fw fa-user"></i>@lang('messages.login')</a>
                             </li>
                             @else
                             <li class="nav-item dropdown">
@@ -84,22 +84,8 @@
                             <li class="nav-item">
                                 <a href="{{ route('home.index') }}" class="nav-link nav">@lang('messages.home')</a>
                             </li>
-                            <li class="nav-item dropdown">
-                                <a href="#" class="nav-link nav dropdown-toggle" id="navbardrop" data-toggle="dropdown">@lang('messages.products')</a>
-                                <div class="dropdown-menu">
-                                    <a class="nav-link" href="{{ route('product.list_cat','legumes') }}">@lang('messages.legumes')</a>
-                                    <div class="dropdown-divider"></div>
-                                    <a class="nav-link" href="{{ route('product.list_cat', 'tubers') }}">@lang('messages.tubers')</a>
-                                    <div class="dropdown-divider"></div>
-                                    <a class="nav-link" href="{{ route('product.list_cat', 'veggies') }}">@lang('messages.veggies')</a>
-                                    <div class="dropdown-divider"></div>
-                                    <a class="nav-link" href="{{ route('product.list_cat', 'fruits') }}">@lang('messages.fruits')</a>
-                                    <div class="dropdown-divider"></div>
-                                    <a class="nav-link" href="{{ route('product.list_cat', 'nuts') }}">@lang('messages.nuts')</a>
-                                    <div class="dropdown-divider"></div>
-                                    <a class="nav-link" href="{{ route('product.list_cat', 'cereals') }}">@lang('messages.cereals')</a>
-                                
-                                </div>
+                            <li class="nav-item">
+                                <a href="{{ route('product.list_all') }}" class="nav-link nav">@lang('messages.products')</a>
                             </li>
                             <li class="nav-item">
                                 <a href="" class="nav-link nav">@lang('messages.aboutUs')</a>
