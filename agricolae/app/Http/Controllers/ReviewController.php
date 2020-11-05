@@ -51,6 +51,11 @@ class ReviewController extends Controller
         $review->title = $request["title"];
         $review->description = $request["description"];
         $review->score = $request["score"];
+
+        $product_rating = $product->getRating();
+        $num_ratings = count(Review::where('product_id',$request->product_id)->get());
+        $product_rating = (($product_rating * $num_ratings)+($request["score"]))/($num_ratings+1);
+        $update = Product::where('id',$request->product_id)->update(['rating' => $product_rating]);
         
         $review->save();
 
@@ -79,6 +84,16 @@ class ReviewController extends Controller
 
         $review->update($request->all());
 
+        $product_rating = Product::findOrFail($review->product_id)->getRating();
+        $num_rating = count(Review::where('product_id',$review->product_id)->get());
+        $product_rating = (($product_rating * $num_rating)-($review->getScore()))/($num_rating-1);
+        Product::where('id',$review->product_id)->update(['rating' => $product_rating]);
+
+        $num_ratings = count(Review::where('product_id',$request->product_id)->get());
+        $product_rating = (($product_rating * $num_ratings)+($request["score"]))/($num_ratings+1);
+        Product::where('id',$request->product_id)->update(['rating' => $product_rating]);
+
+
         $message = Lang::get('messages.reviewEditSuccess');
         
         return redirect()->route('product.show', [$review->product_id])->with('success',$message);
@@ -88,6 +103,12 @@ class ReviewController extends Controller
     public function delete($id)
     {
         $review = Review::find($id);
+        
+        $product_rating = Product::findOrFail($review->product_id)->getRating();
+        $num_rating = count(Review::where('product_id',$review->product_id)->get());
+        $product_rating = (($product_rating * $num_rating)-($review->getScore()))/($num_rating-1);
+        $update = Product::where('id',$review->product_id)->update(['rating' => $product_rating]);
+
         $review->delete();
 
         $message = Lang::get('messages.reviewDeleteSuccess');

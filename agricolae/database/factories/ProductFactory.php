@@ -14,6 +14,7 @@ $factory->define(Product::class, function (Faker $faker) {
         'category' => $faker->randomElement(['veggies','tubers','legumes','fruits','nuts','cereals']),
         'price' => $faker->numberBetween($min = 1000, $max = 100000),
         'units' => $faker->randomElement(['unit','pound','kilogram']),
+        'rating' => $faker->numberBetween($min = 1, $max = 5),
         'image' => '1601987684462773.jpg'
     ];
 });

@@ -26,6 +26,12 @@ Route::group(['middleware' => 'lang'], function () {
     Route::get('/product/show/{id}', 'ProductController@show')->name("product.show");
     Route::get('/product/all', 'ProductController@list_all')->name("product.list_all");
     Route::get('/product/{category}', 'ProductController@list_category')->name("product.list_cat");
+
+    Route::get('/product/all/best', 'ProductController@list_all_best_rating')->name("product.list_all_best_rating");
+    Route::get('/product/all/worst', 'ProductController@list_all_worst_rating')->name("product.list_all_worst_rating");
+
+    Route::get('/product/{category}/best', 'ProductController@list_category_best_rating')->name("product.list_cat_best_rating");
+    Route::get('/product/{category}/worst', 'ProductController@list_category_worst_rating')->name("product.list_cat_worst_rating");
     
     // Review
     Route::get('/product/review/create/{product}', 'ReviewController@create')->name('review.create');
