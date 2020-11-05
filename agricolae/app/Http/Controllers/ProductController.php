@@ -38,6 +38,32 @@ class ProductController extends Controller
         return view('product.list')->with("data",$data);
     }
 
+    public function list_all_best_rating()
+    {
+        $data = []; //to be sent to the view
+        $data["title"] = 'Products';
+        $data["filter"] = 'all';
+        $data["products"] = Product::orderByDesc('rating')->paginate(12);
+        
+        #dd($data["products"]);
+
+        return view('product.list')->with("data",$data);
+    }
+
+    public function list_all_worst_rating()
+    {
+        $data = []; //to be sent to the view
+        $data["title"] = 'Products';
+        $data["filter"] = 'all';
+        $data["products"] = Product::orderBy('rating')->paginate(12);
+        
+        //dd($data["products"]);
+
+        return view('product.list')->with("data",$data);
+    }
+
+
+
     public function list_category($category)
     {
         $data = []; //to be sent to the view
@@ -47,6 +73,31 @@ class ProductController extends Controller
        
         return view('product.list')->with("data",$data);
     }
+
+    public function list_category_best_rating($category)
+    {
+        $data = []; //to be sent to the view
+        $data["title"] = ucwords($category) . ' Products';
+        $data["filter"] = $category;
+        $data["products"] = Product::where('category', $category)->orderByDesc('rating')->paginate(12);
+        
+        //dd($data["products"]);
+
+        return view('product.list')->with("data",$data);
+    }
+
+    public function list_category_worst_rating($category)
+    {
+        $data = []; //to be sent to the view
+        $data["title"] = ucwords($category) . ' Products';
+        $data["filter"] = $category;
+        $data["products"] = Product::where('category', $category)->orderBy('rating')->paginate(12);
+        
+        //dd($data["products"]);
+
+        return view('product.list')->with("data",$data);
+    }
+
 
     public function addToCart($id, Request $request)
     {
