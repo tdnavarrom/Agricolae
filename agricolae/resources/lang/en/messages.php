@@ -68,6 +68,9 @@ return [
     'quantity' => 'Quantity',
     'image' => 'Image',
     'filter_by' => 'Filter by Category:',
+    'footer_about_us' => 'About us and contact',
+    'quick_access' => 'Quick access',
+    'register_free' => 'Register for free',
  
     // Login messages
     'registerInvitation' => 'Are you new on Agricolae?',
@@ -78,6 +81,7 @@ return [
     'rememberMe' => 'Remember Me',
     'forgotPassword' => 'Forgot Your Password?',
     'loginMessage' => 'Login to',
+    'login_footer' => 'Login',
 
     // Register messages
     'user' => 'User',
