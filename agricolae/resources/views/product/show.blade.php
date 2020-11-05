@@ -23,6 +23,7 @@
 
                     <div class="col-md">
                         <h4 class="ml-2 mt-3">@lang('messages.product_price'): ${{ $data["product"]->getPrice() }} / @lang('messages.' . $data["product"]->getUnits())</h4>
+                        <h4 class="ml-2 mt-3">@lang('messages.score'): {{ $data["product"]->getRating() }}</h4>
                     </div>
                     <div class="col-md">
                         <h4 class="ml-2 mt-3">@lang('messages.product_description'):</h4>
