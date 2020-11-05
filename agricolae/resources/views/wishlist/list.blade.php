@@ -22,7 +22,7 @@
 
             <div class="card my-3" id="card_product">
                 <div class="card-body">
-                    <img class="card-img d-flex justify-content-end" id="product_image" src="{{ asset('images/products_images/'.$wishlist->product->getImage()) }}" alt="">
+                    <img class="card-img d-flex justify-content-end" id="product_image" src="{{ asset('storage/product_images/'.$wishlist->product->getImage()) }}" alt="">
                     <h3><a href="{{ route('product.show', $wishlist->product->getId()) }}">{{ $wishlist->product->getName() }}</a></h3>
                     <h6 class="subtitle">@lang('messages.soldBy'): {{ $wishlist->product->user->getName()}} {{ $wishlist->product->user->getLastName() }}</h6>
                     <hr>

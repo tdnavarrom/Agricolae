@@ -67,6 +67,7 @@ return [
     'unit' => 'Unit',
     'quantity' => 'Quantity',
     'image' => 'Image',
+    'filter_by' => 'Filter by Category:',
  
     // Login messages
     'registerInvitation' => 'Are you new on Agricolae?',

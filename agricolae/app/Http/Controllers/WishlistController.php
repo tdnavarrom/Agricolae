@@ -8,7 +8,6 @@ use App\Wishlist;
 use Illuminate\Http\Request;
 use App\Product;
 use App\User;
-use Illuminate\Cache\RedisTaggedCache;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Lang;
 
@@ -33,11 +32,6 @@ class WishlistController extends Controller
     {
         $data = []; //to be sent to the view
         $data["title"] = 'Wishlist';
-
-        if (!Auth::user())
-        {
-            return redirect()->route('home.index')->with('deleted' ,"You cannot access this site"); 
-        }
     
         $user = User::findOrFail(Auth::user()->id);
         $data["wishlists"] = Wishlist::where('user_id', $user->id)->get()->sortByDesc('id');

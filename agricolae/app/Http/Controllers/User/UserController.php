@@ -7,6 +7,7 @@ namespace App\Http\Controllers\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
+use App\Interfaces\ImageStorage;
 use App\User;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Lang;
@@ -57,13 +58,12 @@ class UserController extends Controller
 
         $request->validate(User::updateRules($user->id));
 
-        if (empty($request->input('password-current')) and empty($request->input('password')))
+        if (empty($request->input('password-current')) && empty($request->input('password')))
         {   
             if ($request->hasFile('image'))
             {
-                $file = $request->file('image');
-                $name = time().$file->getClientOriginalName();
-                $file->move(public_path().'/images/users_images/', $name);
+                $storeInterface = app(ImageStorage::class);
+                $name = $storeInterface->store_user_image($request);
 
                 $user->update([
                     'name' => $request->name,
@@ -87,9 +87,8 @@ class UserController extends Controller
         {   
             if ($request->hasFile('image'))
             {
-                $file = $request->file('image');
-                $name = time().$file->getClientOriginalName();
-                $file->move(public_path().'/images/users_images/', $name);
+                $storeInterface = app(ImageStorage::class);
+                $name = $storeInterface->store_user_image($request);
 
                 $user->update([
                     'name' => $request->name,
