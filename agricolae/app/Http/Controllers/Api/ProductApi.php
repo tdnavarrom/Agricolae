@@ -17,6 +17,18 @@ class ProductApi extends Controller
     {
         return Product::all();
     }
+
+    public function bestRating()
+    {
+        return Product::orderBy('rating', 'DESC')->get();
+    }
+
+
+    public function worstRating()
+    {
+        return Product::orderBy('rating', 'ASC')->get();
+    }
+
     /**
      * Display the specified resource.
      *
