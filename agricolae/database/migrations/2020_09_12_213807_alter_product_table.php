@@ -15,7 +15,6 @@ class AlterProductTable extends Migration
     {
         Schema::table('products', function (Blueprint $table) {
             $table->string('image');
-            $table->float('rating');
         });
     }
 
