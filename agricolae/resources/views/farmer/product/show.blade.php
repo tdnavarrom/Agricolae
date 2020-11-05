@@ -19,8 +19,9 @@
                         <div class="col-md">
                             <div class="col-md mt-4 justify-content-left">
                                 <h5 class='subtitle'> <b>@lang('messages.product_id'):</b> {{ $data["product"]->getId() }}</h5>
-                                <h5 class='subtitle'> <b>@lang('messages.product_price'):</b> {{ $data["product"]->getPrice() }} $</h5>
+                                <h5 class='subtitle'> <b>@lang('messages.product_price'):</b> ${{ $data["product"]->getPrice() }}</h5>
                                 <h5 class='subtitle'> <b>@lang('messages.product_units'):</b> @lang('messages.' . $data["product"]->getUnits()) </h5>
+                                <h5 class='subtitle'> <b>@lang('messages.score'):</b> {{ $data["product"]->getRating() }} </h5>
                                 <h5 class='subtitle'><b>@lang('messages.category'):</b> @lang('messages.' . $data["product"]->getCategory())</h5>
                                 <h5 class='subtitle'> <b>@lang('messages.created_at'):</b> {{ $data["product"]->getCreatedAt() }} </h5>
                                 <h5 class='subtitle'> <b>@lang('messages.updated_at'):</b> {{ $data["product"]->getUpdatedAt() }} </h5>
