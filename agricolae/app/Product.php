@@ -11,7 +11,7 @@ class Product extends Model
 {
 
     //attributes id, name, price, created_at, updated_at
-    protected $fillable = ['user_id' ,'name', 'description', 'category', 'price', 'units', 'rating', 'image', 'created_at', 'updated_at'];
+    protected $fillable = ['user_id' ,'name', 'description', 'category', 'price', 'units', 'image', 'created_at', 'updated_at'];
 
     public static function validateRules()
     {
@@ -116,16 +116,6 @@ class Product extends Model
     public function setUnits($units)
     {
         $this->attributes['units'] = $units;
-    }
-
-    public function getRating()
-    {
-        return $this->attributes['rating'];
-    }
-    
-    public function setRating($rating)
-    {
-        $this->attributes['rating'] = $rating;
     }
 
     public function getImage()
