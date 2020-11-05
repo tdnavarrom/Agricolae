@@ -8,7 +8,6 @@ use App\Product;
 use Illuminate\Http\Request;
 use App\Review;
 use App\User;
-use Illuminate\Cache\RedisTaggedCache;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Lang;
 
@@ -75,7 +74,6 @@ class ReviewController extends Controller
 
     public function update(Request $request, $id)
     {
-        $request->validate(Review::updateRules());
         $review = Review::findOrFail($id);
         $request->validate(Review::validateRules());
 

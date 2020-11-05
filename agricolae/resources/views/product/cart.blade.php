@@ -28,7 +28,7 @@
                                 <div class="card-body">
                                     <div class="row">
                                         <div class="col-md-1">
-                                            <img id="cart_image" src="{{ asset('images/products_images/'.$product->getImage()) }}" alt="">
+                                            <img id="cart_image" src="{{ asset('storage/product_images/'.$product->getImage()) }}" alt="">
                                         </div>
                                         <div class="col-md">
                                             <div class="col-md">
