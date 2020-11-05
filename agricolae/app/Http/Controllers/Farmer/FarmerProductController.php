@@ -90,6 +90,7 @@ class FarmerProductController extends Controller
         $product->category = $request["category"];
         $product->price = $request["price"];
         $product->units = $request["units"];
+        $product->rating = 0;
         $product->image = $name;
         $product->save();
 

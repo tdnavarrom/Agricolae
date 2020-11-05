@@ -25,6 +25,7 @@
                 <div class="card-body">
                     <h4 class="card-title">{{ $product->name }}</h4>
                     <h6>@lang('messages.category'): @lang('messages.' . $product->getCategory())</h6>
+                    <h6>@lang('messages.score'): {{ $product->getRating() }}</h6>
                     <h6>@lang('messages.reviews'): {{ $product->reviews->count() }}</h6>
                 </div>
                 <hr>
