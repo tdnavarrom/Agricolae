@@ -71,12 +71,6 @@
 
                     <div class="form-group">
                         <label for="image">@lang('messages.image')</label>
-                        <div class="col-md-4 pl-0 pb-2">
-                            <select type="text" class="form-control" id="type_storage" name="storage" value="{{ old('storage') }}">
-                                <option value="Local">Local</option>
-                                <option value="S3">Amazon AWS S3</option>
-                            </select>
-                        </div>
                         <input type="file" name="image" class="form-control-file" required>
                     </div>
 
