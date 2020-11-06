@@ -56,6 +56,12 @@ h1 {
     color: #08dd61;
 }
 
+#button_style2 {
+  background-color: #08dd61;
+  border-color: white;
+  color: white;
+}
+
 .avatar {
   text-align: center;
   width: 100px;
@@ -108,4 +114,30 @@ h1 {
 
 #card_product {
   height: calc(100% - 30px);
+}
+
+#footer{
+  background-color: #08dd61;
+}
+
+#footer h5 {
+  color: white;
+}
+
+#footer h6 {
+  color: white;
+  font-size: small;
+}
+
+#footer-links a {
+  color: white;
+}
+
+#social_icons i {
+  color: white;
+}
+
+#footer_icons {
+  color: white;
+  font-size: 40px;
 }
