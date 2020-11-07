@@ -33,7 +33,7 @@ return [
     'add_wishlist' => 'Add to Wish List',
     "view_product" => "View Product",
     "wishlist_list" => "Wish List",
-    'rscore' => 'Score',
+    'score' => 'Score',
     'review_create' => 'Add Review',
     'review_add' => 'Create Review',
     'review_edit'=> 'Edit Review',
