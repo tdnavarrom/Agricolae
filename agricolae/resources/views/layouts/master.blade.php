@@ -155,31 +155,6 @@
 
             <hr>
 
-            <div class="row justify-content-center">
-                <div class="col-md-4">
-                    <ul class="list-unstyled list-inline text-center">
-                        <li class="list-inline-item">
-                            <h5 class="mb-1">@lang('messages.register_free')</h5>
-                        </li>
-                        <li class="list-inline-item">
-                            <a href="{{ route('register') }}" class="btn btn-danger btn-rounded" id="button_style2">@lang('messages.register')</a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="col-md-4">
-                    <ul class="list-unstyled list-inline text-center">
-                        <li class="list-inline-item">
-                            <h5 class="mb-1">@lang('messages.login_footer')</h5>
-                        </li>
-                        <li class="list-inline-item">
-                            <a href="{{ route('login') }}" class="btn btn-danger btn-rounded" id="button_style2">@lang('messages.login')</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-
-            <hr>
-
             <ul class="list-unstyled list-inline text-center mb-0 pb-2" id="social_icons">
                 <li class="list-inline-item">
                     <a href="#" class="btn-floating btn-fb mx-1">
@@ -206,7 +181,9 @@
         </footer>
 
     </div>
-</body>
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
 </html>
