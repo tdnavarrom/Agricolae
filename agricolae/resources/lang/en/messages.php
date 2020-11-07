@@ -33,7 +33,7 @@ return [
     'add_wishlist' => 'Add to Wish List',
     "view_product" => "View Product",
     "wishlist_list" => "Wish List",
-    'rscore' => 'Score',
+    'score' => 'Score',
     'review_create' => 'Add Review',
     'review_add' => 'Create Review',
     'review_edit'=> 'Edit Review',
@@ -68,6 +68,9 @@ return [
     'quantity' => 'Quantity',
     'image' => 'Image',
     'filter_by' => 'Filter by Category:',
+    'footer_about_us' => 'About us and contact',
+    'quick_access' => 'Quick access',
+    'register_free' => 'Register for free',
  
     // Login messages
     'registerInvitation' => 'Are you new on Agricolae?',
@@ -78,6 +81,7 @@ return [
     'rememberMe' => 'Remember Me',
     'forgotPassword' => 'Forgot Your Password?',
     'loginMessage' => 'Login to',
+    'login_footer' => 'Login',
 
     // Register messages
     'user' => 'User',
@@ -130,6 +134,13 @@ return [
     'quantity' => 'Quantity',
     'order_total_price' => 'Total',
     'buy' => 'Buy',
+    'pdf-generate' => 'Generate Receipt',
+
+    // Oder
+    'order_receipt' => 'Order\'s Receipt',
+    'order_number' => 'Order\'s Number',
+    'total-sub-price' => 'Subtotal',
+    'total-price' => 'Total Price',
 
     // Location
     'create_location' => "Create Location",

@@ -53,9 +53,9 @@ class ReviewController extends Controller
         $review->score = $request["score"];
 
         $product_rating = $product->getRating();
-        $num_ratings = count(Review::where('product_id',$request->product_id)->get());
+        $num_ratings = count(Review::where('product_id',$product->getId())->get());
         $product_rating = (($product_rating * $num_ratings)+($request["score"]))/($num_ratings+1);
-        $update = Product::where('id',$request->product_id)->update(['rating' => $product_rating]);
+        Product::where('id',$product->getId())->update(['rating' => $product_rating]);
         
         $review->save();
 
@@ -106,7 +106,12 @@ class ReviewController extends Controller
         
         $product_rating = Product::findOrFail($review->product_id)->getRating();
         $num_rating = count(Review::where('product_id',$review->product_id)->get());
-        $product_rating = (($product_rating * $num_rating)-($review->getScore()))/($num_rating-1);
+        if ($num_rating - 1 == 0){
+            $product_rating = 0;
+        }else{
+            $product_rating = (($product_rating * $num_rating)-($review->getScore()))/($num_rating-1);
+        }
+        
         $update = Product::where('id',$review->product_id)->update(['rating' => $product_rating]);
 
         $review->delete();
