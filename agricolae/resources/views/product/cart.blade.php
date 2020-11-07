@@ -13,9 +13,11 @@
             </h1>
             <hr>
         </div>
+        @if (!empty($data["products"]))
         <div class="col-md-1">
             <a href="{{ route('product.removeCart') }}" class="btn btn-primary mt-4 btn-lg btn-block" id="button_style1"><i class="fa fa-fw fa-trash-alt"></i></a>
         </div>
+        @endif
     </div>
 
     @if (!empty($data["products"]))
@@ -62,6 +64,13 @@
             </div>
 
 
+        </div>
+    </div>
+    @else
+    <div class="col-md mt-4">
+        <div class="text-center" id="wishlist">
+            <img src="{{ asset('storage/various_images/carro_vacio.png') }}" alt="">
+            <h3><small>@lang('messages.empty_cart')</small></h3>
         </div>
     </div>
     @endif
