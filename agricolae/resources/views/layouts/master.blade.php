@@ -6,10 +6,12 @@
     <meta charset="UTF-8">
     <title>@yield('title','Home Page')</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" sizes="114x100" href="{{ asset('storage/various_images/Logo-Agricolae-Tab.png') }}" type="image/x-icon">
     <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ asset('css/customStyle.css') }}">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/v4-shims.css">  
+    @mapstyles
 </head>
 <body>
     <div id="app">
@@ -18,7 +20,7 @@
             <nav class="navbar navbar-expand-xl bg-light navbar-light" id="navbar-1">
                 <div class="container">
                     <a class="navbar-brand" href="{{ route('home.index') }}">
-                        <img src="{{ asset('images/Logo-Agricolae.png') }}" alt="Logo" style="width: 200px;">
+                        <img src="{{ asset('storage/various_images/Logo-Agricolae.png') }}" alt="Logo" style="width: 200px;">
                     </a>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse">
                         <span class="navbar-toggler-icon"></span>
@@ -102,8 +104,91 @@
         <main>
             @yield('content')
         </main>
+
+        <footer class="page-footer mt-5" id="footer">
+
+            <div class="container-fluid pt-4" id="footer-links">
+                <div class="row">
+
+                    <div class="col-md-3 mx-auto text-md-center pt-5">
+                        <i class="fa fa-store" id="footer_icons"></i>
+                        <h6 class="subtitle">Agricolae Store</h6>
+                    </div>
+
+                    <hr class="clearfix w-100 d-md-none">
+
+                    <div class="col-md-3 mx-auto text-md-center pt-5">
+                        <i class="fa fa-envelope" id="footer_icons"></i>
+                        <h6 class="subtitle">agricolae-support@gmail.com</h6>
+                    </div>
+
+                    <hr class="clearfix w-100 d-md-none">
+
+                    <div class="col-md-3 mx-auto text-md-center pt-5">
+                        <i class="fa fa-phone" id="footer_icons"></i>
+                        <h6 class="subtitle">+(51) 345713907</h6>
+                    </div>
+
+                    <hr class="clearfix w-100 d-md-none">
+
+                    <div class="col-md-3 mx-auto text-md-left ">
+                        <h5 class="font-weight-bold text-uppercase mt-3 mb-4">@lang('messages.quick_access')</h5>
+                        <hr>
+                        <ul class="list-unstyled">
+                            <li>
+                                <a href="{{ route('home.index') }}">@lang('messages.home')</a>
+                            </li>
+                            <li>
+                                <a href="{{ route('product.list_all') }}">@lang('messages.products')</a>
+                            </li>
+                            <li>
+                                <a href="#!">@lang('messages.aboutUs')</a>
+                            </li>
+                            <li>
+                                <a href="#!">@lang('messages.contact')</a>
+                            </li>
+                        </ul>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <hr>
+
+            <ul class="list-unstyled list-inline text-center mb-0 pb-2" id="social_icons">
+                <li class="list-inline-item">
+                    <a href="#" class="btn-floating btn-fb mx-1">
+                        <i class="fab fa-facebook-f"> </i>
+                    </a>
+                </li>
+                <li class="list-inline-item">
+                    <a href="#" class="btn-floating btn-ig mx-1">
+                        <i class="fab fa-instagram"> </i>
+                    </a>
+                </li>
+                <li class="list-inline-item">
+                    <a href="#" class="btn-floating btn-tw mx-1">
+                        <i class="fab fa-twitter"> </i>
+                    </a>
+                </li>
+                <li class="list-inline-item">
+                    <a href="#" class="btn-floating btn-li mx-1">
+                        <i class="fab fa-linkedin-in"> </i>
+                    </a>
+                </li>
+            </ul>
+
+        </footer>
+
     </div>
+
+    @mapscripts
+    
 </body>
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
 </html>
