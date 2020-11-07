@@ -18,43 +18,50 @@
             </div>
         </div>
 
-        @if (!empty($data["locations"]))
-        <div class="row">
-            <div class="col-md-12">
-                <div class="row">
-                    @foreach($data["locations"] as $location)
-                        <div class="col-md-12">
-                            <div class="card my-2">
-                                <div class="card-body">
-                                    <div class="row">
-                                        <div class="col-md">
-                                            <div class="row">
-                                                <h4>{{ $location->getStreetName() }} # {{ $location->getStreetNumber() }} </h4>
-                                            </div>
-                                            <div class="row">
-                                                <h6>{{ $location->getCity() }} - {{ $location->getState() }} - {{ $location->getCountry() }}</h6>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-2">
+        @if (count($data["locations"]) > 0)
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="row">
+                        @foreach($data["locations"] as $location)
+                            <div class="col-md-12">
+                                <div class="card my-2">
+                                    <div class="card-body">
+                                        <div class="row">
                                             <div class="col-md">
                                                 <div class="row">
-                                                    <a href="{{ route('location.edit', $location->getId()) }}" class="btn btn-primary btn-lg" id="button_style1"><i class="fa fa-fw fa-edit"></i></a>
-                                                    <form action="{{ route('location.delete', $location->getId()) }}" method="POST">
-                                                        @method('delete')
-                                                        @csrf
-                                                        <button type="submit" class="btn btn-primary btn-lg ml-2" id="button_style1"><i class="fa fa-fw fa-trash-alt"></i></button>
-                                                    </form>
+                                                    <h4>{{ $location->getStreetName() }} # {{ $location->getStreetNumber() }} </h4>
+                                                </div>
+                                                <div class="row">
+                                                    <h6>{{ $location->getCity() }} - {{ $location->getState() }} - {{ $location->getCountry() }}</h6>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-2">
+                                                <div class="col-md">
+                                                    <div class="row">
+                                                        <a href="{{ route('location.edit', $location->getId()) }}" class="btn btn-primary btn-lg" id="button_style1"><i class="fa fa-fw fa-edit"></i></a>
+                                                        <form action="{{ route('location.delete', $location->getId()) }}" method="POST">
+                                                            @method('delete')
+                                                            @csrf
+                                                            <button type="submit" class="btn btn-primary btn-lg ml-2" id="button_style1"><i class="fa fa-fw fa-trash-alt"></i></button>
+                                                        </form>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                    @endforeach
+                        @endforeach
+                    </div>
                 </div>
             </div>
-        </div>                
+        @else
+            <div class="col-md mt-4">
+                <div class="text-center" id="wishlist">
+                    <img src="{{ asset('storage/various_images/direcciones_vacio.png') }}" alt="">
+                    <h3><small>@lang('messages.empty_location')</small></h3>
+                </div>
+            </div>                
         @endif
 
     </div>

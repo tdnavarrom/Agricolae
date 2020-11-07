@@ -135,12 +135,16 @@ return [
     'order_total_price' => 'Total',
     'buy' => 'Buy',
     'pdf-generate' => 'Generate Receipt',
+    'empty_cart' => 'You still have no products on your Cart.',
 
     // Oder
     'order_receipt' => 'Order\'s Receipt',
     'order_number' => 'Order\'s Number',
     'total-sub-price' => 'Subtotal',
     'total-price' => 'Total Price',
+
+    // WishList
+    'empty_wishlist' => 'You still have no products on your Wish List.',
 
     // Location
     'create_location' => "Create Location",
@@ -151,6 +155,7 @@ return [
     'country' => "Country",
     'add_street_name' => 'Write Street Name',
     'add_street_number' => 'Write Street Number',
+    'empty_location' => 'You still do not have addresses registered in your account.',
 
     // Messages
     'productCreateSuccess' => 'Product Created Successfully!',
