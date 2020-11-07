@@ -33,7 +33,7 @@ return [
     'add_wishlist' => 'Add to Wish List',
     "view_product" => "View Product",
     "wishlist_list" => "Wish List",
-    'rscore' => 'Score',
+    'score' => 'Score',
     'review_create' => 'Add Review',
     'review_add' => 'Create Review',
     'review_edit'=> 'Edit Review',
@@ -134,6 +134,13 @@ return [
     'quantity' => 'Quantity',
     'order_total_price' => 'Total',
     'buy' => 'Buy',
+    'pdf-generate' => 'Generate Receipt',
+
+    // Oder
+    'order_receipt' => 'Order\'s Receipt',
+    'order_number' => 'Order\'s Number',
+    'total-sub-price' => 'Subtotal',
+    'total-price' => 'Total Price',
 
     // Location
     'create_location' => "Create Location",

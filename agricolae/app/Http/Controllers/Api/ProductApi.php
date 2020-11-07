@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers\Api;
 
+use App\Http\Resources\ProductResource;
+
 use App\Http\Controllers\Controller;
 use App\Product;
 use Illuminate\Http\Request;
@@ -15,18 +17,18 @@ class ProductApi extends Controller
      */ 
     public function index()
     {
-        return Product::all();
+        return ProductResource::collection(Product::all());
     }
 
     public function bestRating()
     {
-        return Product::orderBy('rating', 'DESC')->get();
+        return ProductResource::collection(Product::orderBy('rating', 'DESC')->get());
     }
 
 
     public function worstRating()
     {
-        return Product::orderBy('rating', 'ASC')->get();
+        return ProductResource::collection(Product::orderBy('rating', 'ASC')->get());
     }
 
     /**
@@ -37,6 +39,6 @@ class ProductApi extends Controller
      */
     public function show($id)
     {
-        return Product::findOrFail($id);;
+        return ProductResource::collection(Product::findOrFail($id));
     }
 }
