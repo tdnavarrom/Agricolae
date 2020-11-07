@@ -11,6 +11,8 @@ use App\Item;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Lang;
 
+use PDF;
+
 class ProductController extends Controller
 {
 
@@ -194,5 +196,47 @@ class ProductController extends Controller
 
         return redirect()->route('product.list_all');
     }
+
+    public function createPDF(Request $request)
+    {
+        $order = new Order();
+        $order->setTotal("0");
+        $order->save();
+        $data = [];
+        $data['products'] = [];
+
+        $precioTotal = 0;
+
+        $products = $request->session()->get("products");
+        if ($products)
+        {
+            $keys = array_keys($products);
+            for ($i=0;$i<count($keys);$i++)
+            {
+                $item = [];
+                $item['product'] = Product::find($keys[$i]);
+                $item['order'] = $order;
+                $item['quantity'] = $products[$keys[$i]];
+
+                array_push($data['products'], $item);
+                $productActual = Product::find($keys[$i]);
+                $precioTotal = $precioTotal + $productActual->getPrice()*$products[$keys[$i]];
+            }
+
+            $order->setTotal($precioTotal);
+            $order->save();
+            $data['order'] = $order;
+
+            view()->share('data',$data);
+            
+        }
+
+        //dd($data);
+
+        $pdf = PDF::loadView('pdf/pdf_view', $data);
+        return $pdf->download('receipt_order_number_'.$order->getId().'.pdf');
+    }
+
+
 
 }

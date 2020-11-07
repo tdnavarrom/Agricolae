@@ -137,6 +137,13 @@ return [
     'quantity' => 'Cantidad',
     'order_total_price' => 'Total',
     'buy' => 'Comprar',
+    'pdf-generate' => 'Generar Recibo',
+
+    // Oder
+    'order_receipt' => 'Recibo de la Orden',
+    'order_number' => 'Número de la Orden',
+    'total-sub-price' => 'Subtotal',
+    'total-price' => 'Precio Total',
 
     // Location
     'create_location' => "Crear Dirección",
