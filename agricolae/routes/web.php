@@ -58,6 +58,7 @@ Route::group(['middleware' => 'lang'], function () {
     Route::post('/cart/add-to-cart/{id}', 'ProductController@addToCart')->name("product.addToCart");
     Route::get('/cart/remove', 'ProductController@removeCart')->name("product.removeCart");
     Route::post('/cart/buy', 'ProductController@buy')->name("product.buy");
+    Route::post('/cart/pdf', 'ProductController@createPdf')->name("product.pdf");
 
     //Farmer
     Route::get('/farmer/dashboard', 'Farmer\FarmerHomeController@index')->name("farmer.index");
