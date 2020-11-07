@@ -134,6 +134,13 @@ return [
     'quantity' => 'Quantity',
     'order_total_price' => 'Total',
     'buy' => 'Buy',
+    'pdf-generate' => 'Generate Receipt',
+
+    // Oder
+    'order_receipt' => 'Order\'s Receipt',
+    'order_number' => 'Order\'s Number',
+    'total-sub-price' => 'Subtotal',
+    'total-price' => 'Total Price',
 
     // Location
     'create_location' => "Create Location",
