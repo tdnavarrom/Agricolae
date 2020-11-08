@@ -128,6 +128,8 @@ return [
     'nuts' => 'Nuts',
     'cereals' => 'Cereals',
     'soldBy' => 'Sold By',
+    'filter_by' => 'Filter By',
+    'filter_category' => 'Category',
 
     // Cart
     'cart_title' => 'Cart',
@@ -138,15 +140,21 @@ return [
     'empty_cart' => 'You still have no products on your Cart.',
 
     // Oder
+    'myOrders' => 'My Orders',
+    'my_order' => 'My orders',
     'order_receipt' => 'Order\'s Receipt',
     'order_number' => 'Order\'s Number',
     'total-sub-price' => 'Subtotal',
     'total-price' => 'Total Price',
+    'order_placed' => 'Order placed:',
+    'order_total' => 'Total: $',
+    'empty_order' => 'You have not made purchases yet.',
 
     // WishList
     'empty_wishlist' => 'You still have no products on your Wish List.',
 
     // Location
+    'my_location' => 'My addresses',
     'create_location' => "Create Location",
     'street_name' => "Street Name",
     'street_number' => "Street Number",
