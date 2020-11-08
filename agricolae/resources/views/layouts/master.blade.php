@@ -96,6 +96,9 @@
                             <li class="nav-item">
                                 <a href="" class="nav-link nav">@lang('messages.contact')</a>
                             </li>
+                            <li class="nav-item">
+                                <a href="{{ route('sponsor.show') }}" class="nav-link nav">Sponsors</a>
+                            </li>
                         </ul>
                     </div>
                 </div>
