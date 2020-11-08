@@ -72,6 +72,10 @@ Route::group(['middleware' => 'lang'], function () {
     Route::get('/farmer/dashboard/product/all', 'Farmer\FarmerProductController@list_all')->name("farmer.product.list");
     Route::get('/farmer/dashboard/product/{category}', 'Farmer\FarmerProductController@list_cat')->name("farmer.product.list_cat");
     Route::get('/farmer/dashboard/product/show/{id}', 'Farmer\FarmerProductController@show')->name("farmer.product.show");
+
+    //Orders
+    Route::get('/account/order/list', 'OrderController@list')->name('order.list');
+    Route::get('/account/order/show/{id}', 'OrderController@show')->name('order.show');
     
     //Lang
     Route::get('lang/{lang}', 'LanguageController@setLanguage')->name("language.setLanguage");

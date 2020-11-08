@@ -9,7 +9,7 @@
         <div class="row">
             <div class="col-md">
                 <h1 class="page-header mt-4">
-                    <small>Mis direcciones</small>
+                    <small>@lang('messages.my_location')</small>
                 </h1>
                 <hr>
             </div>
@@ -22,7 +22,7 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="row">
-                        @foreach($data["locations"] as $location)
+                        @foreach ($data["locations"] as $location)
                             <div class="col-md-12">
                                 <div class="card my-2">
                                     <div class="card-body">

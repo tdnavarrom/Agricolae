@@ -21,11 +21,11 @@
 
         <div class="row">
             <div class="col-md-3">
-                <h5>Filter By</h5>
+                <h5>@lang('messages.filter_by')</h5>
                 <div class="card">
                     <div class="px-3">
                         <div class="ul py-2">
-                            <h6>Category</h6>
+                            <h6>@lang('messages.filter_category')</h6>
                             <div class="li">
                                 <a class="px-2" href="{{ route('product.list_all') }}">@lang('messages.all')</a>
                             </div>

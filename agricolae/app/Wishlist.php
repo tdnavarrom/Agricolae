@@ -43,9 +43,9 @@ class Wishlist extends Model
         return $this->attributes['product_id'];
     }
 
-    public function setUserId($product_id)
+    public function setUserId($user_id)
     {
-        $this->attributes['product_id'] = $product_id;
+        $this->attributes['user_id'] = $user_id;
     }
 
     public function getTitle()

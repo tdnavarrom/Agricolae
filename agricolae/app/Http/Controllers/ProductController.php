@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use App\Product;
 use App\Order;
 use App\Item;
+use App\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Lang;
 
@@ -15,7 +16,7 @@ use PDF;
 
 class ProductController extends Controller
 {
-
+    
     public function show($id)
     {
         $data = []; //to be sent to the view
@@ -168,6 +169,10 @@ class ProductController extends Controller
     public function buy(Request $request)
     {
         $order = new Order();
+
+        $user_id = User::findOrFail(Auth::user()->id);
+
+        $order->setUserId($user_id->getId());
         $order->setTotal("0");
         $order->save();
 
@@ -231,12 +236,8 @@ class ProductController extends Controller
             
         }
 
-        //dd($data);
-
         $pdf = PDF::loadView('pdf/pdf_view', $data);
         return $pdf->download('receipt_order_number_'.$order->getId().'.pdf');
     }
-
-
 
 }
