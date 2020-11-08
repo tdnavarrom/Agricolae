@@ -91,10 +91,10 @@
                                 <a href="{{ route('product.list_all') }}" class="nav-link nav">@lang('messages.products')</a>
                             </li>
                             <li class="nav-item">
-                                <a href="" class="nav-link nav">@lang('messages.aboutUs')</a>
+                                <a href="{{ route('about.index') }}" class="nav-link nav">@lang('messages.aboutUs')</a>
                             </li>
                             <li class="nav-item">
-                                <a href="" class="nav-link nav">@lang('messages.contact')</a>
+                                <a href="{{ route('contact.index') }}" class="nav-link nav">@lang('messages.contact')</a>
                             </li>
                         </ul>
                     </div>
