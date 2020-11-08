@@ -18,6 +18,8 @@ Route::group(['middleware' => 'lang'], function () {
     // Home
     Route::get('/', 'HomeController@index')->name("home.index");
 
+    Route::get('/sponsors', 'SponsorController@show')->name("sponsor.show");
+    
     Route::get('/account/show', 'User\UserController@show')->name("user.show");
     Route::get('/account/edit', 'User\UserController@edit')->name("user.edit");
     Route::post('/account/update', 'User\UserController@update') -> name('user.update');

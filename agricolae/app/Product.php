@@ -10,7 +10,6 @@ use Illuminate\Validation\Rule;
 class Product extends Model
 {
 
-    //attributes id, name, price, created_at, updated_at
     protected $fillable = ['user_id' ,'name', 'description', 'category', 'price', 'units', 'rating', 'image', 'created_at', 'updated_at'];
 
     public static function validateRules()
