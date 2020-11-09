@@ -5,6 +5,17 @@
 @section('content')
 
     <div class="container">
+
+        <div class="col-md mt-4">
+            <nav aria-label="breadcrumb" id="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="{{ route('home.index') }}">@lang('messages.home')</a></li>
+                    <li class="breadcrumb-item"><a href="{{ route('order.list') }}">@lang('messages.myOrders')</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">@lang('messages.order_number') {{ $data["order"]->getId() }}</li>
+                </ol>
+            </nav>
+        </div>
+
         <div class="col-md-12">
             <div class="card mt-4">
                 <div class="card-body">

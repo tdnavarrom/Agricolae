@@ -6,12 +6,25 @@
 
 @section('content')
 <div class="container">
+
+    <div class="row justify-content-center">
+        <div class="col-md-8 mt-4">
+            <nav aria-label="breadcrumb" id="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="{{ route('home.index') }}">@lang('messages.home')</a></li>
+                    <li class="breadcrumb-item"><a href="{{ route('location.list') }}">@lang('messages.my_location')</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">@lang('messages.edit_location')</li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+
     <div class="row justify-content-center">
         <div class="col-md-8">
 
         <div class="col-md">
-            <h1 class="page-header pt-4">
-                <small>Editar Direccion</small>
+            <h1 class="page-header">
+                <small>@lang('messages.edit_location')</small>
                 <hr>
             </h1>
         </div>

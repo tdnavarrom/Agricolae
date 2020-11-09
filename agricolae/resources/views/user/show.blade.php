@@ -8,13 +8,23 @@
 <div class="container">
 
     @include('util.message')
+
+    <div class="col-md mt-4">
+        <nav aria-label="breadcrumb" id="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="{{ route('home.index') }}">@lang('messages.home')</a></li>
+                <li class="breadcrumb-item active" aria-current="page">@lang('messages.myAccount')</li>
+            </ol>
+        </nav>
+    </div>
+
     <div class="row justify-content-center">
         <div class="col-md-12">
             
             <div class="container">
                 <div class="row">
                     <div class="col-md">
-                        <h1 class="page-header pt-4">
+                        <h1 class="page-header">
                             <small>@lang('messages.personalInfo')</small>
                         </h1>
                         <hr>

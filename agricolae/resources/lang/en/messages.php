@@ -71,6 +71,7 @@ return [
     'footer_about_us' => 'About us and contact',
     'quick_access' => 'Quick access',
     'register_free' => 'Register for free',
+    'exit' => 'Exit',
  
     // Login messages
     'registerInvitation' => 'Are you new on Agricolae?',
@@ -160,6 +161,7 @@ return [
     // Location
     'my_location' => 'My addresses',
     'create_location' => "Create Location",
+    'edit_location' => 'Update Location', 
     'street_name' => "Street Name",
     'street_number' => "Street Number",
     'city' => "City",

@@ -6,15 +6,27 @@
     <div class="container">
         
         @include('util.message')
+
+        <div class="row">
+            <div class="col-md mt-4">
+                <nav aria-label="breadcrumb" id="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="{{ route('home.index') }}">@lang('messages.home')</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">@lang('messages.my_location')</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+
         <div class="row">
             <div class="col-md">
-                <h1 class="page-header mt-4">
+                <h1 class="page-header">
                     <small>@lang('messages.my_location')</small>
                 </h1>
                 <hr>
             </div>
             <div class="col-md-1">
-                <a href="{{ route('location.create') }}" class="btn btn-primary mt-4 btn-lg btn-block" id="button_style1"><i class="fa fa-fw fa-plus"></i></a>
+                <a href="{{ route('location.create') }}" class="btn btn-primary mt-1 btn-lg btn-block" id="button_style1"><i class="fa fa-fw fa-plus"></i></a>
             </div>
         </div>
 

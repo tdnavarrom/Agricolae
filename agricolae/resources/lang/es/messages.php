@@ -72,6 +72,7 @@ return [
     'quick_access' => 'Accesos rapidos',
     'register_free' => 'Registrate gratis',
     'login_footer' => 'Iniciar sesion',
+    'exit' => 'Salir',
 
     // Login messages
     'registerInvitation' => 'Eres nuevo en Agricolae?',
@@ -163,6 +164,7 @@ return [
     // Location
     'my_location' => 'Mis direcciones',
     'create_location' => "Crear Dirección",
+    'edit_location' => 'Editar Direccion', 
     'street_name' => "Nombre de la Calle",
     'street_number' => "Numero de la Calle",
     'city' => "Ciudad",
