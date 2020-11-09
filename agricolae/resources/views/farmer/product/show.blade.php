@@ -7,6 +7,20 @@
 @section('content')
 
 <div class="container">
+
+    <div class="row">
+        <div class="col-md mt-4">
+            <nav aria-label="breadcrumb" id="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="{{ route('home.index') }}">@lang('messages.home')</a></li>
+                    <li class="breadcrumb-item"><a href="{{ route('farmer.index') }}">@lang('messages.dashboard')</a></li>
+                    <li class="breadcrumb-item"><a href="{{ route('farmer.product.list') }}">@lang('messages.product_list')</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">{{ $data["product"]->getName() }}</li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+
     <div class="row">
         <div class="col-md-8 my-5">
             <div class="card">

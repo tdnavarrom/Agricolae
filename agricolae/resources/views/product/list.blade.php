@@ -9,10 +9,23 @@
 <div class="container">
 
     <div id="main">
+
         @include('util.message')
+
+        <div class="row">
+            <div class="col-md mt-4">
+                <nav aria-label="breadcrumb" id="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="{{ route('home.index') }}">@lang('messages.home')</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">@lang('messages.products')</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+
         <div class="row">
             <div class="col-md-12">
-                <h1 class="page-header mt-4">
+                <h1 class="page-header">
                     <small>@lang('messages.product_list') - @lang('messages.' . $data['filter'])</small>
                     <hr>
                 </h1>

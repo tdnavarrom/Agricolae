@@ -6,9 +6,23 @@
  
 @section('content')
 <div class="container">
+
     @include('util.message')
+
     <div class="row">
-        <div class="col-md-8 my-5">
+        <div class="col-md mt-4">
+            <nav aria-label="breadcrumb" id="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="{{ route('home.index') }}">@lang('messages.home')</a></li>
+                    <li class="breadcrumb-item"><a href="{{ route('product.list_all') }}">@lang('messages.products')</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">{{ $data["product"]->getName() }}</li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-8 my-2">
             <div class="card">
                 <div class="card-body">
                     <h1 class="text-center">{{ $data["product"]->getName() }} </h1>
