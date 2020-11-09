@@ -1,7 +1,8 @@
 
 FROM php:7.2-apache-stretch
-RUN apt-get update -y && apt-get install -y openssl zip unzip git php7.2-gd
+RUN apt-get update -y && apt-get install -y openssl zip unzip git libpng-dev
 RUN docker-php-ext-install pdo_mysql
+RUN docker-php-ext-install gd
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 COPY . /var/www/html
 COPY ./public/.htaccess /var/www/html/.htaccess
