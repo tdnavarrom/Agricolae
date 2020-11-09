@@ -18,7 +18,7 @@
     <small>@lang('messages.order_receipt')</small>
   </h1>
   <h5 class="page-header mt-4">
-    <small>@lang('messages.order_number'): {{ $data['order']->getId() }}</small>
+    <small>@lang('messages.order_number') {{ $data['order']->getId() }}</small>
   </h5>
 
   <table class="table table-bordered">
@@ -33,14 +33,14 @@
       </tr>
     </thead>
     <tbody>
-      @foreach ($data['products'] as $item)
+      @foreach ($data['items'] as $item)
       <tr>
-        <td><small>{{ $item['product']->getName() }}</small></td>
-        <td><small>{{ $item['product']->getDescription() }}</small></td>
-        <td><small>@lang('messages.' . $item['product']->getCategory())</small></td>
-        <td><small>${{ $item['product']->getPrice() }}</small></td>
-        <td><small>{{ $item['quantity'] }}</small></td>
-        <td><small>${{ $item['quantity']*$item['product']->getPrice() }}</small></td>
+        <td><small>{{ $item->product->getName() }}</small></td>
+        <td><small>{{ $item->product->getDescription() }}</small></td>
+        <td><small>@lang('messages.' . $item->product->getCategory())</small></td>
+        <td><small>${{ $item->product->getPrice() }}</small></td>
+        <td><small>{{ $item->getQuantity() }}</small></td>
+        <td><small>${{ $item->getQuantity()*$item->product->getPrice() }}</small></td>
       </tr>
       @endforeach
     </tbody>

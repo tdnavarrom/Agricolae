@@ -9,10 +9,10 @@
             <div class="card mt-4">
                 <div class="card-body">
                     <div class="row">
-                        <div class="col-md-5">
-                            <h4>@lang('messages.order_placed') {{ $data["order"]->getDate() }}</h4>
+                        <div class="col-md-8">
+                            <h4>@lang('messages.order_number') {{ $data["order"]->getId() }} - @lang('messages.order_date') {{ $data["order"]->getDate() }}</h4>
                         </div>
-                        <div class="col-md">
+                        <div class="col-md text-right">
                             <h4>@lang('messages.order_total') {{ $data["order"]->getTotal() }}</h4>
                         </div>
                     </div>

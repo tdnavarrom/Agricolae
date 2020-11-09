@@ -9,10 +9,9 @@ use App\Product;
 use App\Order;
 use App\Item;
 use App\User;
+use App\Interfaces\FileGeneration;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Lang;
-
-use PDF;
 
 class ProductController extends Controller
 {
@@ -67,7 +66,7 @@ class ProductController extends Controller
     public function list_category($category)
     {
         $data = []; //to be sent to the view
-        $data["title"] = ucwords($category) . ' Products';
+        $data["title"] = ucwords($category) . 'Products';
         $data["filter"] = $category;
         $data["products"] = Product::where('category', $category)->paginate(12);
        
@@ -118,16 +117,22 @@ class ProductController extends Controller
         {
             return view('auth.login');
         }
-        
     }
 
     public function removeCart(Request $request)
     {
-        $request->session()->forget('products');
+        if (Auth::user())
+        {
+            $request->session()->forget('products');
 
-        $message = Lang::get('messages.cartDeleteSuccess');
-
-        return back()->with("success", $message);
+            $message = Lang::get('messages.cartDeleteSuccess');
+    
+            return back()->with("success", $message);
+        }
+        else
+        {
+            return view('auth.login');
+        }
     }
 
     public function cart(Request $request)
@@ -168,76 +173,83 @@ class ProductController extends Controller
 
     public function buy(Request $request)
     {
-        $order = new Order();
-
-        $user_id = User::findOrFail(Auth::user()->id);
-
-        $order->setUserId($user_id->getId());
-        $order->setTotal("0");
-        $order->save();
-
-        $precioTotal = 0;
-
-        $products = $request->session()->get("products");
-        if ($products)
+        if (Auth::user())
         {
-            $keys = array_keys($products);
-            for ($i=0;$i<count($keys);$i++)
-            {
-                $item = new Item();
-                $item->setProductId($keys[$i]);
-                $item->setOrderId($order->getId());
-                $item->setQuantity($products[$keys[$i]]);
-                $item->save();
-                $productActual = Product::find($keys[$i]);
-                $precioTotal = $precioTotal + $productActual->getPrice()*$products[$keys[$i]];
-            }
+            $data = [];
 
-            $order->setTotal($precioTotal);
+            $order = new Order();
+
+            $user_id = User::findOrFail(Auth::user()->id);
+
+            $order->setUserId($user_id->getId());
+            $order->setTotal("0");
             $order->save();
 
-            $request->session()->forget('products');
-        }
+            $precioTotal = 0;
 
-        return redirect()->route('product.list_all');
+            $products = $request->session()->get("products");
+            if ($products)
+            {
+                $keys = array_keys($products);
+                for ($i=0;$i<count($keys);$i++)
+                {
+                    $item = new Item();
+                    $item->setProductId($keys[$i]);
+                    $item->setOrderId($order->getId());
+                    $item->setQuantity($products[$keys[$i]]);
+                    $item->save();
+                    $productActual = Product::find($keys[$i]);
+                    $precioTotal = $precioTotal + $productActual->getPrice()*$products[$keys[$i]];
+                }
+
+                $order->setTotal($precioTotal);
+                $order->save();
+
+                $request->session()->forget('products');
+            }
+
+            $id = $order->getId();
+
+            return redirect()->route("product.buy-made", $id);
+        }
+        else
+        {
+            return view('auth.login');
+        }
     }
 
-    public function createPDF(Request $request)
+    public function buyMade($id)
     {
-        $order = new Order();
-        $order->setTotal("0");
-        $order->save();
-        $data = [];
-        $data['products'] = [];
-
-        $precioTotal = 0;
-
-        $products = $request->session()->get("products");
-        if ($products)
+        if (Auth::user())
         {
-            $keys = array_keys($products);
-            for ($i=0;$i<count($keys);$i++)
-            {
-                $item = [];
-                $item['product'] = Product::find($keys[$i]);
-                $item['order'] = $order;
-                $item['quantity'] = $products[$keys[$i]];
-
-                array_push($data['products'], $item);
-                $productActual = Product::find($keys[$i]);
-                $precioTotal = $precioTotal + $productActual->getPrice()*$products[$keys[$i]];
-            }
-
-            $order->setTotal($precioTotal);
-            $order->save();
-            $data['order'] = $order;
-
-            view()->share('data',$data);
-            
+            return view('product.buy')->with("id", $id);
         }
-
-        $pdf = PDF::loadView('pdf/pdf_view', $data);
-        return $pdf->download('receipt_order_number_'.$order->getId().'.pdf');
+        else
+        {
+            return view('auth.login');
+        }
     }
 
+    public function generateFile(Request $request, $id)
+    {  
+        if (Auth::user())
+        {
+            $data = [];
+            $choice = $request->input('format_choice');
+            $fileGenerationInterface = app()->makeWith(FileGeneration::class, ['choice' => $choice]);
+
+            $order = Order::findOrFail($id);
+            $items = Item::where('order_id', $id)->get();
+
+            $data["order"] = $order;
+            $data["items"] = $items;
+
+            return $fileGenerationInterface->store($data);
+        }
+        else
+        {
+            return view('auth.login');
+        }
+    }
+    
 }

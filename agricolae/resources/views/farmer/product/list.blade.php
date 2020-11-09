@@ -15,6 +15,7 @@
         </h1>
     </div>
 
+    @if (count($data["products"]) > 0)
     <div class="row">
         @foreach($data["products"] as $product)
         <div class="col-md-4 align-items-stretch">
@@ -48,6 +49,14 @@
         </div>
         @endforeach
     </div>
+    @else
+    <div class="col-md mt-4">
+        <div class="text-center" id="wishlist">
+            <img src="{{ asset('storage/various_images/product_vacio.png') }}" alt="">
+            <h3><small>@lang('messages.empty_product')</small></h3>
+        </div>
+    </div>
+    @endif
 
     {{ $data["products"]->links() }}
     
