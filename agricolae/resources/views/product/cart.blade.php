@@ -55,12 +55,6 @@
                         <button type="submit" class="btn btn-primary mt-3 btn-lg btn-block" id="button_style1">@lang('messages.buy')</button>
                     </form>
                 </div>
-                <div class="col">
-                    <form action="{{ route('product.pdf') }}" method="POST">
-                        @csrf
-                        <button type="submit" class="btn btn-primary mt-3 btn-lg btn-block" id="button_style1">@lang('messages.pdf-generate')</button>
-                    </form>
-                </div>
             </div>
 
 

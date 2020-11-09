@@ -119,6 +119,7 @@ return [
     'productCreateSuccess' => 'Producto Creado Exitosamente!',
     'productEditSuccess' => 'Producto Editado Exitosamente!',
     'productDeleteSuccess' => 'Producto Borrado Exitosamente!',
+    'empty_product' => 'Aun no has creado productos.',
 
     // Product
     'pounds' => 'Libra',
@@ -141,8 +142,9 @@ return [
     'buy' => 'Comprar',
     'pdf-generate' => 'Generar Recibo',
     'empty_cart' => 'Aun no tienes productos en tu Carrito de Compras.',
+    'purchase_made' => 'Compra realizada satisfactoriamente.',
 
-    // Oder
+    // Order
     'myOrders' => 'Mis Ordenes',
     'my_order' => 'Mis ordenes',
     'order_receipt' => 'Recibo de la Orden',
@@ -152,6 +154,8 @@ return [
     'order_placed' => 'Orden realizada:',
     'order_total' => 'Total: $',
     'empty_order' => 'Aun no has realizado compras.',
+    'order_date' => 'Fecha:',
+    'order_number' => 'Numero de orden:',
  
     // WishList
     'empty_wishlist' => 'Aun no tienes productos en tu Lista de Deseos.',

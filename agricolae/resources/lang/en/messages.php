@@ -116,6 +116,7 @@ return [
     // Farmer Dashboard
     'welcomeMessage' => 'Welcome',
     'myProducts' => 'My Products',
+    'empty_product' => 'You have not created products yet.',
 
     // Products
     'pounds' => 'Pound',
@@ -139,7 +140,7 @@ return [
     'pdf-generate' => 'Generate Receipt',
     'empty_cart' => 'You still have no products on your Cart.',
 
-    // Oder
+    // Order
     'myOrders' => 'My Orders',
     'my_order' => 'My orders',
     'order_receipt' => 'Order\'s Receipt',
@@ -149,6 +150,9 @@ return [
     'order_placed' => 'Order placed:',
     'order_total' => 'Total: $',
     'empty_order' => 'You have not made purchases yet.',
+    'purchase_made' => 'Purchase made successfully.',
+    'order_date' => 'Date:',
+    'order_number' => 'Order number:',
 
     // WishList
     'empty_wishlist' => 'You still have no products on your Wish List.',
