@@ -10,8 +10,6 @@ use App\Order;
 
 class Item extends Model
 {
-    //attributes id, product_id, order_id, quantity created_at, updated_at
-
     public function getId()
     {
         return $this->attributes['id'];

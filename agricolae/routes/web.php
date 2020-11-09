@@ -18,6 +18,8 @@ Route::group(['middleware' => 'lang'], function () {
     // Home
     Route::get('/', 'HomeController@index')->name("home.index");
 
+    Route::get('/sponsors', 'SponsorController@show')->name("sponsor.show");
+    
     Route::get('/account/show', 'User\UserController@show')->name("user.show");
     Route::get('/account/edit', 'User\UserController@edit')->name("user.edit");
     Route::post('/account/update', 'User\UserController@update') -> name('user.update');
@@ -32,6 +34,12 @@ Route::group(['middleware' => 'lang'], function () {
 
     Route::get('/product/{category}/best', 'ProductController@list_category_best_rating')->name("product.list_cat_best_rating");
     Route::get('/product/{category}/worst', 'ProductController@list_category_worst_rating')->name("product.list_cat_worst_rating");
+
+    // About Us
+    Route::get('/About-us', 'HomeController@about_us')->name("about.index");
+
+    // Contact Us
+    Route::get('/Contact-us', 'HomeController@contact_us')->name("contact.index");
     
     // Review
     Route::get('/product/review/create/{product}', 'ReviewController@create')->name('review.create');

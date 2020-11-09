@@ -18,7 +18,7 @@ return [
     'products' => 'Products',
     'reviews' => 'Reviews',
     'aboutUs' => 'About us',
-    'contact' => 'Contact',
+    'contact' => 'Contact us',
     'product' => 'Product',
     'product_add' => 'Create Product',
     'product_edit' => 'Edit Product',
@@ -185,6 +185,20 @@ return [
     'locationCreatedSuccess' => 'Location Created Successfully!',
     'locationEditSuccess' => 'Location Edited Successfully!',
     'locationDeleteSuccess' => 'Location Deleted Successfully!',
+
+    // About Us
+    'phrase' => "¡From The Country To Your House!",
+    'description' => "Agricolae is a company that seeks that its customers have the best experience when buying products directly from the country; such as fruits, legumes, tubers, vegetables, nuts, and cereals. So we hope to cut the number of intermediaries in the process of buying these items. We achieve this thanks to all the farmers who trust us and publish their own crops on our website.",
+    'start' => "¡ Start shopping now !",
+    'indicator' => "↓ Follow us on our social networks ↓",
+
+    // Contact Us
+    'contact_us' => "↓   Contact Us   ↓",
+    'contact_name' => "Full Name:",
+    'email' => "Email:",
+    'phone' => "Phone Number:",
+    'message' => "Message:",
+    'send' => "Send",
 
 ];
 

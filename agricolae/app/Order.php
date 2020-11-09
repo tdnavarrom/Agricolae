@@ -9,7 +9,6 @@ use App\Item;
 
 class Order extends Model
 {
-    //attributes id, user_id,total, created_at, updated_at
     protected $fillable = ['total', 'user_id', 'created_at'];
 
     public function getId()

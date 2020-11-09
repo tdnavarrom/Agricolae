@@ -18,7 +18,7 @@ return [
     'products' => 'Productos',
     'reviews' => 'Reseñas',
     'aboutUs' => 'Nosotros',
-    'contact' => 'Contacto',
+    'contact' => 'Contáctanos',
     'product' => 'Producto',
     'product_add' => 'Crear Producto',
     'product_edit' => 'Editar Producto',
@@ -188,6 +188,20 @@ return [
     'locationCreatedSuccess' => 'Direccion Creada Exitosamente!',
     'locationEditSuccess' => 'Direccion Editada Exitosamente!',
     'locationDeleteSuccess' => 'Direccion Eliminada Exitosamente!',
+
+    // About Us
+    'phrase' => "¡Del Campo A Tu Casa!",
+    'description' => "Agricolae es una empresa que busca que sus clientes tengan la mejor experiencia al comprar productos directamente desde el campo; como frutas, legumbres, tubérculos, vegetales, nueces y cereales. Así esperamos poder recortar la cantidad de intermediarios en el proceso de comprar estos elementos. Esto lo logramos gracias a todos los agricultores que confían en nosotros y publican sus propias cosechas en nuestra pagina.",
+    'start' => "¡ Empieza a comprar ahora !",
+    'indicator' => "↓ Síguenos en nuestras redes sociales ↓",
+
+    // Contact Us
+    'contact_us' => "↓   Contáctanos   ↓",
+    'contact_name' => "Nombre Completo:",
+    'email' => "Correo Electronico:",
+    'phone' => "Numero Telefónico:",
+    'message' => "Mensaje:",
+    'send' => "Enviar",
 ];
 
 ?>
