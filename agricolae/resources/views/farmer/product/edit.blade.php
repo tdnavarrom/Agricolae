@@ -5,7 +5,7 @@
 @section("title", $data["title"])
 
 @section('content')
-<div class="container mt-2">
+<div class="container mt-2 mb-5">
 
     <div class="row justify-content-center">
         <div class="col-md-8 mt-4">

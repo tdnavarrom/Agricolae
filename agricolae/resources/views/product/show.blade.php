@@ -5,7 +5,7 @@
 @section("title", $data["title"])
  
 @section('content')
-<div class="container">
+<div class="container mb-5">
 
     @include('util.message')
 

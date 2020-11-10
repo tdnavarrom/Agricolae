@@ -6,22 +6,22 @@
 
 @section('content')
 
-<div class="container">
-
+<div class="container mb-5">
     <div id="main">
-        <div class="row">
-            <div class="col-md-12">
-                <h1 class="page-header mt-4">
-                    <small> Sponsors</small>
-                    <hr>
-                </h1>
-            </div>
+
+        <div class="col-md mt-4">
+            <nav aria-label="breadcrumb" id="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="{{ route('home.index') }}">@lang('messages.home')</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">@lang('messages.sponsors')</li>
+                </ol>
+            </nav>
         </div>
 
         <div class="col-md">
-        <div class="col-md-12">
+            <div class="col-md-12">
                 <h1 class="page-header mt-4">
-                    <small><a id="no-space-break" href="{{ $data['sponsors']['link'] }}">Babalao - Best Computer Products</a></small>
+                    <small><a id="no-space-break" href="{{ $data['sponsors']['link'] }}">@lang('messages.babalao_title')</a></small>
                     <hr>
                 </h1>
             </div>

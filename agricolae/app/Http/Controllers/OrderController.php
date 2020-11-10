@@ -30,7 +30,7 @@ class OrderController extends Controller
         $user_id = User::findOrFail(Auth::user()->id)->getId();
         
         $data = [];
-        $data["orders"] = Order::where('user_id', $user_id)->get();
+        $data["orders"] = Order::where('user_id', $user_id)->orderByDesc('created_at')->get();
         
         return view('order.list')->with("data", $data);
     }

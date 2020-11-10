@@ -132,6 +132,7 @@ return [
     'soldBy' => 'Sold By',
     'filter_by' => 'Filter By',
     'filter_category' => 'Category',
+    'search' => 'Search',
 
     // Cart
     'cart_title' => 'Cart',
@@ -200,6 +201,10 @@ return [
     'phone' => "Phone Number:",
     'message' => "Message:",
     'send' => "Send",
+
+    // Sponsors
+    'sponsors' => 'Sponsors',
+    'babalao_title' => 'Babalao - Best Computer Products'
 
 ];
 

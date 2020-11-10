@@ -135,6 +135,7 @@ return [
     'soldBy' => 'Vendido por',
     'filter_by' => 'Filtrar Por',
     'filter_category' => 'Categoria',
+    'search' => 'Busqueda',
 
     // Cart
     'cart_title' => 'Carrito',
@@ -203,6 +204,11 @@ return [
     'phone' => "Numero Telefónico:",
     'message' => "Mensaje:",
     'send' => "Enviar",
+
+    // Sponsors
+    'sponsors' => 'Sponsors',
+    'babalao_title' => 'Babalao - Los Mejores Componentes para Computadores',
+
 ];
 
 ?>

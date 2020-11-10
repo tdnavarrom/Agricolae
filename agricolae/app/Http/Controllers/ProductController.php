@@ -97,6 +97,18 @@ class ProductController extends Controller
         return view('product.list')->with("data",$data);
     }
 
+    public function list_by_search(Request $request)
+    {
+        $data = [];
+
+        $name = $request['search_name'];
+        $data["title"] = $name.' Search';
+        $data["filter"] = 'search';
+        $data["products"] = Product::where('name', 'like', '%'.$name.'%')->paginate(12);
+
+        return view('product.list')->with("data", $data);
+    }
+
 
     public function addToCart($id, Request $request)
     {

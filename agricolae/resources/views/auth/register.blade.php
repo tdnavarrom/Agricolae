@@ -3,12 +3,13 @@
 @section("title", "Register")
 
 @section('content')
-<div class="container my-4">
+<div class="container my-4 mb-5">
 
     <div class="col-md mt-4">
         <nav aria-label="breadcrumb" id="breadcrumb">
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="{{ route('home.index') }}">@lang('messages.home')</a></li>
+                <li class="breadcrumb-item"><a href="{{ route('login') }}">@lang('messages.login')</a></li>
                 <li class="breadcrumb-item active" aria-current="page">@lang('messages.register')</li>
             </ol>
         </nav>

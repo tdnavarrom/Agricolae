@@ -4,7 +4,7 @@
 
 @section('content')
 
-    <div class="container">
+    <div class="container mb-5">
 
         <div class="col-md mt-4">
             <nav aria-label="breadcrumb" id="breadcrumb">
@@ -43,6 +43,16 @@
                         </div>
                     @endforeach    
                 </div>
+            </div>
+            <div class="my-3">
+                <form action="{{ route('product.generateFile', $data['order']->getId()) }}" method="POST">
+                    @csrf
+                    <select type="text" class='form-control' name="format_choice">
+                        <option value="pdf">Pdf</option>
+                        <option value="excel">Excel</option>
+                    </select>
+                    <button type="submit" class="btn btn-primary mt-3 btn-lg btn-block" id="button_style1">@lang('messages.pdf-generate')</button>
+                </form>
             </div>
         </div>
     </div>
