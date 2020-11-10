@@ -73,7 +73,7 @@
     </div>
     @endif
 
-    {{ $data["products"]->links() }}
+    {{ $data["products"]->links('product.pagination') }}
     
 </div>
 @endsection
