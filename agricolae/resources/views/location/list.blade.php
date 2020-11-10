@@ -3,7 +3,7 @@
 @extends('layouts.master')
 
 @section('content')
-    <div class="container">
+    <div class="container mb-5">
         
         @include('util.message')
 

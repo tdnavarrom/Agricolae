@@ -6,7 +6,7 @@
 
 @section('content')
 
-<div class="container">
+<div class="container mb-5">
 
     <div class="row">
         <div class="col-md mt-4">

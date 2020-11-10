@@ -28,9 +28,10 @@
                     <div class="collapse navbar-collapse justify-content-end" id="navbarCollapse">
                         <ul class="navbar-nav ml-auto">
                             <li class="nav-item">
-                                <form class="form" action="">
+                                <form class="form" action="{{ route('product.list_by_search') }}" method="POST">
+                                    @csrf
                                     <div class="input-group mt-1">
-                                        <input class="form-control" type="text" placeholder="@lang('messages.search')">    
+                                        <input class="form-control" type="text" name="search_name" placeholder="@lang('messages.search')">    
                                         <div class="input-group-append">
                                             <button class="btn btn-success" id="search" type="submit"><i class="fa fa-fw fa-search" id="search_icon"></i></button>
                                         </div>
@@ -97,7 +98,7 @@
                                 <a href="{{ route('contact.index') }}" class="nav-link nav">@lang('messages.contact')</a>
                             </li>
                             <li class="nav-item">
-                                <a href="{{ route('sponsor.show') }}" class="nav-link nav">Sponsors</a>
+                                <a href="{{ route('sponsor.show') }}" class="nav-link nav">@lang('messages.sponsors')</a>
                             </li>
                         </ul>
                     </div>
@@ -110,7 +111,7 @@
             @yield('content')
         </main>
 
-        <footer class="page-footer mt-5" id="footer">
+        <footer class="page-footer" id="footer">
 
             <div class="container-fluid pt-4" id="footer-links">
                 <div class="row">

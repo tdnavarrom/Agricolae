@@ -15,7 +15,7 @@
         </div>
     </div>
     <img class="d-block img-fluid" src="{{ asset('storage/various_images/campesino-slide0.jpg') }}" alt="img">
-    <div class="row mt-5">
+    <div class="row mt-5 mb-5">
         <div class="col-md px-0" id="about_ubication">
             <h1 id="about_map">@lang('messages.where')</h1>
         </div>
