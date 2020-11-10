@@ -33,21 +33,4 @@
         
     </div>
 </div>
-
-@map([
-    'lat' => 48.134664,
-    'lng' => 11.555220,
-    'zoom' => 6,
-    'markers' => [
-        [
-            'title' => 'Go NoWare',
-            'lat' => 48.134664,
-            'lng' => 11.555220,
-            'url' => 'https://gonoware.com',
-            'icon' => 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png',
-            'icon_size' => [20, 32],
-            'icon_anchor' => [0, 32],
-        ],
-    ],
-])
 @endsection
