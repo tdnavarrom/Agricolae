@@ -61,8 +61,6 @@ class ProductController extends Controller
         return view('product.list')->with("data",$data);
     }
 
-
-
     public function list_category($category)
     {
         $data = []; //to be sent to the view
