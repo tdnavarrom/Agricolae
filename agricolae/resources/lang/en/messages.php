@@ -132,6 +132,9 @@ return [
     'soldBy' => 'Sold By',
     'filter_by' => 'Filter By',
     'filter_category' => 'Category',
+    'filter_rating' => 'Rating',
+    'filter_rating_best' => 'from best to worst',
+    'filter_rating_worst' => 'from worst to best',
     'search' => 'Search',
 
     // Cart

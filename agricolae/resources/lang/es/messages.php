@@ -135,6 +135,9 @@ return [
     'soldBy' => 'Vendido por',
     'filter_by' => 'Filtrar Por',
     'filter_category' => 'Categoria',
+    'filter_rating' => 'Calificación',
+    'filter_rating_best' => 'de mayor a menor',
+    'filter_rating_worst' => 'de menor a mayor',
     'search' => 'Busqueda',
 
     // Cart
