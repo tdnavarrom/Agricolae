@@ -98,8 +98,12 @@ position: relative;
 position: relative;
 }
 
+#title_review {
+  max-width: 300px;
+}
+
 #description_review {
-max-width: 300px;
+  max-width: 300px;
 }
 
 .add_review_icon {
