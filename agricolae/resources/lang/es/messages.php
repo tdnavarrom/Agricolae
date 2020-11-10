@@ -194,9 +194,10 @@ return [
     'description' => "Agricolae es una empresa que busca que sus clientes tengan la mejor experiencia al comprar productos directamente desde el campo; como frutas, legumbres, tubérculos, vegetales, nueces y cereales. Así esperamos poder recortar la cantidad de intermediarios en el proceso de comprar estos elementos. Esto lo logramos gracias a todos los agricultores que confían en nosotros y publican sus propias cosechas en nuestra pagina.",
     'start' => "¡ Empieza a comprar ahora !",
     'indicator' => "↓ Síguenos en nuestras redes sociales ↓",
+    'where' => '¿Donde nos encontramos?',
 
     // Contact Us
-    'contact_us' => "↓   Contáctanos   ↓",
+    'contact_us' => "Contáctanos",
     'contact_name' => "Nombre Completo:",
     'email' => "Correo Electronico:",
     'phone' => "Numero Telefónico:",
