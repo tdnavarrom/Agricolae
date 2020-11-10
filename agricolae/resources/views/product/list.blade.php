@@ -102,10 +102,10 @@
                         </div>
                     </div>
                     @endforeach
+                    <div class="text-center">
+                        {{ $data["products"]->links() }}
+                    </div>
                 </div>
-            </div>
-            <div class="text-center">
-                {{ $data["products"]->links() }}
             </div>
         </div>
     </div>
