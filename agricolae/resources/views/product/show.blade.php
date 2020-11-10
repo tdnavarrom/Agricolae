@@ -79,7 +79,7 @@
                     <div class="card my-3">
 
                         <div class="card-header">
-                            <h2>{{ $review->getTitle() }}</h2>
+                            <h2 id="title_review">{{ $review->getTitle() }}</h2>
                         </div>
 
                         <div class="card-body">
