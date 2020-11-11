@@ -33,8 +33,8 @@ class WishlistController extends Controller
         $data = []; //to be sent to the view
         $data["title"] = 'Wishlist';
     
-        $user = User::findOrFail(Auth::user()->id);
-        $data["wishlists"] = Wishlist::where('user_id', $user->id)->get()->sortByDesc('id');
+        $user = User::findOrFail(Auth::user()->getId());
+        $data["wishlists"] = Wishlist::where('user_id', $user->getId())->get()->sortByDesc('id');
 
         return view('wishlist.list')->with("data",$data);
     }
@@ -43,7 +43,7 @@ class WishlistController extends Controller
     {
 
         $request->validate(Wishlist::validateRules());
-        $user = User::findOrFail(Auth::user()->id);
+        $user = User::findOrFail(Auth::user()->getId());
 
         $wishlist = new Wishlist;
         $wishlist->title = $request['title'];

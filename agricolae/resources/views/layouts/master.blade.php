@@ -148,10 +148,10 @@
                                 <a href="{{ route('product.list_all') }}">@lang('messages.products')</a>
                             </li>
                             <li>
-                                <a href="#!">@lang('messages.aboutUs')</a>
+                                <a href="{{ route('about.index') }}">@lang('messages.aboutUs')</a>
                             </li>
                             <li>
-                                <a href="#!">@lang('messages.contact')</a>
+                                <a href="{{ route('contact.index') }}">@lang('messages.contact')</a>
                             </li>
                         </ul>
                     </div>
@@ -164,22 +164,22 @@
 
             <ul class="list-unstyled list-inline text-center mb-0 pb-2" id="social_icons">
                 <li class="list-inline-item">
-                    <a href="#" class="btn-floating btn-fb mx-1">
+                    <a href="https://www.facebook.com/" class="btn-floating btn-fb mx-1">
                         <i class="fab fa-facebook-f"> </i>
                     </a>
                 </li>
                 <li class="list-inline-item">
-                    <a href="#" class="btn-floating btn-ig mx-1">
+                    <a href="https://www.instagram.com/" class="btn-floating btn-ig mx-1">
                         <i class="fab fa-instagram"> </i>
                     </a>
                 </li>
                 <li class="list-inline-item">
-                    <a href="#" class="btn-floating btn-tw mx-1">
+                    <a href="https://twitter.com/" class="btn-floating btn-tw mx-1">
                         <i class="fab fa-twitter"> </i>
                     </a>
                 </li>
                 <li class="list-inline-item">
-                    <a href="#" class="btn-floating btn-li mx-1">
+                    <a href="https://www.linkedin.com/" class="btn-floating btn-li mx-1">
                         <i class="fab fa-linkedin-in"> </i>
                     </a>
                 </li>
