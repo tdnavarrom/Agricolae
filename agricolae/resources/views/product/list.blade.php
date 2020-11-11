@@ -97,7 +97,8 @@
                             <div class="card-body">
                                 <h3><a id="no-space-break" href="{{ route('product.show', $product->getId()) }}">{{ $product->getName() }}</a></h3>
                                 <h5 class="subtitle">${{ $product->getPrice() }} / @lang('messages.' . $product->getUnits())</h5>
-                                <h5 class="subtitle">@lang('messages.score'): {{ $product->getRating() }}</h5>
+                                <h6 class="card-subtitle text-muted mb-2">@lang('messages.soldBy'): {{ $product->user->getName() }} {{ $product->user->getLastName() }}</h6>
+                                <h6 class="card-subtitle text-muted">@lang('messages.score'): {{ $product->getRating() }}</h6>
                             </div> 
                         </div>
                     </div>
