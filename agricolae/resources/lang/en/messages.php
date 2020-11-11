@@ -135,7 +135,7 @@ return [
     'filter_rating' => 'Rating',
     'filter_rating_best' => 'from best to worst',
     'filter_rating_worst' => 'from worst to best',
-    'search' => 'Search',
+    'search' => 'Search product ...',
 
     // Cart
     'cart_title' => 'Cart',

@@ -138,7 +138,7 @@ return [
     'filter_rating' => 'Calificación',
     'filter_rating_best' => 'de mayor a menor',
     'filter_rating_worst' => 'de menor a mayor',
-    'search' => 'Busqueda',
+    'search' => 'Buscar producto ...',
 
     // Cart
     'cart_title' => 'Carrito',

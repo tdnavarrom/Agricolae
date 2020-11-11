@@ -189,7 +189,7 @@ class ProductController extends Controller
 
             $order = new Order();
 
-            $user_id = User::findOrFail(Auth::user()->id);
+            $user_id = User::findOrFail(Auth::user()->getId());
 
             $order->setUserId($user_id->getId());
             $order->setTotal("0");

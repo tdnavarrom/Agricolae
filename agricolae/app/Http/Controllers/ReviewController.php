@@ -43,7 +43,7 @@ class ReviewController extends Controller
     {
 
         $request->validate(Review::validateRules());
-        $user = User::findOrFail(Auth::user()->id);
+        $user = User::findOrFail(Auth::user()->getId());
 
         $review = new Review;
         $review->user_id = $user->getId();

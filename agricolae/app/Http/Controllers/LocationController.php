@@ -52,7 +52,7 @@ class LocationController extends Controller
     {
         $request->validate(Location::validateRules());
 
-        $user = User::findOrFail(Auth::user()->id);
+        $user = User::findOrFail(Auth::user()->getId());
 
         $location = new Location;
         $location->street_name = $request['street_name'];
